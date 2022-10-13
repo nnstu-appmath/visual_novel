@@ -294,7 +294,6 @@ screen navigation():
         yalign 0.5
 
         spacing gui.navigation_spacing
-
         if main_menu:
 
             textbutton _("Начать") action Start()
@@ -364,16 +363,14 @@ screen main_menu():
     ## содержание главного меню находится на экране навигации.
     use navigation
 
-    if gui.show_name:
+    #if gui.show_name:
 
-        vbox:
-            style "main_menu_vbox"
+        #vbox:
+            #text "[config.name!t]":
+            #    style "main_menu_title"
 
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
+            #text "[config.version]":
+            #    style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -576,7 +573,7 @@ style about_label_text:
 ## как они почти одинаковые, оба реализованы по правилам третьего экрана —
 ## file_slots.
 ##
-## https://www.renpy.org/doc/html/screen_special.html#save 
+## https://www.renpy.org/doc/html/screen_special.html#save
 
 screen save():
 
