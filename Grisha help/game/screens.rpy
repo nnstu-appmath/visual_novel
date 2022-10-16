@@ -251,11 +251,11 @@ screen quick_menu():
 
             textbutton _("Назад") action Rollback()
             textbutton _("История") action ShowMenu('history')
-            textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Авто") action Preference("auto-forward", "toggle")
+            #textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
+            #textbutton _("Авто") action Preference("auto-forward", "toggle")
             textbutton _("Сохранить") action ShowMenu('save')
-            textbutton _("Б.Сохр") action QuickSave()
-            textbutton _("Б.Загр") action QuickLoad()
+            #textbutton _("Б.Сохр") action QuickSave()
+            #textbutton _("Б.Загр") action QuickLoad()
             textbutton _("Опции") action ShowMenu('preferences')
 
 

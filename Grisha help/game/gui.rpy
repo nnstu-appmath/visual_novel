@@ -26,7 +26,7 @@ init python:
 define gui.accent_color = '#ffffff'
 
 ## Цвет, используемый в текстовой кнопке, когда она не выбрана и не наведена.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#aaaaaa'
 
 ## Small_color используется в маленьком тексте, который должен быть ярче/темнее,
 ## для того, чтобы выделяться.
@@ -65,16 +65,16 @@ define gui.name_text_font = "UZSans-Bold.ttf"
 define gui.interface_text_font = "KTFJermilov-Solid.ttf"
 
 ## Размер нормального текста диалога.
-define gui.text_size = 40
+define gui.text_size = 30
 
 ## Размер имён персонажей.
-define gui.name_text_size = 50
+define gui.name_text_size = 40
 
 ## Размер текста в пользовательском интерфейсе.
-define gui.interface_text_size = 40
+define gui.interface_text_size = 35
 
 ## Размер заголовков в пользовательском интерфейсе.
-define gui.label_text_size = 50
+define gui.label_text_size = 40
 
 ## Размер текста на экране уведомлений.
 define gui.notify_text_size = 30
@@ -106,7 +106,7 @@ define gui.textbox_yalign = 1.0
 ## Это могут быть целые значения в пикселях слева и сверху от начала окна или
 ## процентное отношение, например, 0.5 для центрирования.
 define gui.name_xpos = 360
-define gui.name_ypos = 0
+define gui.name_ypos = 20
 
 ## Горизонтальное выравнивание имени персонажа. Это может быть 0.0 для
 ## левоориентированного, 0.5 для центрированного и 1.0 для правоориентированного
@@ -130,7 +130,7 @@ define gui.namebox_tile = False
 ## Размещение диалога по отношению к текстовому окну. Это могут быть целые
 ## значения в пикселях слева и сверху от текстового окна или процентное
 ## отношение, например, 0.5 для центрирования.
-define gui.dialogue_xpos = 402
+define gui.dialogue_xpos = 400
 define gui.dialogue_ypos = 75
 
 ## Максимальная ширина текста диалога в пикселях.
@@ -206,10 +206,10 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ##
 ## Кнопки выбора используются во внутриигровых меню.
 
-define gui.choice_button_width = 1185
+define gui.choice_button_width = 1000
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
-define gui.choice_button_borders = Borders(150, 8, 150, 8)
+define gui.choice_button_borders = Borders(150, 10, 150, 10)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
@@ -259,7 +259,7 @@ define gui.skip_ypos = 15
 define gui.notify_ypos = 68
 
 ## Интервал между выборами в меню.
-define gui.choice_spacing = 33
+define gui.choice_spacing = 2
 
 ## Кнопки в секции навигации главного и игрового меню.
 define gui.navigation_spacing = 6
