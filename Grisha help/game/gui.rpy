@@ -206,7 +206,7 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ##
 ## Кнопки выбора используются во внутриигровых меню.
 
-define gui.choice_button_width = 1000
+define gui.choice_button_width = 600
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(150, 10, 150, 10)
@@ -216,7 +216,6 @@ define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_idle_color = "#cccccc"
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = "#444444"
-
 
 ## Кнопки Слотов ###############################################################
 ##
@@ -259,7 +258,7 @@ define gui.skip_ypos = 15
 define gui.notify_ypos = 68
 
 ## Интервал между выборами в меню.
-define gui.choice_spacing = 2
+define gui.choice_spacing = 15
 
 ## Кнопки в секции навигации главного и игрового меню.
 define gui.navigation_spacing = 6

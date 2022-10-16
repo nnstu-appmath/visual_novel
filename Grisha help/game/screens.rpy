@@ -207,21 +207,46 @@ style input:
 
 screen choice(items):
     style_prefix "choice"
-
+    
     vbox:
-        for i in items:
-            textbutton i.caption action i.action
+        if(len(items)==3 or len(items)==2):
+            for i in items:
+                textbutton i.caption action i.action
 
+        elif (len(items)==4):
+            hbox:
+                textbutton items[0].caption action items[0].action
+                textbutton items[1].caption action items[1].action
+            hbox:
+                textbutton items[2].caption action items[2].action
+                textbutton items[3].caption action items[3].action
+        else:
+            hbox:
+                textbutton items[0].caption action items[0].action
+                textbutton items[1].caption action items[1].action
+                textbutton items[2].caption action items[2].action
+            hbox:
+                textbutton items[3].caption action items[3].action
+                textbutton items[4].caption action items[4].action
+                textbutton items[5].caption action items[5].action
+            hbox:
+                textbutton items[6].caption action items[6].action
+                textbutton items[7].caption action items[7].action
+                textbutton items[8].caption action items[8].action
 
 style choice_vbox is vbox
+style choice_hbox is hbox
 style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
-    ypos 405
-    yanchor 0.5
+    ypos 700
+    spacing gui.choice_spacing
+    #yalign -4.0
 
+
+style choice_hbox:
     spacing gui.choice_spacing
 
 style choice_button is default:
