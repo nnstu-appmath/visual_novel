@@ -32,7 +32,6 @@ label scene_7:
 # День первака - клубешник
 label scene_8:
     scene black with fade
-    pause (2.0)
     scene club with fade
     play music disco_1 fadein 1 fadeout 1 volume 0.3
     author "Наступил долгожданный день первокурсника.
