@@ -207,7 +207,7 @@ style input:
 
 screen choice(items):
     style_prefix "choice"
-    
+
     vbox:
         if(len(items)==3 or len(items)==2):
             for i in items:
@@ -373,7 +373,8 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-
+    python:
+        renpy.music.play("music/main.mp3", channel = "music", fadein = 1, fadeout = 1)
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
     ## заменять этот.
     tag menu
