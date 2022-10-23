@@ -23,12 +23,14 @@ define ang_score = 0
 define lyonya_score = 0
 define undergraduate = False
 define valya_score = 0
+define exam_score = 0
 
 # Музыка и звуки
 define audio.neutral_1 = "/music/neutral_1.mp3"
 define audio.neutral_2 = "/music/neutral_2.mp3"
 define audio.disco_1 = "/music/disco_1.mp3"
 define audio.disco_2 = "/music/disco_2.mp3"
+define audio.fighting = "/music/fighting.mp3"
 
 # Инициализация файлов
 init:
@@ -41,11 +43,17 @@ init:
     image aud = "/background/1_september/auditorium.jpg"
     image black = "/background/1_september/black.jpg"
     image art_demo = "/background/1_september/art.jpg"
+
     image bg_autumn = "/background/1_year/autumn.jpg"
+    image central_entrance_blur = "/background/1_september/central_entrance_blur.jpg"
     image club = "/background/1_year/club.jpg"
     image dance_floor = "/background/1_year/dance_floor.jpg"
     image bar_ = "/background/1_year/bar.jpg"
-
+    image bar_blur = "/background/1_year/bar_blur.jpg"
+    image before_aud = "/background/1_year/before_aud.jpg"
+    image before_aud_blur = "/background/1_year/before_aud_blur.jpg"
+    image aud_blur = "/background/1_september/auditorium_blur.jpg"
+    image exam_pryam_start = "/background/1_year/exam_pryam_start.jpg"
 
     # Инициализация спрайтов
     # Спрайты Ангелины

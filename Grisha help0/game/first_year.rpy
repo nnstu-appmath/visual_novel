@@ -4,6 +4,11 @@ label first_year:
     call scene_7
     call scene_8
     call scene_9
+    call scene_10
+    call scene_11
+    call scene_12
+    call scene_12_a
+    call scene_13
     return
 
 # Вводная фраза
@@ -27,11 +32,11 @@ label scene_7:
     о надвигающихся проблемах, решил оглянуться по сторонам на улице."
     grisha "Старшекурсники стоят... Надеюсь, что я доучусь до 4 курса
     без приключений. Хотя приключения уже были..."
+    scene central_entrance_blur with Dissolve(1.5)
     return
 
 # День первака - клубешник
 label scene_8:
-    scene black with fade
     scene club with fade
     play music disco_1 fadein 1 fadeout 1 volume 0.3
     author "Наступил долгожданный день первокурсника.
@@ -55,14 +60,14 @@ label scene_8:
         hide lyonya_usual with dissolve
         scene dance_floor with fade
         show valya_usual at right with dissolve
-        girsha "Привет, Валя. Ты давно тут?"
+        grisha "Привет, Валя. Ты давно тут?"
         valya "Ого, Лёня, ты все таки нашел время. Не, пришла минут 15 назад, а вы?"
         hide lyonya_usual
         show lyonya_confused
         lyonya "Ну-у-у, я..."
         grisha "Мы тоже недавно."
         valya "Тут такая классная музыка играет!"
-        girsha "Вы че, сговорились что-ли..."
+        grisha "Вы че, сговорились что-ли..."
         hide lyonya_confused
         show lyonya_usual
         lyonya "Мне тоже нравится!"
@@ -177,4 +182,137 @@ label scene_9:
     Бедная Валя, надеюсь она не знает об этих слухах...
     Мало ли как могло бы это на нее повлиять.
     Пожалуй, пойду домой."
+    play music neutral_2 fadein 1 fadeout 1 volume 0.5
+    scene bar_blur with Dissolve(1.5)
+    return
+
+# Разговор со старшеками
+label scene_10:
+    scene central_entrance with fade
+    if undergraduate:
+        grisha "Блин, это же Саня! Надо к нему подойти.
+        Может поможет советом хоть."
+        show sanya_usual with dissolve
+        sanya "Дарова, братан!"
+        grisha "Здарова, че как"
+        sanya "Да все по-старому, ты куда таким важным шагом направляешься?"
+        grisha "Экзамены..."
+        sanya "Кому сдаешься-то?"
+        grisha "Фичаев и Пряморуков"
+        sanya "Ты че сразу не сказал, у меня уже 2 года в рюкзаке
+        лежат шпоры по их предметам. Как сдал, так и не вытаскивал.
+        На удачу ношу. На. Тебе щас нужнее."
+        grisha "Спасибо, спас, а то я особо не учил ничего."
+        sanya "С моими шпорами точно сдашь, проверено."
+        hide sanya_usual
+    else:
+        grisha "Как хорошо старшекам, они уже все сдали. А я как лох иду туда."
+    return
+
+# Гриша перед экзаменом Пряморукова
+label scene_11:
+    scene before_aud with fade
+    author "Гриша поднимается к аудитории, в которой будет
+    проходить экзамен."
+    grisha "А че вы все тут сидите?"
+    show ang_usual with dissolve
+    angelina "Так по одному все заходят. Присаживайся."
+    author "Гриша начинает чувствовать панику, подступающую к горлу."
+    grisha "Чур я последний, я вообще не готовился."
+    angelina "Как хочешь."
+    grisha "А как Пряморукова зовут?"
+    angelina "Владимир Степанович"
+    grisha "Надо быстро вспомнить все, что проходили на парах,
+    может попадутся похожие задания."
+    scene before_aud_blur with Dissolve(1.5)
+    hide ang_usual
+    return
+
+# Контрольная у Пряморукова
+label scene_12:
+    scene aud with fade
+    author "На одном из занятий Пряморуков дает
+    контрольную работу. Гриша же как всегда,
+    особо не готовился и надеется списать."
+    grisha "Так ну это я точно не решу,
+    второе - даже слов таких не знаю, третье - ну-у-у...
+    Ладно, надо подумать у кого списать."
+    author "В это время Ангелина уже встала и пошла сдавать работу."
+    grisha "О, пс-с-с, Ангелин, скажи ответы, пж."
+    show ang_usual with dissolve
+    if ang_score == 1:
+        angelina "Ладно, сейчас напишу."
+        author "Ангелина передает скомканую бумажку с ответами."
+        grisha "Спасибо!!! Повезло-повезло"
+        hide ang_usual
+    else:
+        hide ang_usual
+        show ang_angry
+        angelina "Ты бы лучше манерам поучился, хамло."
+        grisha "Ну эй, я же не специально тогда."
+        angelina "Ну вот и пиши контрольную сам."
+        grisha "Дела отстой."
+        hide ang_angry
+    show aud_blur with Dissolve(1.5)
+    return
+
+# Снова перед экзаменом Пряморукова
+label scene_12_a:
+    scene before_aud with fade
+    if ang_score == 1:
+        author "Гриша облегченно вздыхает, потому что
+        получил пятерку за ту контрольную."
+        grisha "Может мне это чем-то поможет."
+    else:
+        author "Гриша еще больше расстраивается,
+        потому что не смог списать, и получил 2."
+        grisha "Дела отстой."
+    author "Совершенно незаметно вся очередь уже прошла
+    и около аудитории остался только он. Из аудитории
+    выходит Лёня с очень удивленным видом и достаточно
+    ошарашенный."
+    show lyonya_usual with dissolve
+    grisha "Ну че-че там?"
+    lyonya "Н-н-ничего... Иди, ты последний остался."
+    grisha "Ладно, от судьбы не убежать."
+    return
+
+# Выбор перед экзаменом Пряморукова
+label scene_13:
+    scene auditorium with fade
+    show pryamorukov_usual with dissolve
+    pryamorukov "Ну что, Орехов, сдаемся?"
+    grisha "Русские не сдаются"
+    menu:
+        "Сдавать экзамен":
+            call scene_13_exam
+        "Попробовать выкрутиться":
+            if ang_score == 0 and undergraduate == False:
+                author "К сожалению, у Гриши нет друзей,
+                которые ему могли бы помочь."
+                call scene_13_exam
+            if ang_score == 0 and undergraduate == True:
+                author "Гриша решил воспользоваться шпорами,
+                которые дал ему Саня"
+                grisha "Саня хороший чел... Дай Бог ему здоровья"
+                pryamorukov "Иди, сдал."
+                grisha "Фух, пронесло"
+                exam_score += 1
+            if ang_score == 1:
+                grisha "Владимир Степанович, я там контрольную написал
+                же на 5. Может троечку автоматом поставите?"
+                pryamorukov "У, бестолочь! Ладно, не хочу с тобой возиться."
+                exam_score += 1
+    return
+
+# Экзамен Пряморукова
+label scene_13_exam:
+    hide pryamorukov_usual
+    show pryamorukov_usual at left
+    play fighting fadein 1 fadeout 1 volume 0.5
+    scene exam_pryam_start with fade
+    author "Резко над головой у Пряморукова появляется шкала здоровья.
+    Гриша замечает, что у него тоже она появилась."
+    grisha "чего..."
+    pryamorukov "Итак, первый вопрос..."
     return
