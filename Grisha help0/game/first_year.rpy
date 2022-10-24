@@ -9,6 +9,7 @@ label first_year:
     call scene_12
     call scene_12_a
     call scene_13
+    call scene_14
     return
 
 # Вводная фраза
@@ -285,12 +286,12 @@ label scene_13:
     grisha "Русские не сдаются"
     menu:
         "Сдавать экзамен":
-            call scene_13_exam
+            call scene_13_exam_1q
         "Попробовать выкрутиться":
             if ang_score == 0 and undergraduate == False:
                 author "К сожалению, у Гриши нет друзей,
                 которые ему могли бы помочь."
-                call scene_13_exam
+                call scene_13_exam_1q
             if ang_score == 0 and undergraduate == True:
                 author "Гриша решил воспользоваться шпорами,
                 которые дал ему Саня"
@@ -306,13 +307,177 @@ label scene_13:
     return
 
 # Экзамен Пряморукова
-label scene_13_exam:
+label scene_13_exam_1q:
     hide pryamorukov_usual
-    show pryamorukov_usual at left
+    show pryamorukov_usual at right
     play fighting fadein 1 fadeout 1 volume 0.5
     scene exam_pryam_start with fade
+    $timez = 5
+    $time_range = 5
+    $marker = 'scene_13_exam_1q_wrong'
     author "Резко над головой у Пряморукова появляется шкала здоровья.
     Гриша замечает, что у него тоже она появилась."
     grisha "чего..."
-    pryamorukov "Итак, первый вопрос..."
+    pryamorukov "Итак, первый вопрос... Как зовут Алексеева?"
+    if grisha_smart:
+        grisha "Ростислав Евгеньевич"
+        scene exam_pryam_full_grisha_2_3_pryam with hpunch
+        hide pryamorukov_usual
+        show pryamorukov_wound at right
+        pryamorukov "Ох-х-х"
+        hide pryamorukov_wound
+        show pryamorukov_usual at right
+        pryamorukov "Второй вопрос: В честь кого, назвали большее количество объектов
+        (теоремы, формулы и т.д.)"
+        grisha "Эйлер"
+    else:
+        menu:
+            "Елисей Ростиславович":
+                jump scene_13_exam_1q_wrong
+            "Ростислав Евгеньевич":
+                exam_pryam_1q = True
+                jump scene_13_exam_1q_right
+            "Родион Ефимович":
+                jump scene_13_exam_1q_wrong
+    return
+
+label scene_13_exam_1q_wrong:
+    scene exam_pryam_2_3_grisha_full_pryam with hpunch
+    hide pryamorukov_usual
+    show pryamorukov_angry at right
+    grisha "Ау, больно"
+    pryamorukov "У, бестолочь!"
+    hide pryamorukov_angry
+    show pryamorukov_usual at right
+    jump scene_13_exam_2q
+    return
+
+label scene_13_exam_1q_right:
+    scene exam_pryam_full_grisha_2_3_pryam with hpunch
+    hide pryamorukov_usual
+    show pryamorukov_wound at right
+    pryamorukov "Ох-х-х"
+    hide pryamorukov_wound
+    show pryamorukov_usual at right
+    jump scene_13_exam_2q
+    return
+
+label scene_13_exam_2q:
+    pryamorukov "Второй вопрос: В честь кого, назвали большее количество объектов
+    (теоремы, формулы и т.д.)"
+    $timez = 5
+    $time_range = 5
+    $marker = 'scene_13_exam_2q_wrong'
+    menu:
+        "Коши":
+            jump scene_13_exam_2q_wrong
+        "Гаусс":
+            jump scene_13_exam_2q_wrong
+        "Эйлер":
+            exam_pryam_2q = True
+            jump scene_13_exam_2q_right
+    return
+
+label scene_13_exam_2q_wrong:
+    if exam_pryam_1q:
+        scene exam_pryam_2_3_grisha_2_3_pryam with hpunch
+    else:
+        scene exam_pryam_1_3_grisha_full_pryam with hpunch
+    hide pryamorukov_usual
+    show pryamorukov_angry at right
+    grisha "Ау, больно"
+    pryamorukov "У, бестолочь!"
+    hide pryamorukov_angry
+    show pryamorukov_usual at right
+    jump scene_13_exam_3q
+    return
+
+label scene_13_exam_2q_right:
+    if exam_pryam_1q:
+        scene exam_pryam_full_grisha_1_3_pryam with hpunch
+    else:
+        scene exam_pryam_2_3_grisha_2_3_pryam with hpunch
+    hide pryamorukov_usual
+    show pryamorukov_wound at right
+    pryamorukov "Ох-х-х"
+    hide pryamorukov_wound
+    show pryamorukov_usual at right
+    jump scene_13_exam_3q
+    return
+
+label scene_13_exam_3q:
+    pryamorukov "Третий вопрос: Сколько здесь треугольников?"
+    show q3_pryam at left with dissolve
+    $timez = 5
+    $time_range = 5
+    $marker = 'scene_13_exam_3q_wrong'
+    menu:
+        "9":
+            jump scene_13_exam_3q_wrong
+        "6":
+            jump scene_13_exam_3q_wrong
+        "8":
+            exam_pryam_3q = True
+            jump scene_13_exam_3q_right
+    return
+
+label scene_13_exam_3q_wrong:
+    if exam_pryam_1q and exam_pryam_2q:
+        scene exam_pryam_2_3_grisha_1_3_pryam with hpunch
+    if (exam_pryam_1q and not exam_pryam_2q) or (not exam_pryam_1q and exam_pryam_2q):
+        scene exam_pryam_1_3_grisha_2_3_pryam with hpunch
+    if not exam_pryam_1q and not exam_pryam_2q:
+        scene exam_pryam_0_grisha_full_pryam with hpunch
+        grisha "Ой..."
+        grisha "Дела отстой."
+        pryamorukov "Бестолочь... И  чему только совремённая школа учит?
+        Вот советская школа..."
+        return
+    hide pryamorukov_usual
+    show pryamorukov_angry at right
+    grisha "Ау, больно"
+    pryamorukov "У, бестолочь!"
+    hide pryamorukov_angry
+    show pryamorukov_usual at right
+    pryamorukov "Иди, сдал."
+    grisha "Фух, пронесло."
+    exam_score += 1
+    hide pryamorukov_usual with dissolve
+    return
+
+label scene_13_exam_3q_right:
+    if exam_pryam_1q and exam_pryam_2q:
+        scene exam_pryam_full_grisha_0_pryam with hpunch
+        hide pryamorukov_usual
+        show pryamorukov_wound at right
+        pryamorukov "Ой..."
+        pryamorukov "Не ожидал такого уровня знаний."
+        grisha "Да я тоже не ожидал, честно говоря"
+        exam_score += 1
+        diplom += 1
+        return
+    if (exam_pryam_1q and not exam_pryam_2q) or (not exam_pryam_1q and exam_pryam_2q):
+        scene exam_pryam_2_3_grisha_1_3_pryam with hpunch
+    if not exam_pryam_1q and not exam_pryam_2q:
+        scene exam_pryam_1_3_grisha_2_3_pryam with hpunch
+    hide pryamorukov_usual
+    show pryamorukov_wound at right
+    pryamorukov "Ох-х-х"
+    hide pryamorukov_wound
+    show pryamorukov_usual at right
+    pryamorukov "Иди, сдал."
+    grisha "Фух, пронесло."
+    exam_score += 1
+    hide pryamorukov_usual with dissolve
+    return
+
+label scene_14:
+    scene before_aud with fade
+    play music neutral_2 fadein 1 fadeout 1 volume 0.5
+    show lyonya_usual with dissolve
+    author "Проходит первый экзамен Гриши в унитехе."
+    grisha "Фух, наконец-то это закончилось. Кажется, старшекурсники не врали,
+    такого от унитеха я не ожидал. Леня, когда там следующий экзамен?"
+    lyonya "Вроде через час, может сходим до Спара?"
+    grisha "Мне больше Хадуп нравится, там булочки свежие."
     return

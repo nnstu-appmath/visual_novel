@@ -24,6 +24,10 @@ define lyonya_score = 0
 define undergraduate = False
 define valya_score = 0
 define exam_score = 0
+define diplom = 0
+define exam_pryam_1q = False
+define exam_pryam_2q = False
+define exam_pryam_3q = False
 
 # Музыка и звуки
 define audio.neutral_1 = "/music/neutral_1.mp3"
@@ -35,6 +39,7 @@ define audio.fighting = "/music/fighting.mp3"
 # Инициализация файлов
 init:
     # Инициализация фонов
+    # 1 сентября
     image bg_vk_lenta = "/background/1_september/vk_phone_lenta.jpg"
     image bg_lock_screen = "/background/1_september/lock_screen.jpg"
     image central_entrance = "/background/1_september/central_entrance.jpg"
@@ -44,6 +49,7 @@ init:
     image black = "/background/1_september/black.jpg"
     image art_demo = "/background/1_september/art.jpg"
 
+    # 1 курс
     image bg_autumn = "/background/1_year/autumn.jpg"
     image central_entrance_blur = "/background/1_september/central_entrance_blur.jpg"
     image club = "/background/1_year/club.jpg"
@@ -53,7 +59,19 @@ init:
     image before_aud = "/background/1_year/before_aud.jpg"
     image before_aud_blur = "/background/1_year/before_aud_blur.jpg"
     image aud_blur = "/background/1_september/auditorium_blur.jpg"
+
+    # Экзамен Пряморукова
     image exam_pryam_start = "/background/1_year/exam_pryam_start.jpg"
+    image exam_pryam_2_3_grisha_full_pryam = "/background/1_year/exam_pryam_2_3_grisha_full_pryam.jpg"
+    image exam_pryam_full_grisha_2_3_pryam = "/background/1_year/exam_pryam_full_grisha_2_3_pryam.jpg"
+    image exam_pryam_1_3_grisha_full_pryam = "/background/1_year/exam_pryam_1_3_grisha_full_pryam.jpg"
+    image exam_pryam_full_grisha_1_3_pryam = "/background/1_year/exam_pryam_full_grisha_1_3_pryam.jpg"
+    image exam_pryam_2_3_grisha_2_3_pryam = "/background/1_year/exam_pryam_2_3_grisha_2_3_pryam.jpg"
+    image exam_pryam_0_grisha_full_pryam = "/background/1_year/exam_pryam_0_grisha_full_pryam.jpg"
+    image exam_pryam_1_3_grisha_2_3_pryam = "/background/1_year/exam_pryam_1_3_grisha_2_3_pryam.jpg"
+    image exam_pryam_2_3_grisha_1_3_pryam = "/background/1_year/exam_pryam_2_3_grisha_1_3_pryam.jpg"
+    image exam_pryam_full_grisha_0_pryam = "/background/1_year/exam_pryam_full_grisha_0_pryam.jpg"
+    image q3_pryam = "/background/1_year/q3_pryam.png"
 
     # Инициализация спрайтов
     # Спрайты Ангелины
@@ -77,6 +95,11 @@ init:
     # Второстепенные персонажи
     image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
     image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
+
+    # Пряморуков
+    image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))
+    image pryamorukov_angry = At("/sprites/pryamorukov/pryamorukov_angry.png", sprite_highlight('pryamorukov'))
+    image pryamorukov_wound = At("/sprites/pryamorukov/pryamorukov_wound.png", sprite_highlight('pryamorukov'))
 
 # Main
 label start:

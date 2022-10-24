@@ -204,6 +204,9 @@ style input:
 ## каждый с заголовком и полями действия.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
+screen timerz:
+    timer 0.05 repeat True action If (timez > 0, SetVariable('timez', timez-0.05, Jump(marker)))
+    bar value timez range time_range xalign .5 xmaximum 300
 
 screen choice(items):
     style_prefix "choice"
