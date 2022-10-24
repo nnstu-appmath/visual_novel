@@ -245,7 +245,9 @@ label scene_12:
         angelina "Ладно, сейчас напишу."
         author "Ангелина передает скомканую бумажку с ответами."
         grisha "Спасибо!!! Повезло-повезло"
+        show aud_blur with Dissolve(1.5)
         hide ang_usual
+        return
     else:
         hide ang_usual
         show ang_angry
@@ -253,9 +255,9 @@ label scene_12:
         grisha "Ну эй, я же не специально тогда."
         angelina "Ну вот и пиши контрольную сам."
         grisha "Дела отстой."
+        show aud_blur with Dissolve(1.5)
         hide ang_angry
-    show aud_blur with Dissolve(1.5)
-    return
+        return
 
 # Снова перед экзаменом Пряморукова
 label scene_12_a:
@@ -298,23 +300,23 @@ label scene_13:
                 grisha "Саня хороший чел... Дай Бог ему здоровья"
                 pryamorukov "Иди, сдал."
                 grisha "Фух, пронесло"
-                exam_score += 1
+                $ exam_score += 1
             if ang_score == 1:
                 grisha "Владимир Степанович, я там контрольную написал
                 же на 5. Может троечку автоматом поставите?"
                 pryamorukov "У, бестолочь! Ладно, не хочу с тобой возиться."
-                exam_score += 1
+                $ exam_score += 1
     return
 
 # Экзамен Пряморукова
 label scene_13_exam_1q:
-    hide pryamorukov_usual
-    show pryamorukov_usual at right
-    play fighting fadein 1 fadeout 1 volume 0.5
+    play music fighting fadein 1 fadeout 1 volume 0.5
     scene exam_pryam_start with fade
-    $timez = 5
-    $time_range = 5
-    $marker = 'scene_13_exam_1q_wrong'
+    hide pryamorukov_usual with dissolve
+    show pryamorukov_usual at right with dissolve
+    $ time = 300
+    $ timer_range = 300
+    $ timer_call = 'scene_13_exam_1q_wrong'
     author "Резко над головой у Пряморукова появляется шкала здоровья.
     Гриша замечает, что у него тоже она появилась."
     grisha "чего..."
@@ -331,14 +333,18 @@ label scene_13_exam_1q:
         (теоремы, формулы и т.д.)"
         grisha "Эйлер"
     else:
+        show screen countdown
         menu:
             "Елисей Ростиславович":
-                jump scene_13_exam_1q_wrong
+                hide screen countdown
+                call scene_13_exam_1q_wrong
             "Ростислав Евгеньевич":
-                exam_pryam_1q = True
-                jump scene_13_exam_1q_right
+                hide screen countdown
+                $ exam_pryam_1q = True
+                call scene_13_exam_1q_right
             "Родион Ефимович":
-                jump scene_13_exam_1q_wrong
+                hide screen countdown
+                call scene_13_exam_1q_wrong
     return
 
 label scene_13_exam_1q_wrong:
@@ -349,7 +355,7 @@ label scene_13_exam_1q_wrong:
     pryamorukov "У, бестолочь!"
     hide pryamorukov_angry
     show pryamorukov_usual at right
-    jump scene_13_exam_2q
+    call scene_13_exam_2q
     return
 
 label scene_13_exam_1q_right:
@@ -359,23 +365,27 @@ label scene_13_exam_1q_right:
     pryamorukov "Ох-х-х"
     hide pryamorukov_wound
     show pryamorukov_usual at right
-    jump scene_13_exam_2q
+    call scene_13_exam_2q
     return
 
 label scene_13_exam_2q:
     pryamorukov "Второй вопрос: В честь кого, назвали большее количество объектов
     (теоремы, формулы и т.д.)"
-    $timez = 5
-    $time_range = 5
-    $marker = 'scene_13_exam_2q_wrong'
+    $ time = 300
+    $ timer_range = 300
+    $timer_call = 'scene_13_exam_2q_wrong'
+    show screen countdown
     menu:
         "Коши":
-            jump scene_13_exam_2q_wrong
+            hide screen countdown
+            call scene_13_exam_2q_wrong
         "Гаусс":
-            jump scene_13_exam_2q_wrong
+            hide screen countdown
+            call scene_13_exam_2q_wrong
         "Эйлер":
-            exam_pryam_2q = True
-            jump scene_13_exam_2q_right
+            hide screen countdown
+            $ exam_pryam_2q = True
+            call scene_13_exam_2q_right
     return
 
 label scene_13_exam_2q_wrong:
@@ -389,7 +399,7 @@ label scene_13_exam_2q_wrong:
     pryamorukov "У, бестолочь!"
     hide pryamorukov_angry
     show pryamorukov_usual at right
-    jump scene_13_exam_3q
+    call scene_13_exam_3q
     return
 
 label scene_13_exam_2q_right:
@@ -402,23 +412,33 @@ label scene_13_exam_2q_right:
     pryamorukov "Ох-х-х"
     hide pryamorukov_wound
     show pryamorukov_usual at right
-    jump scene_13_exam_3q
+    call scene_13_exam_3q
     return
 
 label scene_13_exam_3q:
     pryamorukov "Третий вопрос: Сколько здесь треугольников?"
     show q3_pryam at left with dissolve
-    $timez = 5
-    $time_range = 5
-    $marker = 'scene_13_exam_3q_wrong'
+    $ time = 300
+    $ timer_range = 300
+    $ timer_call = 'scene_13_exam_3q_wrong'
+    show screen countdown
     menu:
         "9":
-            jump scene_13_exam_3q_wrong
+            $ timer_call = 'scene_13_exam_3q_wrong'
+            $ time = -10
+            hide screen countdown
+            call scene_13_exam_3q_wrong
         "6":
-            jump scene_13_exam_3q_wrong
+            $ timer_call = 'scene_13_exam_3q_wrong'
+            $ time = -10
+            hide screen countdown
+            call scene_13_exam_3q_wrong
         "8":
-            exam_pryam_3q = True
-            jump scene_13_exam_3q_right
+            $ exam_pryam_3q = True
+            $ timer_call = 'scene_13_exam_3q_right'
+            $ time = -10
+            hide screen countdown
+            call scene_13_exam_3q_right
     return
 
 label scene_13_exam_3q_wrong:
@@ -441,7 +461,7 @@ label scene_13_exam_3q_wrong:
     show pryamorukov_usual at right
     pryamorukov "Иди, сдал."
     grisha "Фух, пронесло."
-    exam_score += 1
+    $ exam_score += 1
     hide pryamorukov_usual with dissolve
     return
 
@@ -453,8 +473,8 @@ label scene_13_exam_3q_right:
         pryamorukov "Ой..."
         pryamorukov "Не ожидал такого уровня знаний."
         grisha "Да я тоже не ожидал, честно говоря"
-        exam_score += 1
-        diplom += 1
+        $ exam_score += 1
+        $ diplom += 1
         return
     if (exam_pryam_1q and not exam_pryam_2q) or (not exam_pryam_1q and exam_pryam_2q):
         scene exam_pryam_2_3_grisha_1_3_pryam with hpunch
@@ -467,7 +487,7 @@ label scene_13_exam_3q_right:
     show pryamorukov_usual at right
     pryamorukov "Иди, сдал."
     grisha "Фух, пронесло."
-    exam_score += 1
+    $ exam_score += 1
     hide pryamorukov_usual with dissolve
     return
 

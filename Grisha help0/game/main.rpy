@@ -10,6 +10,7 @@ define barman = Character('Бармен', color="#888888", image ='barman', call
 define abuser = Character('Обидчик', color="#888888", image ='abuser', callback = name_callback, cb_name = "abuser")
 define defender = Character('Защитник', color="#888888", image ='defender', callback = name_callback, cb_name = "defender")
 define sanya = Character('Саня', color="#888888", image ='sanya', callback = name_callback, cb_name = "sanya")
+define pryamorukov = Character('Пряморуков', color="#ffffff", image ='pryamorukov', callback = name_callback, cb_name = "pryamorukov")
 
 # Черты характера Гриши
 define grisha_smart = False
@@ -28,6 +29,10 @@ define diplom = 0
 define exam_pryam_1q = False
 define exam_pryam_2q = False
 define exam_pryam_3q = False
+
+define time = 0
+define timer_range = 0
+define timer_jump = 0
 
 # Музыка и звуки
 define audio.neutral_1 = "/music/neutral_1.mp3"
@@ -106,3 +111,9 @@ label start:
     call first_september
     call first_year
     return
+
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.01 alpha 1.0
+    on hide:
+        linear 0.01 alpha 0

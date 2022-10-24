@@ -204,13 +204,13 @@ style input:
 ## каждый с заголовком и полями действия.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
-screen timerz:
-    timer 0.05 repeat True action If (timez > 0, SetVariable('timez', timez-0.05, Jump(marker)))
-    bar value timez range time_range xalign .5 xmaximum 300
+
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 1), false=[Hide('countdown'), Call(timer_call)])
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
 
 screen choice(items):
     style_prefix "choice"
-
     vbox:
         if(len(items)==3 or len(items)==2):
             for i in items:
@@ -376,8 +376,6 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-    python:
-        renpy.music.play("music/main.mp3", channel = "music", fadein = 1, fadeout = 1)
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
     ## заменять этот.
     tag menu
