@@ -10,6 +10,12 @@ label first_year:
     call scene_12_a
     call scene_13
     call scene_14
+    call scene_15
+    call scene_16
+    call scene_17
+    call scene_18
+    scene black with fade
+    pause (2.0)
     return
 
 # Вводная фраза
@@ -298,6 +304,8 @@ label scene_13:
                 author "Гриша решил воспользоваться шпорами,
                 которые дал ему Саня"
                 grisha "Саня хороший чел... Дай Бог ему здоровья"
+                scene black with fade
+                scene auditorium with fade
                 pryamorukov "Иди, сдал."
                 grisha "Фух, пронесло"
                 $ exam_score += 1
@@ -332,6 +340,23 @@ label scene_13_exam_1q:
         pryamorukov "Второй вопрос: В честь кого, назвали большее количество объектов
         (теоремы, формулы и т.д.)"
         grisha "Эйлер"
+        scene exam_pryam_full_grisha_1_3_pryam with hpunch
+        hide pryamorukov_usual
+        show pryamorukov_wound at right
+        pryamorukov "Ох-х-х"
+        hide pryamorukov_wound
+        show pryamorukov_usual at right
+        pryamorukov "Третий вопрос: Сколько здесь треугольников?"
+        show q3_pryam at left with dissolve
+        grisha "8"
+        scene exam_pryam_full_grisha_0_pryam with hpunch
+        hide pryamorukov_usual
+        show pryamorukov_wound at right
+        pryamorukov "Ой..."
+        pryamorukov "Не ожидал такого уровня знаний."
+        grisha "Да я тоже не ожидал, честно говоря"
+        $ exam_score += 1
+        $ diplom += 1
     else:
         show screen countdown
         menu:
@@ -457,8 +482,6 @@ label scene_13_exam_3q_wrong:
     show pryamorukov_angry at right
     grisha "Ау, больно"
     pryamorukov "У, бестолочь!"
-    hide pryamorukov_angry
-    show pryamorukov_usual at right
     pryamorukov "Иди, сдал."
     grisha "Фух, пронесло."
     $ exam_score += 1
@@ -483,14 +506,13 @@ label scene_13_exam_3q_right:
     hide pryamorukov_usual
     show pryamorukov_wound at right
     pryamorukov "Ох-х-х"
-    hide pryamorukov_wound
-    show pryamorukov_usual at right
     pryamorukov "Иди, сдал."
     grisha "Фух, пронесло."
     $ exam_score += 1
     hide pryamorukov_usual with dissolve
     return
 
+# После экзамена Пряморукова
 label scene_14:
     scene before_aud with fade
     play music neutral_2 fadein 1 fadeout 1 volume 0.5
@@ -500,4 +522,258 @@ label scene_14:
     такого от унитеха я не ожидал. Леня, когда там следующий экзамен?"
     lyonya "Вроде через час, может сходим до Спара?"
     grisha "Мне больше Хадуп нравится, там булочки свежие."
+    return
+
+# Лёня и Гриша в магазине
+label scene_15:
+    scene shop with fade
+    show lyonya_usual with dissolve
+    grisha "Тебе какую булку? Есть с ветчиной и сыром, с творогом и яблоками."
+    lyonya "Фу, не люблю с ветчиной. Давай лучше с творогом."
+    grisha "Ты что говоришь творог? Правильно творог. Ты в школе вообще учился?"
+    lyonya "Оба ответа же правильные... Ладно, забыли. Пойдем сядем за тот стол."
+    scene tables with fade
+    show lyonya_usual with dissolve
+    lyonya "Готовился к Фичаеву? Я всю ночь учил, но кажется уже забыл половину."
+    grisha "Ну я открывал лекции... Один раз... На прошлой неделе.
+    Думаю этого будет достаточно."
+    lyonya "Дела отстой"
+    grisha "Эй, это же моя фраза"
+    if lyonya_score == 1:
+        lyonya "Я кстати тебе спасибо хотел сказать. Сам бы я не рискнул."
+        grisha "Ты о чем?"
+        lyonya "Ну-у-у, ты же тогда позвал меня с собой, помнишь?"
+        grisha "Нет, куда... чего...? Давай яснее."
+        lyonya "Ну танцевать в клубе... Ладно, в общем, я помочь хотел.
+        У меня наушник есть, могу диктовать ответы."
+        grisha "О, а за это уважаю. Хоть и не помню о чем ты..."
+    hide lyonya_usual with dissolve
+    return
+
+# Перед экзаменом Фичаева
+label scene_16:
+    scene before_aud with fade
+    author "Ребята возвращаются к аудитории. Все судорожно повторяют материал."
+    show angelina_usual with dissolve
+    angelina "Где вы были?"
+    grisha "Булки ели, а что все такие нервные?"
+    angelina "Фичаев сказал заходить по очереди, но никто не хочет идти первый"
+    grisha "Давайте я тогда быстренько отстреляюсь и пойду домой.
+    Все равно я не готовился."
+    return
+
+# Выбор перед экзаменом Фичаева
+label scene_17:
+    scene auditorium with fade
+    show fichaev_usual with dissolve
+    author "Фичаев сидит за столом и поднимает голову в сторону Гриши."
+    fichaev "О, Орехов, тебя я первым точно не ждал. Неужели все выучил?
+    Наверное всю ночь сидел за чашечкой чая или другого напитка."
+    grisha "Я пью только по субботам"
+    fichaev "Ну тогда начнем."
+    menu:
+        "Сдавать экзамен":
+            call scene_17_exam_1q
+        "Попробовать выкрутиться":
+            if lyonya_score == 0 and undergraduate == False:
+                author "К сожалению, у Гриши нет друзей,
+                которые ему могли бы помочь."
+                call scene_17_exam_1q
+            if lyonya_score == 0 and undergraduate == True:
+                author "Гриша решил воспользоваться шпорами,
+                которые дал ему Саня"
+                grisha "Эх, Саня, что б у тебя все хорошо было"
+                scene black with fade
+                scene auditorium with fade
+                fichaev "Поздравляю, свободны. Следующего позовите."
+                grisha "Фух, пронесло"
+                $ exam_score += 1
+            if lyonya_score == 1:
+                grisha "Надеюсь что Леня не затупит"
+                scene black with fade
+                scene auditorium with fade
+                fichaev "Поздравляю, свободны. Следующего позовите."
+                grisha "Фух, пронесло"
+                $ exam_score += 1
+    return
+
+label scene_17_exam_1q:
+    play music fighting fadein 1 fadeout 1 volume 0.5
+    scene exam_fich_start with fade
+    hide fichaev_usual with dissolve
+    show fichaev_usual at left with dissolve
+    $ time = 300
+    $ timer_range = 300
+    $ timer_call = 'scene_17_exam_1q_wrong'
+    author "Над головой у Фичаева появляется шкала здоровья"
+    grisha "Да, Боже..."
+    fichaev "Начнем.. Третья буква греческого алфавита?"
+    show screen countdown
+    menu:
+        "Гамма":
+            hide screen countdown
+            $ exam_fich_1q = True
+            call scene_17_exam_1q_right
+        "Сигма":
+            hide screen countdown
+            call scene_17_exam_1q_wrong
+        "Дельта":
+            hide screen countdown
+            call scene_17_exam_1q_wrong
+    return
+
+label scene_17_exam_1q_wrong:
+    scene exam_fich_2_3_grisha_full_fich with hpunch
+    hide fichaev_usual
+    show fichaev_sad at left
+    grisha "Ау, больно"
+    fichaev "Ну что же вы, Орехов..."
+    hide fichaev_sad
+    show fichaev_usual at right
+    call scene_17_exam_2q
+    return
+
+label scene_17_exam_1q_right:
+    scene exam_fich_full_grisha_2_3_fich with hpunch
+    hide fichaev_usual
+    show fichaev_wound at left
+    fichaev "Ой, угадал"
+    hide fichaev_wound
+    show fichaev_usual at left
+    call scene_17_exam_2q
+    return
+
+label scene_17_exam_2q:
+    fichaev "Разгадайте ребус"
+    show q2_fich at right with dissolve
+    $ time = 300
+    $ timer_range = 300
+    $ timer_call = 'scene_17_exam_2q_wrong'
+    show screen countdown
+    menu:
+        "Библиотека":
+            hide screen countdown
+            call scene_17_exam_2q_wrong
+        "Бирюлька":
+            hide screen countdown
+            call scene_17_exam_2q_wrong
+        "Биссектриса":
+            hide screen countdown
+            $ exam_fich_2q = True
+            call scene_17_exam_2q_right
+    return
+
+label scene_17_exam_2q_wrong:
+    if exam_fich_1q:
+        scene exam_fich_2_3_grisha_2_3_fich with hpunch
+    else:
+        scene exam_fich_1_3_grisha_full_fich with hpunch
+    hide fichaev_usual
+    show fichaev_sad at left
+    grisha "Ау, больно"
+    fichaev "Ну что же вы, Орехов..."
+    hide fichaev_sad
+    show fichaev_usual at left
+    call scene_17_exam_3q
+    return
+
+label scene_17_exam_2q_right:
+    if exam_fich_1q:
+        scene exam_fich_full_grisha_1_3_fich with hpunch
+    else:
+        scene exam_fich_2_3_grisha_2_3_fich with hpunch
+    hide fichaev_usual
+    show fichaev_wound at left
+    fichaev "Ой, угадал"
+    hide fichaev_wound
+    show fichaev_usual at left
+    call scene_17_exam_3q
+    return
+
+label scene_17_exam_3q:
+    fichaev "У рабочего была путевка в дом отдыха с 15 августа по 7
+    сентября включительно. Сколько дней отдыхал рабочий?"
+    $ time = 300
+    $ timer_range = 300
+    $ timer_call = 'scene_17_exam_3q_wrong'
+    show screen countdown
+    menu:
+        "22 дня":
+            $ timer_call = 'scene_17_exam_3q_wrong'
+            $ time = -10
+            hide screen countdown
+            call scene_17_exam_3q_wrong
+        "23 дня":
+            $ timer_call = 'scene_17_exam_3q_wrong'
+            $ time = -10
+            hide screen countdown
+            call scene_17_exam_3q_wrong
+        "24 дня":
+            $ exam_fich_3q = True
+            $ timer_call = 'scene_17_exam_3q_right'
+            $ time = -10
+            hide screen countdown
+            call scene_17_exam_3q_right
+    return
+
+label scene_17_exam_3q_wrong:
+    if exam_fich_1q and exam_fich_2q:
+        scene exam_fich_2_3_grisha_1_3_fich with hpunch
+    if (exam_fich_1q and not exam_fich_2q) or (not exam_fich_1q and exam_fich_2q):
+        scene exam_fich_1_3_grisha_2_3_fich with hpunch
+    if not exam_fich_1q and not exam_fich_2q:
+        scene exam_fich_0_grisha_full_fich with hpunch
+        grisha "Ой..."
+        grisha "Дела отстой."
+        fichaev "Расстроили вы меня Орехов... А такие надежды подавали"
+        return
+    hide fichaev_usual
+    show fichaev_sad at left
+    grisha "Ау, больно"
+    fichaev "Ну что же вы, Орехов"
+    fichaev "Поздравляю, свободны. Следующего позовите."
+    grisha "Фух, пронесло."
+    $ exam_score += 1
+    hide fichaev_sad with dissolve
+    return
+
+label scene_17_exam_3q_right:
+    if exam_fich_1q and exam_fich_2q:
+        scene exam_fich_full_grisha_0_fich with hpunch
+        hide fichaev_usual
+        show fichaev_wound at left
+        fichaev "Ой, угадал"
+        fichaev "Как приятно общаться с умными студентами.
+        Кстати, через неделю олимпиада, советую сходить."
+        grisha "Пожалуй откажусь, надо дать другим участникам шанс выиграть."
+        $ exam_score += 1
+        $ diplom += 1
+        return
+    if (exam_fich_1q and not exam_fich_2q) or (not exam_fich_1q and exam_fich_2q):
+        scene exam_fich_2_3_grisha_1_3_fich with hpunch
+    if not exam_pryam_1q and not exam_pryam_2q:
+        scene exam_fich_1_3_grisha_2_3_fich with hpunch
+    hide fichaev_usual
+    show fichaev_wound at left
+    fichaev "Ой, угадал"
+    fichaev "Поздравляю, свободны. Следующего позовите."
+    grisha "Фух, пронесло."
+    $ exam_score += 1
+    hide fichaev_wound with dissolve
+    return
+
+label scene_18:
+    play music neutral_2 fadein 1 fadeout 1 volume 0.5
+    scene central_entrance with fade
+    grisha "Тяжелый денек выдался, может посидим где то сегодня, отдохнем?"
+    show angelina_usual at right with dissolve
+    show lyonya_usual at left with dissolve
+    lyonya "Только если ты не будешь пить свой смузи из петрушки."
+    angelina "Чем тебе не угодила его петрушка?"
+    lyonya "Я больше люблю укроп. Укроп же более насыщенный, а еще он обладает
+    полезными свойствами..."
+    grisha "Ладно, ладно. Я понял. Тогда до встречи вечером."
+    scene art_1_year with fade
+    $ renpy.notify("Вы прошли эпизод \"1 курс\"")
+    pause(4.0)
     return

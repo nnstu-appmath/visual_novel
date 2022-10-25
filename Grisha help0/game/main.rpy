@@ -11,6 +11,7 @@ define abuser = Character('Обидчик', color="#888888", image ='abuser', ca
 define defender = Character('Защитник', color="#888888", image ='defender', callback = name_callback, cb_name = "defender")
 define sanya = Character('Саня', color="#888888", image ='sanya', callback = name_callback, cb_name = "sanya")
 define pryamorukov = Character('Пряморуков', color="#ffffff", image ='pryamorukov', callback = name_callback, cb_name = "pryamorukov")
+define fichaev = Character('Фичаев', color="#ffffff", image ='fichaev', callback = name_callback, cb_name = "fichaev")
 
 # Черты характера Гриши
 define grisha_smart = False
@@ -29,6 +30,9 @@ define diplom = 0
 define exam_pryam_1q = False
 define exam_pryam_2q = False
 define exam_pryam_3q = False
+define exam_fich_1q = False
+define exam_fich_2q = False
+define exam_fich_3q = False
 
 define time = 0
 define timer_range = 0
@@ -64,6 +68,9 @@ init:
     image before_aud = "/background/1_year/before_aud.jpg"
     image before_aud_blur = "/background/1_year/before_aud_blur.jpg"
     image aud_blur = "/background/1_september/auditorium_blur.jpg"
+    image shop = "/background/1_year/shop.jpg"
+    image tables = "/background/1_year/tables.jpg"
+    image art_1_year = "/background/1_september/art.jpg"
 
     # Экзамен Пряморукова
     image exam_pryam_start = "/background/1_year/exam_pryam_start.jpg"
@@ -77,6 +84,19 @@ init:
     image exam_pryam_2_3_grisha_1_3_pryam = "/background/1_year/exam_pryam_2_3_grisha_1_3_pryam.jpg"
     image exam_pryam_full_grisha_0_pryam = "/background/1_year/exam_pryam_full_grisha_0_pryam.jpg"
     image q3_pryam = "/background/1_year/q3_pryam.png"
+
+    # Экзамен Фичаева
+    image exam_fich_start = "/background/1_year/exam_pryam_start.jpg"
+    image exam_fich_2_3_grisha_full_fich = "/background/1_year/exam_pryam_2_3_grisha_full_pryam.jpg"
+    image exam_fich_full_grisha_2_3_fich = "/background/1_year/exam_pryam_full_grisha_2_3_pryam.jpg"
+    image exam_fich_1_3_grisha_full_fich = "/background/1_year/exam_pryam_1_3_grisha_full_pryam.jpg"
+    image exam_fich_full_grisha_1_3_fich = "/background/1_year/exam_pryam_full_grisha_1_3_pryam.jpg"
+    image exam_fich_2_3_grisha_2_3_fich = "/background/1_year/exam_pryam_2_3_grisha_2_3_pryam.jpg"
+    image exam_fich_0_grisha_full_fich = "/background/1_year/exam_pryam_0_grisha_full_pryam.jpg"
+    image exam_fich_1_3_grisha_2_3_fich = "/background/1_year/exam_pryam_1_3_grisha_2_3_pryam.jpg"
+    image exam_fich_2_3_grisha_1_3_fich = "/background/1_year/exam_pryam_2_3_grisha_1_3_pryam.jpg"
+    image exam_fich_full_grisha_0_fich = "/background/1_year/exam_pryam_full_grisha_0_pryam.jpg"
+
 
     # Инициализация спрайтов
     # Спрайты Ангелины
@@ -105,6 +125,12 @@ init:
     image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))
     image pryamorukov_angry = At("/sprites/pryamorukov/pryamorukov_angry.png", sprite_highlight('pryamorukov'))
     image pryamorukov_wound = At("/sprites/pryamorukov/pryamorukov_wound.png", sprite_highlight('pryamorukov'))
+
+    # Фичаев
+    image fichaev_usual = At("/sprites/fichaev/fichaev_usual.png", sprite_highlight('fichaev'))
+    image fichaev_sad = At("/sprites/fichaev/fichaev_sad.png", sprite_highlight('fichaev'))
+    image fichaev_wound = At("/sprites/fichaev/fichaev_wound.png", sprite_highlight('fichaev'))
+
 
 # Main
 label start:
