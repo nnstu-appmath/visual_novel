@@ -12,6 +12,8 @@ define defender = Character('Защитник', color="#888888", image ='defende
 define sanya = Character('Саня', color="#888888", image ='sanya', callback = name_callback, cb_name = "sanya")
 define pryamorukov = Character('Пряморуков', color="#ffffff", image ='pryamorukov', callback = name_callback, cb_name = "pryamorukov")
 define fichaev = Character('Фичаев', color="#ffffff", image ='fichaev', callback = name_callback, cb_name = "fichaev")
+define potemkin = Character('Потемкин', color="#ffffff", image ='potemkin', callback = name_callback, cb_name = "potemkin")
+define roommate = Character('Соседка', color="#888888", image ='roommate', callback = name_callback, cb_name = "roommate")
 
 # Черты характера Гриши
 define grisha_smart = False
@@ -27,6 +29,8 @@ define undergraduate = False
 define valya_score = 0
 define exam_score = 0
 define diplom = 0
+
+# Баллы экзаменов
 define exam_pryam_1q = False
 define exam_pryam_2q = False
 define exam_pryam_3q = False
@@ -34,6 +38,7 @@ define exam_fich_1q = False
 define exam_fich_2q = False
 define exam_fich_3q = False
 
+# Таймер
 define time = 0
 define timer_range = 0
 define timer_jump = 0
@@ -44,6 +49,10 @@ define audio.neutral_2 = "/music/neutral_2.mp3"
 define audio.disco_1 = "/music/disco_1.mp3"
 define audio.disco_2 = "/music/disco_2.mp3"
 define audio.fighting = "/music/fighting.mp3"
+define audio.detectiv = "/music/detectiv.mp3"
+define audio.knock_knock = "/music/knock_knock.mp3"
+define audio.door = "/music/door.mp3"
+define audio.close_door = "/music/close_door.mp3"
 
 # Инициализация файлов
 init:
@@ -86,16 +95,20 @@ init:
     image q3_pryam = "/background/1_year/q3_pryam.png"
 
     # Экзамен Фичаева
-    image exam_fich_start = "/background/1_year/exam_pryam_start.jpg"
-    image exam_fich_2_3_grisha_full_fich = "/background/1_year/exam_pryam_2_3_grisha_full_pryam.jpg"
-    image exam_fich_full_grisha_2_3_fich = "/background/1_year/exam_pryam_full_grisha_2_3_pryam.jpg"
-    image exam_fich_1_3_grisha_full_fich = "/background/1_year/exam_pryam_1_3_grisha_full_pryam.jpg"
-    image exam_fich_full_grisha_1_3_fich = "/background/1_year/exam_pryam_full_grisha_1_3_pryam.jpg"
-    image exam_fich_2_3_grisha_2_3_fich = "/background/1_year/exam_pryam_2_3_grisha_2_3_pryam.jpg"
-    image exam_fich_0_grisha_full_fich = "/background/1_year/exam_pryam_0_grisha_full_pryam.jpg"
-    image exam_fich_1_3_grisha_2_3_fich = "/background/1_year/exam_pryam_1_3_grisha_2_3_pryam.jpg"
-    image exam_fich_2_3_grisha_1_3_fich = "/background/1_year/exam_pryam_2_3_grisha_1_3_pryam.jpg"
-    image exam_fich_full_grisha_0_fich = "/background/1_year/exam_pryam_full_grisha_0_pryam.jpg"
+    image exam_fich_start = "/background/1_year/exam_fich_start.jpg"
+    image exam_fich_2_3_grisha_full_fich = "/background/1_year/exam_fich_2_3_grisha_full_fich.jpg"
+    image exam_fich_full_grisha_2_3_fich = "/background/1_year/exam_fich_full_grisha_2_3_fich.jpg"
+    image exam_fich_1_3_grisha_full_fich = "/background/1_year/exam_fich_1_3_grisha_full_fich.jpg"
+    image exam_fich_full_grisha_1_3_fich = "/background/1_year/exam_fich_full_grisha_1_3_fich.jpg"
+    image exam_fich_2_3_grisha_2_3_fich = "/background/1_year/exam_fich_2_3_grisha_2_3_fich.jpg"
+    image exam_fich_0_grisha_full_fich = "/background/1_year/exam_fich_0_grisha_full_fich.jpg"
+    image exam_fich_1_3_grisha_2_3_fich = "/background/1_year/exam_fich_1_3_grisha_2_3_fich.jpg"
+    image exam_fich_2_3_grisha_1_3_fich = "/background/1_year/exam_fich_2_3_grisha_1_3_fich.jpg"
+    image exam_fich_full_grisha_0_fich = "/background/1_year/exam_fich_full_grisha_0_fich.jpg"
+    image q2_fich = "/background/1_year/q2_fich.png"
+
+    # 2 курс
+    image bg_winter = "/background/2_year/winter.jpg"
 
 
     # Инициализация спрайтов
@@ -106,6 +119,8 @@ init:
     # Спрайты Лёни
     image lyonya_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('lyonya'))
     image lyonya_confused = At("/sprites/lyonya/lyonya_confused.png", sprite_highlight('lyonya'))
+    image lyonya_emotional = At("/sprites/lyonya/lyonya_emotional.png", sprite_highlight('lyonya'))
+    image lyonya_happiness = At("/sprites/lyonya/lyonya_happiness.png", sprite_highlight('lyonya'))
     image boy_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('boy'))
 
     # Спрайты Вали
@@ -131,11 +146,14 @@ init:
     image fichaev_sad = At("/sprites/fichaev/fichaev_sad.png", sprite_highlight('fichaev'))
     image fichaev_wound = At("/sprites/fichaev/fichaev_wound.png", sprite_highlight('fichaev'))
 
+    # Потемкин
+    image potemkin_usual = At("/sprites/potemkin/potemkin_usual.png", sprite_highlight('potemkin'))
 
 # Main
 label start:
     call first_september
     call first_year
+    call second_year
     return
 
 transform alpha_dissolve:

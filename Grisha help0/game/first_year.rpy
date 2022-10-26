@@ -83,8 +83,8 @@ label scene_8:
         lyonya "Д-д-да! Давайте..."
         author "Ребята танцуют под какой-то странный тектоник.
         В 2022 году тектоник... Спустя время Гриша решает пойти к барной стойке."
-        hide valya_usual
-        hide lyonya_usual
+        hide valya_usual with dissolve
+        hide lyonya_usual with dissolve
     else:
         menu:
             "Пойду-ка я к ней":
@@ -122,8 +122,8 @@ label scene_8:
                 lyonya "Д-д-да! Давайте..."
                 author "Ребята танцуют под какой-то странный тектоник.
                 В 2022 году тектоник... Спустя время Гриша решает пойти к барной стойке."
-                hide valya_usual
-                hide lyonya_usual
+                hide valya_usual with dissolve
+                hide lyonya_usual with dissolve
     return
 
 # Замес у барной стойки
@@ -211,7 +211,7 @@ label scene_10:
         На удачу ношу. На. Тебе щас нужнее."
         grisha "Спасибо, спас, а то я особо не учил ничего."
         sanya "С моими шпорами точно сдашь, проверено."
-        hide sanya_usual
+        hide sanya_usual with dissolve
     else:
         grisha "Как хорошо старшекам, они уже все сдали. А я как лох иду туда."
     return
@@ -331,7 +331,7 @@ label scene_13_exam_1q:
     pryamorukov "Итак, первый вопрос... Как зовут Алексеева?"
     if grisha_smart:
         grisha "Ростислав Евгеньевич"
-        scene exam_pryam_full_grisha_2_3_pryam with hpunch
+        scene exam_pryam_full_grisha_2_3_pryam
         hide pryamorukov_usual
         show pryamorukov_wound at right
         pryamorukov "Ох-х-х"
@@ -340,7 +340,7 @@ label scene_13_exam_1q:
         pryamorukov "Второй вопрос: В честь кого, назвали большее количество объектов
         (теоремы, формулы и т.д.)"
         grisha "Эйлер"
-        scene exam_pryam_full_grisha_1_3_pryam with hpunch
+        scene exam_pryam_full_grisha_1_3_pryam
         hide pryamorukov_usual
         show pryamorukov_wound at right
         pryamorukov "Ох-х-х"
@@ -349,7 +349,7 @@ label scene_13_exam_1q:
         pryamorukov "Третий вопрос: Сколько здесь треугольников?"
         show q3_pryam at left with dissolve
         grisha "8"
-        scene exam_pryam_full_grisha_0_pryam with hpunch
+        scene exam_pryam_full_grisha_0_pryam
         hide pryamorukov_usual
         show pryamorukov_wound at right
         pryamorukov "Ой..."
@@ -384,7 +384,7 @@ label scene_13_exam_1q_wrong:
     return
 
 label scene_13_exam_1q_right:
-    scene exam_pryam_full_grisha_2_3_pryam with hpunch
+    scene exam_pryam_full_grisha_2_3_pryam
     hide pryamorukov_usual
     show pryamorukov_wound at right
     pryamorukov "Ох-х-х"
@@ -429,9 +429,9 @@ label scene_13_exam_2q_wrong:
 
 label scene_13_exam_2q_right:
     if exam_pryam_1q:
-        scene exam_pryam_full_grisha_1_3_pryam with hpunch
+        scene exam_pryam_full_grisha_1_3_pryam
     else:
-        scene exam_pryam_2_3_grisha_2_3_pryam with hpunch
+        scene exam_pryam_2_3_grisha_2_3_pryam
     hide pryamorukov_usual
     show pryamorukov_wound at right
     pryamorukov "Ох-х-х"
@@ -490,7 +490,7 @@ label scene_13_exam_3q_wrong:
 
 label scene_13_exam_3q_right:
     if exam_pryam_1q and exam_pryam_2q:
-        scene exam_pryam_full_grisha_0_pryam with hpunch
+        scene exam_pryam_full_grisha_0_pryam
         hide pryamorukov_usual
         show pryamorukov_wound at right
         pryamorukov "Ой..."
@@ -500,9 +500,9 @@ label scene_13_exam_3q_right:
         $ diplom += 1
         return
     if (exam_pryam_1q and not exam_pryam_2q) or (not exam_pryam_1q and exam_pryam_2q):
-        scene exam_pryam_2_3_grisha_1_3_pryam with hpunch
+        scene exam_pryam_2_3_grisha_1_3_pryam
     if not exam_pryam_1q and not exam_pryam_2q:
-        scene exam_pryam_1_3_grisha_2_3_pryam with hpunch
+        scene exam_pryam_1_3_grisha_2_3_pryam
     hide pryamorukov_usual
     show pryamorukov_wound at right
     pryamorukov "Ох-х-х"
@@ -589,9 +589,10 @@ label scene_17:
                 grisha "Фух, пронесло"
                 $ exam_score += 1
             if lyonya_score == 1:
-                grisha "Надеюсь что Леня не затупит"
+                grisha "Надеюсь, что Леня не затупит"
                 scene black with fade
                 scene auditorium with fade
+                show fichaev_usual with dissolve
                 fichaev "Поздравляю, свободны. Следующего позовите."
                 grisha "Фух, пронесло"
                 $ exam_score += 1
@@ -634,7 +635,7 @@ label scene_17_exam_1q_wrong:
     return
 
 label scene_17_exam_1q_right:
-    scene exam_fich_full_grisha_2_3_fich with hpunch
+    scene exam_fich_full_grisha_2_3_fich
     hide fichaev_usual
     show fichaev_wound at left
     fichaev "Ой, угадал"
@@ -679,9 +680,9 @@ label scene_17_exam_2q_wrong:
 
 label scene_17_exam_2q_right:
     if exam_fich_1q:
-        scene exam_fich_full_grisha_1_3_fich with hpunch
+        scene exam_fich_full_grisha_1_3_fich
     else:
-        scene exam_fich_2_3_grisha_2_3_fich with hpunch
+        scene exam_fich_2_3_grisha_2_3_fich
     hide fichaev_usual
     show fichaev_wound at left
     fichaev "Ой, угадал"
@@ -739,7 +740,7 @@ label scene_17_exam_3q_wrong:
 
 label scene_17_exam_3q_right:
     if exam_fich_1q and exam_fich_2q:
-        scene exam_fich_full_grisha_0_fich with hpunch
+        scene exam_fich_full_grisha_0_fich
         hide fichaev_usual
         show fichaev_wound at left
         fichaev "Ой, угадал"
@@ -750,9 +751,9 @@ label scene_17_exam_3q_right:
         $ diplom += 1
         return
     if (exam_fich_1q and not exam_fich_2q) or (not exam_fich_1q and exam_fich_2q):
-        scene exam_fich_2_3_grisha_1_3_fich with hpunch
+        scene exam_fich_2_3_grisha_1_3_fich
     if not exam_pryam_1q and not exam_pryam_2q:
-        scene exam_fich_1_3_grisha_2_3_fich with hpunch
+        scene exam_fich_1_3_grisha_2_3_fich
     hide fichaev_usual
     show fichaev_wound at left
     fichaev "Ой, угадал"
@@ -762,6 +763,7 @@ label scene_17_exam_3q_right:
     hide fichaev_wound with dissolve
     return
 
+# Конец 1 курса
 label scene_18:
     play music neutral_2 fadein 1 fadeout 1 volume 0.5
     scene central_entrance with fade
