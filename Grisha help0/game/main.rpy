@@ -14,6 +14,8 @@ define pryamorukov = Character('Пряморуков', color="#ffffff", image ='
 define fichaev = Character('Фичаев', color="#ffffff", image ='fichaev', callback = name_callback, cb_name = "fichaev")
 define potemkin = Character('Потемкин', color="#ffffff", image ='potemkin', callback = name_callback, cb_name = "potemkin")
 define roommate = Character('Соседка', color="#888888", image ='roommate', callback = name_callback, cb_name = "roommate")
+define aslan = Character('Аслан', color="#ffd966", image ='aslan', callback = name_callback, cb_name = "aslan")
+define kostya = Character('Костя', color="#888888", image ='kostya', callback = name_callback, cb_name = "kostya")
 
 # Черты характера Гриши
 define grisha_smart = False
@@ -29,6 +31,8 @@ define undergraduate = False
 define valya_score = 0
 define exam_score = 0
 define diplom = 0
+define detective = False
+define time_detective = False
 
 # Баллы экзаменов
 define exam_pryam_1q = False
@@ -53,6 +57,7 @@ define audio.detectiv = "/music/detectiv.mp3"
 define audio.knock_knock = "/music/knock_knock.mp3"
 define audio.door = "/music/door.mp3"
 define audio.close_door = "/music/close_door.mp3"
+define audio.oxxxymiron = "/music/oxxxymiron.mp3"
 
 # Инициализация файлов
 init:
@@ -109,7 +114,10 @@ init:
 
     # 2 курс
     image bg_winter = "/background/2_year/winter.jpg"
-
+    image entance = "/background/2_year/entrance.jpg"
+    image door = "/background/2_year/door.jpg"
+    image aslan_apartment = "/background/2_year/aslan_apartment.jpg"
+    image street = "/background/2_year/street.jpg"
 
     # Инициализация спрайтов
     # Спрайты Ангелины
@@ -121,6 +129,7 @@ init:
     image lyonya_confused = At("/sprites/lyonya/lyonya_confused.png", sprite_highlight('lyonya'))
     image lyonya_emotional = At("/sprites/lyonya/lyonya_emotional.png", sprite_highlight('lyonya'))
     image lyonya_happiness = At("/sprites/lyonya/lyonya_happiness.png", sprite_highlight('lyonya'))
+    image lyonya_angry = At("/sprites/lyonya/lyonya_angry.png", sprite_highlight('lyonya'))
     image boy_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('boy'))
 
     # Спрайты Вали
@@ -135,6 +144,9 @@ init:
     # Второстепенные персонажи
     image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
     image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
+    image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
+    image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
+    image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
 
     # Пряморуков
     image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))
