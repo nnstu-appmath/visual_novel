@@ -16,6 +16,10 @@ define potemkin = Character('Потемкин', color="#ffffff", image ='potemki
 define roommate = Character('Соседка', color="#888888", image ='roommate', callback = name_callback, cb_name = "roommate")
 define aslan = Character('Аслан', color="#ffd966", image ='aslan', callback = name_callback, cb_name = "aslan")
 define kostya = Character('Костя', color="#888888", image ='kostya', callback = name_callback, cb_name = "kostya")
+define boy_club = Character('Парень', color="#888888", image ='boy_club', callback = name_callback, cb_name = "boy_club")
+define girl_club = Character('Девушка', color="#888888", image ='girl_club', callback = name_callback, cb_name = "girl_club")
+
+define difficult = False
 
 # Черты характера Гриши
 define grisha_smart = False
@@ -58,6 +62,9 @@ define audio.knock_knock = "/music/knock_knock.mp3"
 define audio.door = "/music/door.mp3"
 define audio.close_door = "/music/close_door.mp3"
 define audio.oxxxymiron = "/music/oxxxymiron.mp3"
+define audio.cringe = "/music/cringe.mp3"
+define audio.disturb = "/music/disturb.mp3"
+define audio.sad = "/music/sad.mp3"
 
 # Инициализация файлов
 init:
@@ -118,11 +125,18 @@ init:
     image door = "/background/2_year/door.jpg"
     image aslan_apartment = "/background/2_year/aslan_apartment.jpg"
     image street = "/background/2_year/street.jpg"
+    image photo_valya = "/background/2_year/photo_valya.png"
+    image virgin_club = "/background/2_year/virgin_club.jpg"
+    image club_unitech = "/background/2_year/club_unitech.jpg"
+    image art_2_year_cool = "/background/1_september/art.jpg"
+    image art_2_year_sad = "/background/1_september/art.jpg"
+    image screen_george = "/background/2_year/screen_george.png"
 
     # Инициализация спрайтов
     # Спрайты Ангелины
     image ang_usual = At("/sprites/angelina/angelina_usual.png", sprite_highlight('angelina'))
     image ang_angry = At("/sprites/angelina/angelina_angry.png", sprite_highlight('angelina'))
+    image ang_sad = At("/sprites/angelina/angelina_sad.png", sprite_highlight('angelina'))
 
     # Спрайты Лёни
     image lyonya_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('lyonya'))
@@ -130,6 +144,7 @@ init:
     image lyonya_emotional = At("/sprites/lyonya/lyonya_emotional.png", sprite_highlight('lyonya'))
     image lyonya_happiness = At("/sprites/lyonya/lyonya_happiness.png", sprite_highlight('lyonya'))
     image lyonya_angry = At("/sprites/lyonya/lyonya_angry.png", sprite_highlight('lyonya'))
+    image lyonya_sad = At("/sprites/lyonya/lyonya_sad.png", sprite_highlight('lyonya'))
     image boy_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('boy'))
 
     # Спрайты Вали
@@ -147,6 +162,7 @@ init:
     image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
     image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
     image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
+    image girl_club = At("/sprites/other/girl_club.png", sprite_highlight('girl_club'))
 
     # Пряморуков
     image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))

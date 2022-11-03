@@ -379,8 +379,8 @@ screen main_menu():
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
     ## заменять этот.
     tag menu
-
-    add gui.main_menu_background
+    add Movie(play="/gui/main_menu.mpeg")
+    #add gui.main_menu_background
 
     ## Эта пустая рамка затеняет главное меню.
     frame:
@@ -443,7 +443,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     style_prefix "game_menu"
 
     if main_menu:
-        add gui.main_menu_background
+        add Movie(play="/gui/main_menu.mpeg")
+        #add gui.main_menu_background
     else:
         add gui.game_menu_background
 

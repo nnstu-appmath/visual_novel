@@ -296,11 +296,11 @@ label scene_13:
         "Сдавать экзамен":
             call scene_13_exam_1q
         "Попробовать выкрутиться":
-            if ang_score == 0 and undergraduate == False:
+            if ang_score == 0 and not undergraduate:
                 author "К сожалению, у Гриши нет друзей,
                 которые ему могли бы помочь."
                 call scene_13_exam_1q
-            if ang_score == 0 and undergraduate == True:
+            if ang_score == 0 and undergraduate:
                 author "Гриша решил воспользоваться шпорами,
                 которые дал ему Саня"
                 grisha "Саня хороший чел... Дай Бог ему здоровья"
@@ -517,9 +517,12 @@ label scene_14:
     scene before_aud with fade
     play music neutral_2 fadein 1 fadeout 1 volume 0.5
     show lyonya_usual with dissolve
-    author "Проходит первый экзамен Гриши в унитехе."
-    grisha "Фух, наконец-то это закончилось. Кажется, старшекурсники не врали,
-    такого от унитеха я не ожидал. Леня, когда там следующий экзамен?"
+    author "Прошел первый экзамен Гриши в унитехе."
+    if ang_score == 1 or undergraduate:
+        grisha "Изи. Леня, когда там следующий экзамен?"
+    else:
+        grisha "Фух, наконец-то это закончилось. Кажется, старшекурсники не врали,
+        такого от унитеха я не ожидал. Леня, когда там следующий экзамен?"
     lyonya "Вроде через час, может сходим до Спара?"
     grisha "Мне больше Хадуп нравится, там булочки свежие."
     return

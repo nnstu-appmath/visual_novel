@@ -15,15 +15,18 @@ label scene_1:
     scene bg_vk_lenta with fade
     play music neutral_1 fadein 1
     grisha "О, тест \"какая ты свинка по жизни\". Надо пройти."
-    menu:
-        "Умный чел. Интеллектуальный":
-            $ grisha_smart = True
-        "Внимательный чел. Наблюдательный":
-            $ grisha_attentive = True
-        "Романтичный чел. Созерцательный":
-            $ grisha_romantic = True
-        "Добрый чел. Позитивный":
-            $ grisha_kind = True
+    if difficult == True:
+        pass
+    else:
+        menu:
+            "Умный чел. Интеллектуальный":
+                $ grisha_smart = True
+            "Внимательный чел. Наблюдательный":
+                $ grisha_attentive = True
+            "Романтичный чел. Созерцательный":
+                $ grisha_romantic = True
+            "Добрый чел. Позитивный":
+                $ grisha_kind = True
     scene bg_lock_screen with fade
     grisha "Класс. Ой-й-й, я уже опаздываю, по-моему."
     return
