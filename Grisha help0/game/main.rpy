@@ -18,6 +18,9 @@ define aslan = Character('Аслан', color="#ffd966", image ='aslan', callback
 define kostya = Character('Костя', color="#888888", image ='kostya', callback = name_callback, cb_name = "kostya")
 define boy_club = Character('Парень', color="#888888", image ='boy_club', callback = name_callback, cb_name = "boy_club")
 define girl_club = Character('Девушка', color="#888888", image ='girl_club', callback = name_callback, cb_name = "girl_club")
+define studman = Character('Чувак из студсовета', color="#888888", image ='studman', callback = name_callback, cb_name = "studman")
+define alina = Character('Алина', color="#de62df", image ='alina',  callback = name_callback, cb_name = "alina")
+define gay = Character('Парень', color="#caedff", image ='gay',  callback = name_callback, cb_name = "gay")
 
 define difficult = False
 
@@ -37,6 +40,7 @@ define exam_score = 0
 define diplom = 0
 define detective = False
 define time_detective = False
+define alina_score = 0
 
 # Баллы экзаменов
 define exam_pryam_1q = False
@@ -45,15 +49,27 @@ define exam_pryam_3q = False
 define exam_fich_1q = False
 define exam_fich_2q = False
 define exam_fich_3q = False
+define exam_music_1 = False
+define exam_music_2 = False
+define exam_music_3 = False
+define exam_cinema_1 = False
+define exam_cinema_2 = False
+define exam_cinema_3 = False
+define exam_internet_1 = False
+define exam_internet_2 = False
+define exam_internet_3 = False
+define exam_potemkin = 0
 
 # Таймер
 define time = 0
 define timer_range = 0
 define timer_jump = 0
+define timer_score = False
 
 # Музыка и звуки
 define audio.neutral_1 = "/music/neutral_1.mp3"
 define audio.neutral_2 = "/music/neutral_2.mp3"
+define audio.neutral_3 = "/music/neutral_3.mp3"
 define audio.disco_1 = "/music/disco_1.mp3"
 define audio.disco_2 = "/music/disco_2.mp3"
 define audio.fighting = "/music/fighting.mp3"
@@ -65,6 +81,13 @@ define audio.oxxxymiron = "/music/oxxxymiron.mp3"
 define audio.cringe = "/music/cringe.mp3"
 define audio.disturb = "/music/disturb.mp3"
 define audio.sad = "/music/sad.mp3"
+define audio.sigame = "/music/sigame.mp3"
+define audio.answer_wrong = "/music/answer_wrong.mp3"
+define audio.applause = "/music/applause.mp3"
+define audio.zemfira = "/music/zemfira.mp3"
+define audio.lp = "/music/lp.mp3"
+define audio.gradusy = "/music/gradusy.mp3"
+define audio.medlyak = "/music/medlyak.mp3"
 
 # Инициализация файлов
 init:
@@ -125,6 +148,7 @@ init:
     image door = "/background/2_year/door.jpg"
     image aslan_apartment = "/background/2_year/aslan_apartment.jpg"
     image street = "/background/2_year/street.jpg"
+    image street_2 = "/background/2_year/street_2.jpg"
     image photo_valya = "/background/2_year/photo_valya.png"
     image virgin_club = "/background/2_year/virgin_club.jpg"
     image club_unitech = "/background/2_year/club_unitech.jpg"
@@ -132,11 +156,27 @@ init:
     image art_2_year_sad = "/background/1_september/art.jpg"
     image screen_george = "/background/2_year/screen_george.png"
 
+    # 3 курс
+    image tablo = "/background/3_year/tablo.png"
+    image tablo_music_1 = "/background/3_year/tablo_music_1.png"
+    image tablo_music_2 = "/background/3_year/tablo_music_2.png"
+    image tablo_music_3 = "/background/3_year/tablo_music_3.png"
+    image tablo_cinema_1 = "/background/3_year/tablo_cinema_1.png"
+    image tablo_cinema_2 = "/background/3_year/tablo_cinema_2.png"
+    image tablo_cinema_3 = "/background/3_year/tablo_cinema_3.png"
+    image tablo_internet_1 = "/background/3_year/tablo_internet_1.png"
+    image tablo_internet_2 = "/background/3_year/tablo_internet_2.png"
+    image tablo_internet_3 = "/background/3_year/tablo_internet_3.png"
+    image forest = "/background/3_year/forest.jpg"
+    image viktorina = "/background/3_year/viktorina.jpg"
+    image cafe = "/background/3_year/cafe.jpg"
+
     # Инициализация спрайтов
     # Спрайты Ангелины
     image ang_usual = At("/sprites/angelina/angelina_usual.png", sprite_highlight('angelina'))
     image ang_angry = At("/sprites/angelina/angelina_angry.png", sprite_highlight('angelina'))
     image ang_sad = At("/sprites/angelina/angelina_sad.png", sprite_highlight('angelina'))
+    #image ang_annoy = At("/sprites/angelina/angelina_annoy.png", sprite_highlight('angelina'))
 
     # Спрайты Лёни
     image lyonya_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('lyonya'))
@@ -163,6 +203,8 @@ init:
     image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
     image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
     image girl_club = At("/sprites/other/girl_club.png", sprite_highlight('girl_club'))
+    image studman = At("/sprites/other/studman.png", sprite_highlight('studman'))
+    image gay = At("/sprites/other/gay.png", sprite_highlight('gay'))
 
     # Пряморуков
     image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))
@@ -177,11 +219,15 @@ init:
     # Потемкин
     image potemkin_usual = At("/sprites/potemkin/potemkin_usual.png", sprite_highlight('potemkin'))
 
+    # Алина
+    image alina_usual = At("/sprites/alina/alina_usual.png", sprite_highlight('alina'))
+
 # Main
 label start:
     call first_september
     call first_year
     call second_year
+    call third_year
     return
 
 transform alpha_dissolve:

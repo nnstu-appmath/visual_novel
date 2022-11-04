@@ -66,17 +66,18 @@ label scene_8:
         lyonya "Пойдем"
         hide lyonya_usual with dissolve
         scene dance_floor with fade
+        show lyonya_usual at left with dissolve
         show valya_usual at right with dissolve
         grisha "Привет, Валя. Ты давно тут?"
         valya "Ого, Лёня, ты все таки нашел время. Не, пришла минут 15 назад, а вы?"
         hide lyonya_usual
-        show lyonya_confused
+        show lyonya_confused at left
         lyonya "Ну-у-у, я..."
         grisha "Мы тоже недавно."
         valya "Тут такая классная музыка играет!"
         grisha "Вы че, сговорились что-ли..."
         hide lyonya_confused
-        show lyonya_usual
+        show lyonya_usual at left
         lyonya "Мне тоже нравится!"
         valya "Ладно, неважно, давайте пустимся сегодня
         во все тяжкие мы ведь сюда за этим пришли!"
@@ -295,6 +296,8 @@ label scene_13:
     menu:
         "Сдавать экзамен":
             call scene_13_exam_1q
+            call scene_13_exam_2q
+            call scene_13_exam_3q
         "Попробовать выкрутиться":
             if ang_score == 0 and not undergraduate:
                 author "К сожалению, у Гриши нет друзей,
@@ -322,9 +325,10 @@ label scene_13_exam_1q:
     scene exam_pryam_start with fade
     hide pryamorukov_usual with dissolve
     show pryamorukov_usual at right with dissolve
+    $ timer_score = False
     $ time = 300
     $ timer_range = 300
-    $ timer_call = 'scene_13_exam_1q_wrong'
+    $ timer_call = 'scene_13_exam_time'
     author "Резко над головой у Пряморукова появляется шкала здоровья.
     Гриша замечает, что у него тоже она появилась."
     grisha "чего..."
@@ -361,15 +365,21 @@ label scene_13_exam_1q:
         show screen countdown
         menu:
             "Елисей Ростиславович":
+                $ timer_score = True
                 hide screen countdown
                 call scene_13_exam_1q_wrong
             "Ростислав Евгеньевич":
+                $timer_score = True
                 hide screen countdown
                 $ exam_pryam_1q = True
                 call scene_13_exam_1q_right
             "Родион Ефимович":
+                $timer_score = True
                 hide screen countdown
                 call scene_13_exam_1q_wrong
+    return
+
+label scene_13_exam_time:
     return
 
 label scene_13_exam_1q_wrong:
@@ -380,7 +390,6 @@ label scene_13_exam_1q_wrong:
     pryamorukov "У, бестолочь!"
     hide pryamorukov_angry
     show pryamorukov_usual at right
-    call scene_13_exam_2q
     return
 
 label scene_13_exam_1q_right:
@@ -390,27 +399,30 @@ label scene_13_exam_1q_right:
     pryamorukov "Ох-х-х"
     hide pryamorukov_wound
     show pryamorukov_usual at right
-    call scene_13_exam_2q
     return
 
 label scene_13_exam_2q:
     pryamorukov "Второй вопрос: В честь кого, назвали большее количество объектов
     (теоремы, формулы и т.д.)"
+    $timer_score = False
     $ time = 300
     $ timer_range = 300
-    $timer_call = 'scene_13_exam_2q_wrong'
+    $timer_call = 'scene_13_exam_time'
     show screen countdown
     menu:
         "Коши":
-            hide screen countdown
-            call scene_13_exam_2q_wrong
-        "Гаусс":
+            $timer_score = True
             hide screen countdown
             call scene_13_exam_2q_wrong
         "Эйлер":
+            $timer_score = True
             hide screen countdown
             $ exam_pryam_2q = True
             call scene_13_exam_2q_right
+        "Гаусс":
+            $timer_score = True
+            hide screen countdown
+            call scene_13_exam_2q_wrong
     return
 
 label scene_13_exam_2q_wrong:
@@ -424,7 +436,6 @@ label scene_13_exam_2q_wrong:
     pryamorukov "У, бестолочь!"
     hide pryamorukov_angry
     show pryamorukov_usual at right
-    call scene_13_exam_3q
     return
 
 label scene_13_exam_2q_right:
@@ -437,33 +448,30 @@ label scene_13_exam_2q_right:
     pryamorukov "Ох-х-х"
     hide pryamorukov_wound
     show pryamorukov_usual at right
-    call scene_13_exam_3q
     return
 
 label scene_13_exam_3q:
     pryamorukov "Третий вопрос: Сколько здесь треугольников?"
     show q3_pryam at left with dissolve
+    $timer_score = False
     $ time = 300
     $ timer_range = 300
-    $ timer_call = 'scene_13_exam_3q_wrong'
+    $ timer_call = 'scene_13_exam_time'
     show screen countdown
     menu:
-        "9":
-            $ timer_call = 'scene_13_exam_3q_wrong'
-            $ time = -10
-            hide screen countdown
-            call scene_13_exam_3q_wrong
         "6":
-            $ timer_call = 'scene_13_exam_3q_wrong'
-            $ time = -10
+            $timer_score = True
             hide screen countdown
             call scene_13_exam_3q_wrong
         "8":
+            $timer_score = True
             $ exam_pryam_3q = True
-            $ timer_call = 'scene_13_exam_3q_right'
-            $ time = -10
             hide screen countdown
             call scene_13_exam_3q_right
+        "9":
+            $timer_score = True
+            hide screen countdown
+            call scene_13_exam_3q_wrong
     return
 
 label scene_13_exam_3q_wrong:
@@ -577,6 +585,8 @@ label scene_17:
     menu:
         "Сдавать экзамен":
             call scene_17_exam_1q
+            call scene_17_exam_2q
+            call scene_17_exam_3q
         "Попробовать выкрутиться":
             if lyonya_score == 0 and undergraduate == False:
                 author "К сожалению, у Гриши нет друзей,
@@ -606,22 +616,26 @@ label scene_17_exam_1q:
     scene exam_fich_start with fade
     hide fichaev_usual with dissolve
     show fichaev_usual at left with dissolve
+    $timer_score = False
     $ time = 300
     $ timer_range = 300
-    $ timer_call = 'scene_17_exam_1q_wrong'
+    $ timer_call = 'scene_13_exam_time'
     author "Над головой у Фичаева появляется шкала здоровья"
     grisha "Да, Боже..."
     fichaev "Начнем.. Третья буква греческого алфавита?"
     show screen countdown
     menu:
         "Гамма":
+            $timer_score = True
             hide screen countdown
             $ exam_fich_1q = True
             call scene_17_exam_1q_right
         "Сигма":
+            $timer_score = True
             hide screen countdown
             call scene_17_exam_1q_wrong
         "Дельта":
+            $timer_score = True
             hide screen countdown
             call scene_17_exam_1q_wrong
     return
@@ -633,8 +647,7 @@ label scene_17_exam_1q_wrong:
     grisha "Ау, больно"
     fichaev "Ну что же вы, Орехов..."
     hide fichaev_sad
-    show fichaev_usual at right
-    call scene_17_exam_2q
+    show fichaev_usual at left
     return
 
 label scene_17_exam_1q_right:
@@ -644,27 +657,30 @@ label scene_17_exam_1q_right:
     fichaev "Ой, угадал"
     hide fichaev_wound
     show fichaev_usual at left
-    call scene_17_exam_2q
     return
 
 label scene_17_exam_2q:
     fichaev "Разгадайте ребус"
     show q2_fich at right with dissolve
+    $timer_score = False
     $ time = 300
     $ timer_range = 300
-    $ timer_call = 'scene_17_exam_2q_wrong'
+    $ timer_call = 'scene_13_exam_time'
     show screen countdown
     menu:
         "Библиотека":
-            hide screen countdown
-            call scene_17_exam_2q_wrong
-        "Бирюлька":
+            $timer_score = True
             hide screen countdown
             call scene_17_exam_2q_wrong
         "Биссектриса":
+            $timer_score = True
             hide screen countdown
             $ exam_fich_2q = True
             call scene_17_exam_2q_right
+        "Бирюлька":
+            $timer_score = True
+            hide screen countdown
+            call scene_17_exam_2q_wrong
     return
 
 label scene_17_exam_2q_wrong:
@@ -678,7 +694,6 @@ label scene_17_exam_2q_wrong:
     fichaev "Ну что же вы, Орехов..."
     hide fichaev_sad
     show fichaev_usual at left
-    call scene_17_exam_3q
     return
 
 label scene_17_exam_2q_right:
@@ -691,33 +706,30 @@ label scene_17_exam_2q_right:
     fichaev "Ой, угадал"
     hide fichaev_wound
     show fichaev_usual at left
-    call scene_17_exam_3q
     return
 
 label scene_17_exam_3q:
     fichaev "У рабочего была путевка в дом отдыха с 15 августа по 7
     сентября включительно. Сколько дней отдыхал рабочий?"
+    $timer_score = False
     $ time = 300
     $ timer_range = 300
-    $ timer_call = 'scene_17_exam_3q_wrong'
+    $ timer_call = 'scene_13_exam_time'
     show screen countdown
     menu:
-        "22 дня":
-            $ timer_call = 'scene_17_exam_3q_wrong'
-            $ time = -10
-            hide screen countdown
-            call scene_17_exam_3q_wrong
         "23 дня":
-            $ timer_call = 'scene_17_exam_3q_wrong'
-            $ time = -10
+            $timer_score = True
             hide screen countdown
             call scene_17_exam_3q_wrong
         "24 дня":
             $ exam_fich_3q = True
-            $ timer_call = 'scene_17_exam_3q_right'
-            $ time = -10
+            $timer_score = True
             hide screen countdown
             call scene_17_exam_3q_right
+        "25 дней":
+            $timer_score = True
+            hide screen countdown
+            call scene_17_exam_3q_wrong
     return
 
 label scene_17_exam_3q_wrong:

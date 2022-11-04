@@ -362,7 +362,7 @@ label scene_26:
     show kostya_phone with dissolve
     kostya "Да, я приду. С собой все взял. Кодовое слово тоже помню.
     Вы приведете ее? Понял."
-    hide kostya_phone
+    hide kostya_phone with dissolve
     show lyonya_emotional_winter at left with dissolve
     show ang_usual_winter at right with dissolve
     lyonya "Вы слышали это? Она сто процентов там!"
@@ -478,7 +478,7 @@ label scene_28:
                 $lyonya_score += 1
                 $valya_score += 1
                 hide ang_usual with dissolve
-                show lyonya_confused
+                show lyonya_confused at left with dissolve
                 lyonya "Э-э-э, Валь. Помнишь как мы с тобой по парку гуляли
                 1 сентября на первом курсе? Вокруг уже были желтые клены, падали
                 листочки. Я тогда только в чьи-то какашки наступил, но ты мне
@@ -509,6 +509,8 @@ label scene_28:
     valya "А что происходит?"
     hide lyonya_confused
     show lyonya_happiness at left
+    hide ang_usual
+    show ang_happiness at right
     lyonya "Валя, божечки, я так переживал!!!!!!!!!!!!!!!!!!!!!!!"
     author "Лёня полез обниматься к Вале."
     valya "О, Господи. Так что было?"

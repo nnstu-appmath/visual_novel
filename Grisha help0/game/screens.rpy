@@ -206,7 +206,7 @@ style input:
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
 screen countdown:
-    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 1), false=[Hide('countdown'), Call(timer_call)])
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 1), false=[If(timer_score, true=Hide('countdown'), false=[Hide('countdown'), Call(timer_call)])])
     bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
 
 screen choice(items):
