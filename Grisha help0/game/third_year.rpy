@@ -935,15 +935,16 @@ label internet_2:
             hide screen countdown
             call ans_wrong
             potemkin "Правильный ответ - GTA V"
+        "GTA V":
+            $timer_score = True
+            hide screen countdown
+            call ans_right
         "GTA: San Andreas":
             $timer_score = True
             hide screen countdown
             call ans_wrong
             potemkin "Правильный ответ - GTA V"
-        "GTA V":
-            $timer_score = True
-            hide screen countdown
-            call ans_right
+        
     return
 
 label internet_3:
@@ -970,7 +971,7 @@ label internet_3:
             call ans_right
     return
 
-# После экзамена Пряморукова
+# После экзамена Потемкина
 label scene_34:
     play music neutral_3 fadein 1 fadeout 1 volume 0.5
     scene before_aud with fade
@@ -1015,9 +1016,9 @@ label scene_35:
     show alina_usual at right with dissolve
     grisha "(Че на меня так пялит одна из участниц? Может
     у меня еда на лице? Или волосы торчат?)"
+    hide alina_usual with dissolve
     lyonya "Эй, ты че задумался?"
-    grisha "А? Ничего."
-    hide alina with dissolve
+    grisha "А? Ничего."  
     hide lyonya_usual with dissolve
     author "Настала очередь Ангелины. Перед прыжком Ангелина
     начала надевать экипировку и запуталась в ней."
@@ -1082,7 +1083,7 @@ label scene_36:
     scene viktorina with fade
     author "Спустя некоторое время наступил второй этап конкурса -
     интеллектуальный. Лёня с Гришей пришли посмотреть на это."
-    show lyonya_usual with dissolve
+    show lyonya_usual at right with dissolve
     lyonya "Че как, как думаешь кто выиграет?"
     grisha "Ну, у Ангелины есть все шансы, она ж умная"
     hide lyonya_usual with dissolve
@@ -1438,12 +1439,14 @@ label dance_angelina:
     angelina "Ладно, не парься, ему мальчики нравятся. Ты ему кстати понравился,
     если не веришь, то обернись - он так на тебя смотрит."
     hide ang_usual with dissolve
+    scene bar_ with dissolve
     show gay with dissolve
     author "Гриша обернулся на барную стойку и заметил того парня,
     палящегося на... Ну вы поняли."
     grisha "......................."
     author "Гриша покраснел."
     hide gay with dissolve
+    scene dance_floor with dissolve
     show ang_funny with dissolve
     angelina "Ха-ха-ха. Мы встречались с ним в школе, а потом он понял, что
     такой, ну и расстались."

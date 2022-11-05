@@ -207,7 +207,8 @@ style input:
 
 screen countdown:
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 1), false=[If(timer_score, true=Hide('countdown'), false=[Hide('countdown'), Call(timer_call)])])
-    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
+    bar value time range timer_range xalign 0.5 yalign 0.95 xmaximum 300 at alpha_dissolve
+
 
 screen choice(items):
     style_prefix "choice"

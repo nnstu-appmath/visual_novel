@@ -1,6 +1,6 @@
 # Определение персонажей игры
 define author = Character(None)
-define grisha = Character('Гриша', color="#4682B4")
+define grisha = Character('Гриша', color="#4682B4",callback = name_callback, cb_name = "grisha")
 define angelina = Character('Ангелина', color="#DB7093", image ='angelina',  callback = name_callback, cb_name = "angelina")
 define lyonya = Character('Лёня', color="#32CD32", image ='lyonya', callback = name_callback, cb_name = "lyonya")
 define valya = Character('Валя', color="#FF8C00", image ='valya', callback = name_callback, cb_name = "valya")
