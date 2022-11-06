@@ -14,7 +14,7 @@ label first_september:
 label scene_1:
     pause(1.0)
     scene bg_vk_lenta with fade
-    play music neutral_1 fadein 1 fadeout 1
+    play music neutral_1 fadein 1
     grisha "О, тест \"какая ты свинка по жизни\". Надо пройти."
     menu:
         "Умный чел. Интеллектуальный":
@@ -26,7 +26,7 @@ label scene_1:
         "Добрый чел. Позитивный":
             $ grisha_kind = True
     scene bg_lock_screen with fade
-    grisha "Класс. Ой-й-й, я уже опаздываю, по-моему."
+    grisha "Ой-й-й, я уже опаздываю, по-моему."
     return
 
 #Сцена 2 - Гриша сбивает Ангелину
@@ -54,9 +54,8 @@ label scene_2:
                 pass
             "Гриша: В телефоне меньше залипай":
                 hide ang_usual
-                show ang_angry
+                show ang_angry at right
                 angelina "Сама разберусь!"
-    hide ang_angry
     return
 
 #Сцена 3 - лабиринт из дверей
@@ -64,7 +63,7 @@ label scene_3:
     show bg_doors with fade
     show phone_map at left with dissolve
     grisha "Так, а какая аудитория? 31-А-56. Боже, что это и где это?
-    Налево, направо, прямо, налево, направо, прямо. Кому нужны эти карты?
+    Прямо, прямо, налево, налево, направо, направо. Кому нужны эти карты?
     Сам найду."
     hide phone_map
     call doors_1
@@ -72,17 +71,20 @@ label scene_3:
 
 label doors_1:
     scene bg_doors with fade
+    define random = 0
     menu:
         "Налево":
-            call doors_2
-        "Прямо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_1
+        "Прямо":
+            call doors_2
         "Направо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
@@ -93,34 +95,38 @@ label doors_2:
     scene bg_doors with fade
     menu:
         "Налево":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_2
         "Прямо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            call doors_3
+        "Направо":
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_2
-        "Направо":
-            call doors_3
     return
 
 label doors_3:
     scene bg_doors with fade
     menu:
         "Налево":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            call doors_4
+        "Прямо":
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_3
-        "Прямо":
-            call doors_4
         "Направо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
@@ -133,13 +139,15 @@ label doors_4:
         "Налево":
             call doors_5
         "Прямо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_4
         "Направо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
@@ -150,13 +158,15 @@ label doors_5:
     scene bg_doors with fade
     menu:
         "Налево":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_5
         "Прямо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
@@ -169,19 +179,21 @@ label doors_6:
     scene bg_doors with fade
     menu:
         "Налево":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_6
         "Прямо":
-            return
-        "Направо":
-            if renpy.random.randint(1, 10) == 1 and not screamer:
+            $random = renpy.random.randint(1, 10)
+            if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_6
+        "Направо":
+            return
     return
 
 label scream:
