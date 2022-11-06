@@ -76,7 +76,7 @@ label scene_3:
     else:
         show phone_map at left with dissolve
         grisha "Так, а какая аудитория? 31-А-56. Боже, что это и где это?
-        Прямо, прямо, налево, прямо, направо, направо. Кому нужны эти карты?
+        Прямо, прямо, налево, налево, направо, направо. Кому нужны эти карты?
         Сам найду."
         hide phone_map
     call doors_1
@@ -168,6 +168,8 @@ label doors_4:
     scene bg_doors with fade
     menu:
         "Налево":
+            call doors_5
+        "Прямо":
             if difficult == True:
                 $random = renpy.random.randint(1, 5)
             else:
@@ -177,8 +179,6 @@ label doors_4:
             else:
                 call wrong_way
             call doors_4
-        "Прямо":
-            call doors_5
         "Направо":
             if difficult == True:
                 $random = renpy.random.randint(1, 5)
