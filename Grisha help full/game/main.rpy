@@ -175,52 +175,64 @@ init:
     # Спрайты Ангелины
     image ang_usual = At("/sprites/angelina/angelina_usual.png", sprite_highlight('angelina'))
     image ang_angry = At("/sprites/angelina/angelina_angry.png", sprite_highlight('angelina'))
-    image ang_sad = At("/sprites/angelina/angelina_sad.png", sprite_highlight('angelina'))
+    #image ang_usual_winter = At("/sprites/angelina/angelina_usual_winter.png", sprite_highlight('angelina'))
+    #image ang_funny = At("/sprites/angelina/angelina_funny.png", sprite_highlight('angelina'))
+    #image ang_sad = At("/sprites/angelina/angelina_sad.png", sprite_highlight('angelina'))
+    #image ang_happiness = At("/sprites/angelina/angelina_happiness.png", sprite_highlight('angelina'))
     #image ang_annoy = At("/sprites/angelina/angelina_annoy.png", sprite_highlight('angelina'))
+    #image ang_usual_dress = At("/sprites/angelina/angelina_usual_dress.png", sprite_highlight('angelina'))
+    #image ang_happiness_dress = At("/sprites/angelina/angelina_happiness_dress.png", sprite_highlight('angelina'))
+    #image ang_sad_dress = At("/sprites/angelina/angelina_sad_dress.png", sprite_highlight('angelina'))
 
     # Спрайты Лёни
     image lyonya_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('lyonya'))
-    image lyonya_confused = At("/sprites/lyonya/lyonya_confused.png", sprite_highlight('lyonya'))
-    image lyonya_emotional = At("/sprites/lyonya/lyonya_emotional.png", sprite_highlight('lyonya'))
-    image lyonya_happiness = At("/sprites/lyonya/lyonya_happiness.png", sprite_highlight('lyonya'))
-    image lyonya_angry = At("/sprites/lyonya/lyonya_angry.png", sprite_highlight('lyonya'))
-    image lyonya_sad = At("/sprites/lyonya/lyonya_sad.png", sprite_highlight('lyonya'))
+    #image lyonya_confused = At("/sprites/lyonya/lyonya_confused.png", sprite_highlight('lyonya'))
+    #image lyonya_confused_winter = At("/sprites/lyonya/lyonya_confused_winter.png", sprite_highlight('lyonya'))
+    #image lyonya_emotional = At("/sprites/lyonya/lyonya_emotional.png", sprite_highlight('lyonya'))
+    #image lyonya_emotional_winter = At("/sprites/lyonya/lyonya_emotional_winter.png", sprite_highlight('lyonya'))
+    #image lyonya_happiness = At("/sprites/lyonya/lyonya_happiness.png", sprite_highlight('lyonya'))
+    #image lyonya_angry = At("/sprites/lyonya/lyonya_angry.png", sprite_highlight('lyonya'))
+    #image lyonya_angry_winter = At("/sprites/lyonya/lyonya_angry_winter.png", sprite_highlight('lyonya'))
+    #image lyonya_sad = At("/sprites/lyonya/lyonya_sad.png", sprite_highlight('lyonya'))
+    #image lyonya_usual_suit = At("/sprites/lyonya/lyonya_usual_suit.png", sprite_highlight('lyonya'))
     image boy_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('boy'))
 
     # Спрайты Вали
     image valya_usual = At("/sprites/valya/valya_usual.png", sprite_highlight('valya'))
+    #image valya_hypnosis = At("/sprites/valya/valya_hypnosis.png", sprite_highlight('valya'))
+    #image valya_annoy = At("/sprites/valya/valya_annoy.png", sprite_highlight('valya'))
     image girl_usual = At("/sprites/valya/valya_usual.png", sprite_highlight('girl'))
 
-    # Спрайты Сани
-    image defender = At("/sprites/sanya/sanya_angry.png", sprite_highlight('defender'))
-    image sanya_angry = At("/sprites/sanya/sanya_angry.png", sprite_highlight('sanya'))
-    image sanya_usual = At("/sprites/sanya/sanya_usual.png", sprite_highlight('sanya'))
-
     # Второстепенные персонажи
-    image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
-    image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
-    image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
-    image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
-    image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
+    #image defender = At("/sprites/sanya/sanya_angry.png", sprite_highlight('defender'))
+    #image sanya_angry = At("/sprites/sanya/sanya_angry.png", sprite_highlight('sanya'))
+    #image sanya_usual = At("/sprites/sanya/sanya_usual.png", sprite_highlight('sanya'))
+    #image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
+    #image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
+    #image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
+    #image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
+    #image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
     image girl_club = At("/sprites/other/girl_club.png", sprite_highlight('girl_club'))
-    image studman = At("/sprites/other/studman.png", sprite_highlight('studman'))
-    image gay = At("/sprites/other/gay.png", sprite_highlight('gay'))
+    #image studman = At("/sprites/other/studman.png", sprite_highlight('studman'))
+    #image gay = At("/sprites/other/gay.png", sprite_highlight('gay'))
 
     # Пряморуков
-    image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))
-    image pryamorukov_angry = At("/sprites/pryamorukov/pryamorukov_angry.png", sprite_highlight('pryamorukov'))
-    image pryamorukov_wound = At("/sprites/pryamorukov/pryamorukov_wound.png", sprite_highlight('pryamorukov'))
+    #image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))
+    #image pryamorukov_angry = At("/sprites/pryamorukov/pryamorukov_angry.png", sprite_highlight('pryamorukov'))
+    #image pryamorukov_wound = At("/sprites/pryamorukov/pryamorukov_wound.png", sprite_highlight('pryamorukov'))
 
     # Фичаев
-    image fichaev_usual = At("/sprites/fichaev/fichaev_usual.png", sprite_highlight('fichaev'))
-    image fichaev_sad = At("/sprites/fichaev/fichaev_sad.png", sprite_highlight('fichaev'))
-    image fichaev_wound = At("/sprites/fichaev/fichaev_wound.png", sprite_highlight('fichaev'))
+    #image fichaev_usual = At("/sprites/fichaev/fichaev_usual.png", sprite_highlight('fichaev'))
+    #image fichaev_sad = At("/sprites/fichaev/fichaev_sad.png", sprite_highlight('fichaev'))
+    #image fichaev_wound = At("/sprites/fichaev/fichaev_wound.png", sprite_highlight('fichaev'))
 
     # Потемкин
-    image potemkin_usual = At("/sprites/potemkin/potemkin_usual.png", sprite_highlight('potemkin'))
+    #image potemkin_usual = At("/sprites/potemkin/potemkin_usual.png", sprite_highlight('potemkin'))
 
     # Алина
     image alina_usual = At("/sprites/alina/alina_usual.png", sprite_highlight('alina'))
+    image alina_usual_dress = At("/sprites/alina/alina_usual_dress.png", sprite_highlight('alina'))
+    image alina_sad = At("/sprites/alina/alina_sad.png", sprite_highlight('alina'))
 
 # Main
 label start:

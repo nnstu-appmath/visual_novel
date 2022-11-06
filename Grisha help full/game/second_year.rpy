@@ -224,6 +224,7 @@ label scene_23:
     if grisha_attentive:
         author "Он заметил стикер на доске. На нем было написано:
         \"Малинова, 38. 19:00\""
+        $ detective = True
     else:
         menu:
             "Валяющиеся вещи на диване":
@@ -317,7 +318,7 @@ label scene_24:
     play music detectiv fadein 1 fadeout 1 volume 0.5
     scene doors with fade
     author "В одном из помещений унитеха слышны какие-то необычные звуки."
-    show lyonya_surprised at left with dissolve
+    show lyonya_emotional at left with dissolve
     show ang_usual at right with dissolve
     lyonya "Там происходит что-то странное..."
     angelina "Давайте проверим"

@@ -1217,15 +1217,22 @@ label scene_37:
     author "До конца некоего \"свидания\" они общались на отдаленные темы,
     слегка смущаясь от неловкости"
     alina "Официант, а можно счет?"
-    menu:
-        "Заплатить за счет":
-            $alina_score += 1
-            alina "Не стоило, я же тебя пригласила сюда за твою помощь.
-            Спасибо большое. Приятно было провести время с тобой вдвоем"
-            author "На прощание Алина целует Гришу в щечку"
-        "Дать Алине оплатить счет":
-            alina "Спасибо за вечер. Надеюсь еще посидим так же"
-            author "На прощание Алина целует Гришу в щечку"
+    if grisha_romantic:
+        grisha "Я заплачу"
+        $alina_score += 1
+        alina "Не стоило, я же тебя пригласила сюда за твою помощь.
+        Спасибо большое. Приятно было провести время с тобой вдвоем"
+        author "На прощание Алина целует Гришу в щечку"
+    else:
+        menu:
+            "Заплатить за счет":
+                $alina_score += 1
+                alina "Не стоило, я же тебя пригласила сюда за твою помощь.
+                Спасибо большое. Приятно было провести время с тобой вдвоем"
+                author "На прощание Алина целует Гришу в щечку"
+            "Дать Алине оплатить счет":
+                alina "Спасибо за вечер. Надеюсь еще посидим так же"
+                author "На прощание Алина целует Гришу в щечку"
     call scene_38
     return
 
@@ -1350,6 +1357,10 @@ label scene_39:
                                 angelina "Ну пойдем"
                                 scene dance_floor with fade
                                 play music medlyak fadein 1 fadeout 1 volume 0.3
+                                author "Плавная музыка заставляет многих людей
+                                уйти из центра танцпола. Но Гриша и Ангелина пошли
+                                танцевать медленный танец."
+                                $ ang_score += 1
                                 call dance_angelina
                                 call scene_41
                             "Поболтать с Лёней и Валей":
@@ -1364,6 +1375,10 @@ label scene_39:
                                 angelina "Ну пойдем"
                                 scene dance_floor with fade
                                 play music medlyak fadein 1 fadeout 1 volume 0.3
+                                author "Плавная музыка заставляет многих людей
+                                уйти из центра танцпола. Но Гриша и Ангелина пошли
+                                танцевать медленный танец."
+                                $ ang_score += 1
                                 call dance_angelina
                                 call scene_41
                             "Поболтать с Лёней":
@@ -1390,11 +1405,132 @@ label scene_39:
                     call dance_alina
                     call scene_41
                 "Пригласить на медляк Ангелину":
-                    pass
-                    call scene_41
+                    author "Плавная музыка заставляет многих людей
+                    уйти из центра танцпола. Но Гриша и Ангелина пошли
+                    танцевать медленный танец."
+                    pause (1.5)
+                    scene bar_ with fade
+                    author "Гриша с Ангелиной возвращаются к барной стойке"
+                    show lyonya_usual at left with dissolve
+                    show ang_usual at right with dissolve
+                    if valya_score > 0:
+                        author "За это время приехала Валя."
+                        show valya_usual with dissolve
+                    grisha "Лёнь, все нормально? Ты жив?"
+                    lyonya "Да, просто шаурма на остановке была..."
+                    grisha "Все, давай без подробностей."
+                    if valya_score > 0:
+                        author "Ребята начали болтать межжду собой и
+                        Лёня с Валей увлеклись разговором между собой"
+                        lyonya "Помнишь?"
+                        valya "Да-да, такое не забудешь. Круто было!"
+                        hide lyonya_usual with dissolve
+                        hide valya_usual with dissolve
+                    else:
+                        hide lyonya_usual with dissolve
+                    show gay at left with dissolve
+                    gay "О, привет, Ангел."
+                    angelina "Сколько раз говорила, не называть меня так :)
+                    Давно не виделись. Как у тебя дела?"
+                    gay "Все по-старому, моя хорошая, работаю. А ты как?"
+                    angelina "Да вот в конкурсе участвую..."
+                    author "Гриша немножко напрягся от появления этого парниши."
+                    if valya_score > 0:
+                        menu:
+                            "Пригласить Ангелину на танцпол":
+                                grisha "Ангелин, может потанцуем?"
+                                angelina "Ну пойдем"
+                                scene dance_floor with fade
+                                play music disco_2 fadein 1 fadeout 1 volume 0.3
+                                call dance_angelina
+                                call scene_41
+                            "Поболтать с Лёней и Валей":
+                                hide ang_usual with dissolve
+                                hide gay with dissolve
+                                call scene_bar_valya
+                                call scene_41
+                    else:
+                        menu:
+                            "Пригласить Ангелину на танцпол":
+                                grisha "Ангелин, может потанцуем?"
+                                angelina "Ну пойдем"
+                                scene dance_floor with fade
+                                play music disco_2 fadein 1 fadeout 1 volume 0.3
+                                call dance_angelina
+                                call scene_41
+                            "Поболтать с Лёней":
+                                hide ang_usual with dissolve
+                                hide gay with dissolve
+                                call scene_bar_lyonya
+                                call scene_41
                 "Уйти за барную стойку":
-                    pass
-                    call scene_41
+                    scene bar_ with fade
+                    author "Гриша возвращается к барной стойке"
+                    show lyonya_usual at left with dissolve
+                    if valya_score > 0:
+                        author "За это время приехала Валя."
+                        show valya_usual with dissolve
+                    grisha "Лёнь, все нормально? Ты жив?"
+                    lyonya "Да, просто шаурма на остановке была..."
+                    grisha "Все, давай без подробностей."
+                    show ang_annoy at right with dissolve
+                    angelina "Че эта Алина пришла вообще сюда???"
+                    grisha "Пришла тоже отдохнуть, а что такое?
+                    Что ты так переживаешь?"
+                    angelina "Отстань"
+                    hide ang_annoy
+                    show ang_usual at right
+                    if valya_score > 0:
+                        author "Лёня и Валя увлеклись разговором между собой"
+                        lyonya "Помнишь?"
+                        valya "Да-да, такое не забудешь. Круто было!"
+                        hide lyonya_usual with dissolve
+                        hide valya_usual with dissolve
+                    else:
+                        hide lyonya_usual with dissolve
+                    show gay at left with dissolve
+                    gay "О, привет, Ангел."
+                    angelina "Сколько раз говорила, не называть меня так :)
+                    Давно не виделись. Как у тебя дела?"
+                    gay "Все по-старому, моя хорошая, работаю. А ты как?"
+                    angelina "Да вот в конкурсе участвую..."
+                    author "Гриша немножко напрягся от появления этого парниши."
+                    if valya_score > 0:
+                        menu:
+                            "Пригласить Ангелину на медленный танец":
+                                grisha "Ангелин, может потанцуем?"
+                                angelina "Ну пойдем"
+                                scene dance_floor with fade
+                                play music medlyak fadein 1 fadeout 1 volume 0.3
+                                author "Плавная музыка заставляет многих людей
+                                уйти из центра танцпола. Но Гриша и Ангелина пошли
+                                танцевать медленный танец."
+                                $ ang_score += 1
+                                call dance_angelina
+                                call scene_41
+                            "Поболтать с Лёней и Валей":
+                                hide ang_usual with dissolve
+                                hide gay with dissolve
+                                call scene_bar_valya
+                                call scene_41
+                    else:
+                        menu:
+                            "Пригласить Ангелину на медленный танец":
+                                grisha "Ангелин, может потанцуем?"
+                                angelina "Ну пойдем"
+                                scene dance_floor with fade
+                                play music medlyak fadein 1 fadeout 1 volume 0.3
+                                author "Плавная музыка заставляет многих людей
+                                уйти из центра танцпола. Но Гриша и Ангелина пошли
+                                танцевать медленный танец."
+                                $ ang_score += 1
+                                call dance_angelina
+                                call scene_41
+                            "Поболтать с Лёней":
+                                hide ang_usual with dissolve
+                                hide gay with dissolve
+                                call scene_bar_lyonya
+                                call scene_41
     return
 
 # Медляк с Алиной
@@ -1426,14 +1562,17 @@ label dance_alina:
     if valya_score > 0:
         valya "А нечего с конкурентками танцевать"
     grisha "Ладно... Пошлите танцевать тогда"
+    scene dance_floor with fade
+    show lyonya_usual at left with dissolve
+    if valya_score > 0:
+        show alina_usual with dissolve
+        show valya_usual at right with dissolve
+    else:
+        show alina_usual at right with dissolve
     return
 
 # Медляк с Ангелиной
 label dance_angelina:
-    $ alina_score += 1
-    author "Плавная музыка заставляет многих людей
-    уйти из центра танцпола. Но Гриша и Ангелина пошли
-    танцевать медленный танец."
     show ang_usual with dissolve
     grisha "Кто это с тобой так мило разговаривал?"
     angelina "Да-а-а... Старый знакомый"
@@ -1459,6 +1598,15 @@ label dance_angelina:
     grisha "Мда..."
     hide ang_funny with dissolve
     play music disco_2 fadein 1 fadeout 1 volume 0.3
+    if valya_score > 0:
+        author "На танцпол пришли Лёня и Валя"
+        show lyonya_usual at left with dissolve
+        show ang_usual with dissolve
+        show valya_usual at right with dissolve
+    else:
+        author "На танцпол пришел Лёня"
+        show lyonya_usual at left with dissolve
+        show ang_usual at right with dissolve
     return
 
 # За барной стойкой с Валей
@@ -1481,6 +1629,10 @@ label scene_bar_valya:
     ну-у-у, просто мне друг"
     valya "Я просто поняла :)"
     grisha "Пошлите лучше потанцуем"
+    scene dance_floor with fade
+    play music disco_2 fadein 1 fadeout 1 volume 0.3
+    show lyonya_usual at left with dissolve
+    show valya_usual at right with dissolve
     return
 
 # За барной стойкой с Лёней
@@ -1502,6 +1654,9 @@ label scene_bar_lyonya:
     ну-у-у, просто мне друг"
     lyonya "Я просто понял :)"
     grisha "Пошли лучше потанцуем"
+    scene dance_floor with fade
+    play music disco_2 fadein 1 fadeout 1 volume 0.3
+    show lyonya_usual with dissolve
     return
 
 # Конец клубешника
