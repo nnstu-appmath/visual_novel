@@ -1,0 +1,38 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/main.rpy", line 230, in script call
+    call third_year
+  File "game/third_year.rpy", line 8, in script call
+    call scene_36
+  File "game/third_year.rpy", line 1150, in script call
+    call scene_39
+  File "game/third_year.rpy", line 1346, in script call
+    call dance_angelina
+  File "game/third_year.rpy", line 1444, in script
+    Гgrisha "......................."
+Exception: Sayer 'Гgrisha' is not defined.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/main.rpy", line 230, in script call
+    call third_year
+  File "game/third_year.rpy", line 8, in script call
+    call scene_36
+  File "game/third_year.rpy", line 1150, in script call
+    call scene_39
+  File "game/third_year.rpy", line 1346, in script call
+    call dance_angelina
+  File "game/third_year.rpy", line 1444, in script
+    Гgrisha "......................."
+  File "C:\Users\Dkot\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 881, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\Dkot\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 774, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'Гgrisha' is not defined.
+
+Windows-10-10.0.18363 AMD64
+Ren'Py 8.0.3.22090809
+Grisha help 1.0
+Sat Nov  5 01:42:29 2022
