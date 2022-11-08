@@ -279,7 +279,7 @@ screen quick_menu():
             yalign 1.0
 
             textbutton _("Назад") action Rollback()
-            textbutton _("Настройки") action ShowMenu('preferences')
+            textbutton _("Меню") action ShowMenu('preferences')
             textbutton _("Сохранить") action ShowMenu('save')
             textbutton _("История") action ShowMenu('history')
             #textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
@@ -347,10 +347,10 @@ screen navigation():
 
         textbutton _("Об игре") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Помощь не необходима и не относится к мобильным устройствам.
-            textbutton _("Помощь") action ShowMenu("help")
+            #textbutton _("Помощь") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
@@ -380,7 +380,7 @@ screen main_menu():
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
     ## заменять этот.
     tag menu
-    add Movie(play="/gui/main_menu.mpeg")
+    add Movie(play="/gui/main_menu.mpg")
     #add gui.main_menu_background
 
     ## Эта пустая рамка затеняет главное меню.
@@ -578,14 +578,15 @@ screen about():
 
         vbox:
 
-            label "[config.name!t]"
-            text _("Версия [config.version!t]\n")
+            label "Гриша, помоги!"
+            #text _("Версия [config.version!t]\n")
 
             ## gui.about обычно установлено в options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Сделано с помощью {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            #text _("Сделано с помощью {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n")
+            text _("Все материалы игры используются не в коммерческих целях")
 
 
 style about_label is gui_label
@@ -797,14 +798,14 @@ screen preferences():
                                 textbutton _("Тест") action Play("sound", config.sample_sound)
 
 
-                    if config.has_voice:
-                        label _("Громкость голоса")
+                    #if config.has_voice:
+                        #label _("Громкость голоса")
 
-                        hbox:
-                            bar value Preference("voice volume")
+                        #hbox:
+                            #bar value Preference("voice volume")
 
-                            if config.sample_voice:
-                                textbutton _("Тест") action Play("voice", config.sample_voice)
+                            #if config.sample_voice:
+                                #textbutton _("Тест") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing

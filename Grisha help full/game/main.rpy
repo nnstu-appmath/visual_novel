@@ -100,7 +100,7 @@ init:
     image phone_map = "/background/1_september/phone_map.png"
     image aud = "/background/1_september/auditorium.jpg"
     image black = "/background/1_september/black.jpg"
-    image art_demo = "/background/1_september/art.jpg"
+    image art_demo = "/background/1_september/art_demo.jpg"
 
     # 1 курс
     image bg_autumn = "/background/1_year/autumn.jpg"
@@ -114,7 +114,7 @@ init:
     image aud_blur = "/background/1_september/auditorium_blur.jpg"
     image shop = "/background/1_year/shop.jpg"
     image tables = "/background/1_year/tables.jpg"
-    image art_1_year = "/background/1_september/art.jpg"
+    image art_1_year = "/background/1_september/art_demo.jpg"
 
     # Экзамен Пряморукова
     image exam_pryam_start = "/background/1_year/exam_pryam_start.jpg"
@@ -152,8 +152,8 @@ init:
     image photo_valya = "/background/2_year/photo_valya.png"
     image virgin_club = "/background/2_year/virgin_club.jpg"
     image club_unitech = "/background/2_year/club_unitech.jpg"
-    image art_2_year_cool = "/background/1_september/art.jpg"
-    image art_2_year_sad = "/background/1_september/art.jpg"
+    image art_2_year_cool = "/background/1_september/art_demo.jpg"
+    image art_2_year_sad = "/background/1_september/art_demo.jpg"
     image screen_george = "/background/2_year/screen_george.png"
 
     # 3 курс
@@ -186,7 +186,7 @@ init:
 
     # Спрайты Лёни
     image lyonya_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('lyonya'))
-    #image lyonya_confused = At("/sprites/lyonya/lyonya_confused.png", sprite_highlight('lyonya'))
+    image lyonya_confused = At("/sprites/lyonya/lyonya_confused.png", sprite_highlight('lyonya'))
     #image lyonya_confused_winter = At("/sprites/lyonya/lyonya_confused_winter.png", sprite_highlight('lyonya'))
     #image lyonya_emotional = At("/sprites/lyonya/lyonya_emotional.png", sprite_highlight('lyonya'))
     #image lyonya_emotional_winter = At("/sprites/lyonya/lyonya_emotional_winter.png", sprite_highlight('lyonya'))

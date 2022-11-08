@@ -11,6 +11,7 @@ label first_september:
 
 # Сцена 1 - Гриша дома
 label scene_1:
+    stop music
     scene black with fade
     author "Выберите уровень сложности"
     menu:
@@ -19,11 +20,11 @@ label scene_1:
             "Характер решает все":
                 $ difficult = False
     pause(1.0)
+    play music neutral_1 fadein 1
     if difficult:
         pass
     else:
         scene bg_vk_lenta with fade
-        play music neutral_1 fadein 1
         grisha "О, тест \"какая ты свинка по жизни\". Надо пройти."
         menu:
             "Умный чел. Интеллектуальный":
