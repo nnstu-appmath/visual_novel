@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Инициализация
 ################################################################################
 
@@ -205,9 +205,13 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 1), false=[If(timer_score, true=Hide('countdown'), false=[Hide('countdown'), Call(timer_call)])])
+    bar value time range timer_range xalign 0.5 yalign 0.95 xmaximum 300 at alpha_dissolve
+
+
 screen choice(items):
     style_prefix "choice"
-
     vbox:
         if(len(items)==3 or len(items)==2):
             for i in items:
@@ -274,14 +278,14 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Назад") action Rollback()
+            #textbutton _("Назад") action Rollback()
+            textbutton _("Меню") action ShowMenu('preferences')
+            textbutton _("Сохранить") action ShowMenu('save')
             textbutton _("История") action ShowMenu('history')
             #textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
             #textbutton _("Авто") action Preference("auto-forward", "toggle")
-            textbutton _("Сохранить") action ShowMenu('save')
             #textbutton _("Б.Сохр") action QuickSave()
             #textbutton _("Б.Загр") action QuickLoad()
-            textbutton _("Опции") action ShowMenu('preferences')
 
 
 ## Данный код гарантирует, что экран быстрого меню будет показан в игре в любое
@@ -343,10 +347,10 @@ screen navigation():
 
         textbutton _("Об игре") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Помощь не необходима и не относится к мобильным устройствам.
-            textbutton _("Помощь") action ShowMenu("help")
+            #textbutton _("Помощь") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
@@ -373,13 +377,11 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-    python:
-        renpy.music.play("music/main.mp3", channel = "music", fadein = 1, fadeout = 1)
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
     ## заменять этот.
     tag menu
-
-    add gui.main_menu_background
+    add Movie(play="/gui/main_menu.mpg")
+    #add gui.main_menu_background
 
     ## Эта пустая рамка затеняет главное меню.
     frame:
@@ -442,7 +444,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     style_prefix "game_menu"
 
     if main_menu:
-        add gui.main_menu_background
+        add Movie(play="/gui/main_menu.mpg")
+        #add gui.main_menu_background
     else:
         add gui.game_menu_background
 
@@ -575,14 +578,15 @@ screen about():
 
         vbox:
 
-            label "[config.name!t]"
-            text _("Версия [config.version!t]\n")
+            label "Гриша, помоги!"
+            #text _("Версия [config.version!t]\n")
 
             ## gui.about обычно установлено в options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Сделано с помощью {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            #text _("Сделано с помощью {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n")
+            text _("Все материалы игры используются не в коммерческих целях")
 
 
 style about_label is gui_label
@@ -794,14 +798,14 @@ screen preferences():
                                 textbutton _("Тест") action Play("sound", config.sample_sound)
 
 
-                    if config.has_voice:
-                        label _("Громкость голоса")
+                    #if config.has_voice:
+                        #label _("Громкость голоса")
 
-                        hbox:
-                            bar value Preference("voice volume")
+                        #hbox:
+                            #bar value Preference("voice volume")
 
-                            if config.sample_voice:
-                                textbutton _("Тест") action Play("voice", config.sample_voice)
+                            #if config.sample_voice:
+                                #textbutton _("Тест") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing

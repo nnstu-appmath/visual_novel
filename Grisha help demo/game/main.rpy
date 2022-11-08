@@ -1,3 +1,6 @@
+init python:
+    config.rollback_enabled = False
+
 # Определение персонажей игры
 define author = Character(None)
 define grisha = Character('Гриша', color="#4682B4")

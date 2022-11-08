@@ -63,7 +63,7 @@ label scene_3:
     show bg_doors with fade
     show phone_map at left with dissolve
     grisha "Так, а какая аудитория? 31-А-56. Боже, что это и где это?
-    Прямо, прямо, налево, налево, направо, направо. Кому нужны эти карты?
+    Прямо, прямо, налево, прямо, прямо, направо. Кому нужны эти карты?
     Сам найду."
     hide phone_map
     call doors_1
@@ -137,14 +137,14 @@ label doors_4:
     scene bg_doors with fade
     menu:
         "Налево":
-            call doors_5
-        "Прямо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_4
+        "Прямо":
+            call doors_5
         "Направо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
@@ -165,14 +165,14 @@ label doors_5:
                 call wrong_way
             call doors_5
         "Прямо":
+            call doors_6
+        "Направо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
                 call scream
             else:
                 call wrong_way
             call doors_5
-        "Направо":
-            call doors_6
     return
 
 label doors_6:
