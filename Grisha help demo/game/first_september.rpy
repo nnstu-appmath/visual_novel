@@ -1,10 +1,10 @@
 # 1 сентября
 label first_september:
-    call scene_1
-    call scene_2
-    call scene_3
-    call scene_4
-    call scene_5
+    call scene_1 from _call_scene_1
+    call scene_2 from _call_scene_2
+    call scene_3 from _call_scene_3
+    call scene_4 from _call_scene_4
+    call scene_5 from _call_scene_5
     author "Спасибо за прохождение демо-версии игры!"
     scene black with fade
     pause (2.0)
@@ -66,7 +66,7 @@ label scene_3:
     Прямо, прямо, налево, прямо, прямо, направо. Кому нужны эти карты?
     Сам найду."
     hide phone_map
-    call doors_1
+    call doors_1 from _call_doors_1
     return
 
 label doors_1:
@@ -76,19 +76,19 @@ label doors_1:
         "Налево":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream
             else:
-                call wrong_way
-            call doors_1
+                call wrong_way from _call_wrong_way
+            call doors_1 from _call_doors_1_1
         "Прямо":
-            call doors_2
+            call doors_2 from _call_doors_2
         "Направо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_1
             else:
-                call wrong_way
-            call doors_1
+                call wrong_way from _call_wrong_way_1
+            call doors_1 from _call_doors_1_2
     return
 
 label doors_2:
@@ -97,40 +97,40 @@ label doors_2:
         "Налево":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_2
             else:
-                call wrong_way
-            call doors_2
+                call wrong_way from _call_wrong_way_2
+            call doors_2 from _call_doors_2_1
         "Прямо":
-            call doors_3
+            call doors_3 from _call_doors_3
         "Направо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_3
             else:
-                call wrong_way
-            call doors_2
+                call wrong_way from _call_wrong_way_3
+            call doors_2 from _call_doors_2_2
     return
 
 label doors_3:
     scene bg_doors with fade
     menu:
         "Налево":
-            call doors_4
+            call doors_4 from _call_doors_4
         "Прямо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_4
             else:
-                call wrong_way
-            call doors_3
+                call wrong_way from _call_wrong_way_4
+            call doors_3 from _call_doors_3_1
         "Направо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_5
             else:
-                call wrong_way
-            call doors_3
+                call wrong_way from _call_wrong_way_5
+            call doors_3 from _call_doors_3_2
     return
 
 label doors_4:
@@ -139,19 +139,19 @@ label doors_4:
         "Налево":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_6
             else:
-                call wrong_way
-            call doors_4
+                call wrong_way from _call_wrong_way_6
+            call doors_4 from _call_doors_4_1
         "Прямо":
-            call doors_5
+            call doors_5 from _call_doors_5
         "Направо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_7
             else:
-                call wrong_way
-            call doors_4
+                call wrong_way from _call_wrong_way_7
+            call doors_4 from _call_doors_4_2
     return
 
 label doors_5:
@@ -160,19 +160,19 @@ label doors_5:
         "Налево":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_8
             else:
-                call wrong_way
-            call doors_5
+                call wrong_way from _call_wrong_way_8
+            call doors_5 from _call_doors_5_1
         "Прямо":
-            call doors_6
+            call doors_6 from _call_doors_6
         "Направо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_9
             else:
-                call wrong_way
-            call doors_5
+                call wrong_way from _call_wrong_way_9
+            call doors_5 from _call_doors_5_2
     return
 
 label doors_6:
@@ -181,17 +181,17 @@ label doors_6:
         "Налево":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_10
             else:
-                call wrong_way
-            call doors_6
+                call wrong_way from _call_wrong_way_10
+            call doors_6 from _call_doors_6_1
         "Прямо":
             $random = renpy.random.randint(1, 10)
             if random == 1 and not screamer:
-                call scream
+                call scream from _call_scream_11
             else:
-                call wrong_way
-            call doors_6
+                call wrong_way from _call_wrong_way_11
+            call doors_6 from _call_doors_6_2
         "Направо":
             return
     return

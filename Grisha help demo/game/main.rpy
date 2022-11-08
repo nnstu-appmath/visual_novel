@@ -52,5 +52,5 @@ init:
 
 # Main
 label start:
-    call first_september
+    call first_september from _call_first_september
     return
