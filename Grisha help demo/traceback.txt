@@ -1,0 +1,36 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/main.rpy", line 52, in script call
+    call first_september
+  File "game/first_september.rpy", line 5, in script call
+    call scene_3
+  File "game/first_september.rpy", line 65, in script
+    if difficult:
+  File "game/first_september.rpy", line 65, in <module>
+    if difficult:
+NameError: name 'difficult' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/main.rpy", line 52, in script call
+    call first_september
+  File "game/first_september.rpy", line 5, in script call
+    call scene_3
+  File "game/first_september.rpy", line 65, in script
+    if difficult:
+  File "C:\Users\Dkot\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Dkot\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Dkot\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/first_september.rpy", line 65, in <module>
+    if difficult:
+NameError: name 'difficult' is not defined
+
+Windows-10-10.0.18363 AMD64
+Ren'Py 8.0.3.22090809
+Grisha help 1.0
+Sun Nov  6 23:44:50 2022
