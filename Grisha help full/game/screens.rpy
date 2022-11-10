@@ -444,7 +444,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     style_prefix "game_menu"
 
     if main_menu:
-        add Movie(play="/gui/main_menu.mpeg")
+        add Movie(play="/gui/main_menu.mpg")
         #add gui.main_menu_background
     else:
         add gui.game_menu_background

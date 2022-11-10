@@ -482,7 +482,7 @@ label scene_28:
         angelina "Пойдем-те. Уже ничего не исправить."
         $valya_score = -1
         return
-    if lyonya_score == 2 and valya_score == 1:
+    if lyonya_score >= 2 and valya_score == 1:
         menu:
             "Попросить Лёню вспомнить моменты с Валей":
                 $lyonya_score += 1

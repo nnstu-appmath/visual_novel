@@ -55,14 +55,14 @@ label scene_2:
         angelina "Нет, все хорошо"
     else:
         menu:
-            "Гриша: Ой, извини, пожалуйста, не хотел":
+            "\"Ой, извини, пожалуйста, не хотел\"":
                 $ ang_score += 1
                 angelina "Ничего страшного"
                 grisha "Не разбился?"
                 angelina "Нет, все хорошо"
             "Молча пробежать":
                 pass
-            "Гриша: В телефоне меньше залипай":
+            "\"В телефоне меньше залипай\"":
                 hide ang_usual
                 show ang_angry at right with dissolve
                 angelina "Сама разберусь!"
@@ -77,7 +77,7 @@ label scene_3:
     else:
         show phone_map at left with dissolve
         grisha "Так, а какая аудитория? 31-А-56. Боже, что это и где это?
-        Прямо, прямо, налево, налево, направо, направо. Кому нужны эти карты?
+        Прямо, прямо, налево, прямо, прямо, направо. Кому нужны эти карты?
         Сам найду."
         hide phone_map
     call doors_1
@@ -169,8 +169,6 @@ label doors_4:
     scene bg_doors with fade
     menu:
         "Налево":
-            call doors_5
-        "Прямо":
             if difficult == True:
                 $random = renpy.random.randint(1, 5)
             else:
@@ -180,6 +178,8 @@ label doors_4:
             else:
                 call wrong_way
             call doors_4
+        "Прямо":
+            call doors_5
         "Направо":
             if difficult == True:
                 $random = renpy.random.randint(1, 5)
@@ -206,6 +206,8 @@ label doors_5:
                 call wrong_way
             call doors_5
         "Прямо":
+            call doors_6
+        "Направо":
             if difficult == True:
                 $random = renpy.random.randint(1, 5)
             else:
@@ -215,8 +217,6 @@ label doors_5:
             else:
                 call wrong_way
             call doors_5
-        "Направо":
-            call doors_6
     return
 
 label doors_6:

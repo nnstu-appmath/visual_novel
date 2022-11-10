@@ -1,3 +1,6 @@
+#init python:
+#    config.rollback_enabled = False
+
 # Определение персонажей игры
 define author = Character(None)
 define grisha = Character('Гриша', color="#4682B4",callback = name_callback, cb_name = "grisha")
@@ -21,6 +24,7 @@ define girl_club = Character('Девушка', color="#888888", image ='girl_clu
 define studman = Character('Чувак из студсовета', color="#888888", image ='studman', callback = name_callback, cb_name = "studman")
 define alina = Character('Алина', color="#de62df", image ='alina',  callback = name_callback, cb_name = "alina")
 define gay = Character('Парень', color="#caedff", image ='gay',  callback = name_callback, cb_name = "gay")
+define coach = Character('Тренер', color="#888888", image ='coach',  callback = name_callback, cb_name = "coach")
 
 define difficult = False
 
@@ -88,6 +92,7 @@ define audio.zemfira = "/music/zemfira.mp3"
 define audio.lp = "/music/lp.mp3"
 define audio.gradusy = "/music/gradusy.mp3"
 define audio.medlyak = "/music/medlyak.mp3"
+define audio.waltz = "/music/waltz.mp3"
 
 # Инициализация файлов
 init:
@@ -230,9 +235,9 @@ init:
     #image potemkin_usual = At("/sprites/potemkin/potemkin_usual.png", sprite_highlight('potemkin'))
 
     # Алина
-    image alina_usual = At("/sprites/alina/alina_usual.png", sprite_highlight('alina'))
-    image alina_usual_dress = At("/sprites/alina/alina_usual_dress.png", sprite_highlight('alina'))
-    image alina_sad = At("/sprites/alina/alina_sad.png", sprite_highlight('alina'))
+    #image alina_usual = At("/sprites/alina/alina_usual.png", sprite_highlight('alina'))
+    #image alina_usual_dress = At("/sprites/alina/alina_usual_dress.png", sprite_highlight('alina'))
+    #image alina_sad = At("/sprites/alina/alina_sad.png", sprite_highlight('alina'))
 
 # Main
 label start:

@@ -1156,6 +1156,7 @@ label scene_36:
                 $ ang_score += 1
                 call scene_39
     else:
+        $ ang_score += 1
         studman "Ангелина Муравьева! Поздравлем"
         hide studman with dissolve
         play music neutral_3 fadein 1 fadeout 1 volume 0.5
@@ -1662,10 +1663,110 @@ label scene_bar_lyonya:
 # Конец клубешника
 label scene_41:
     author "Спустя пару песен все почувствовали приятную усталость после
-    насыщенного вечера и решили рзаъехаться по домам"
+    насыщенного вечера и решили разъехаться по домам"
     return
 
 # Репетиция бала
 label scene_42:
+    play music neutral_3 fadein 1 fadeout 1 volume 0.5
+    scene baz with fade
+    author "Через неделю был объявлен последний этап конкурса.
+    Хотя суть этапа осталась загадкой для Гриши.
+    Непонятно для чего Алина пригласила его в назначенный день в
+    назначенное время в назначенном месте. Гриша захватил
+    с собой Лёню. А местом оказался большой актовый зал унитеха."
+    show lyonya_usual at left with dissolve
+    show alina_usual at right with dissolve
+    alina "О, привет, ты как раз вовремя, поднимайся на сцену.
+    Ты же будешь моим партнером по танцам?"
+    grisha "Каким танцам?"
+    alina "Ну это же бал. Вальс танцевать будем. Вместе. Так что?"
+    if ang_score >= 5:
+        author "Ангелина замечает Гришу и подбегает к нему."
+        show ang_usual with dissolve
+        angelina "О, Гриш, как хорошо, что ты пришел, пошли уже."
+        grisha "Куда?"
+        angelina "Танцевать вальс."
+        grisha "Да вы че сговорились..."
+        angelina "В смысле? Я же тебе говорила пару дней
+        назад, что мне нужен партнер по танцам."
+        grisha "Э-э-э..."
+        angelina "Так что?"
+        menu:
+            "Стать партнером Ангелины":
+                $ ang_score += 1
+                alina "Лёнь, может ты тогда станешь партнером моим?"
+                lyonya "Э-э-э, я танцевать не умею."
+                if valya_score > 0:
+                    lyonya "У меня вообще-то есть Валя..."
+                    grisha "Чего-о-о? :)"
+                    hide lyonya_usual
+                    show lyonya_confused at left
+                    lyonya "Э-э-э-э..."
+                alina "Ну, Лёнь, кто еще меня выручит кроме тебя?
+                У меня ведь больше никого нет, да и репетиция
+                уже вот-вот начнется..."
+                lyonya ".................."
+                alina "Давай, пойдем"
+                author "Алина за руку утаскивает Лёню на сцену."
+                hide lyonya_confused with dissolve
+                hide alina_usual with dissolve
+                hide ang_usual with dissolve
+                play music waltz fadein 1 fadeout 1 volume 0.7
+                author "Начинается репетиция. Тренер по танцам ставит партнеров
+                и проговаривает действия."
+                coach "Не забывайте, что в вальсе мужчина всегда ведет.
+                Начинаем с правой ноги и движемся по кругу."
+                call scene_43_angelina
+            "Стать партнером Алины":
+                $ alina_score += 1
+                hide ang_usual
+                show ang_annoy
+                angelina "Ты че офигел?! Я тебя первая пригласила!"
+                grisha "Алина ко мне сегодня первая подошла..."
+                angelina "А я два дня назад!"
+                alina "Я ему еще неделю назад сказала куда прийти. Гриша, пошли!"
+                angelina "Лёнь, ну ты то мне поможешь?"
+                lyonya "Э-э-э, я танцевать не умею."
+                if valya_score > 0:
+                    lyonya "У меня вообще-то есть Валя..."
+                    grisha "Чего-о-о? :)"
+                    hide lyonya_usual
+                    show lyonya_confused at left
+                    lyonya "Э-э-э-э..."
+                angelina "Лёня!"
+                hide lyonya_confused
+                show lyonya_usual at left
+                lyonya "Ладно..........."
+                hide lyonya_usual with dissolve
+                hide alina_usual with dissolve
+                hide ang_annoy with dissolve
+                play music waltz fadein 1 fadeout 1 volume 0.7
+                author "Начинается репетиция. Тренер по танцам ставит партнеров
+                и проговаривает действия."
+                coach "Не забывайте, что в вальсе мужчина всегда ведет.
+                Начинаем с правой ноги и движемся по кругу."
+                call scene_43_alina
+    else:
+        grisha "Хорошо, пошли"
+        $ alina_score += 1
+        hide lyonya_usual with dissolve
+        hide alina_usual with dissolve
+        play music waltz fadein 1 fadeout 1 volume 0.7
+        author "Начинается репетиция. Тренер по танцам ставит партнеров
+        и проговаривает действия. Гриша заметил, что Лёня танцует
+        с Ангелиной."
+        coach "Не забывайте, что в вальсе мужчина всегда ведет.
+        Начинаем с правой ноги и движемся по кругу."
+        call scene_43_alina
+    return
 
+# Гриша - танцевальный партнер Ангелины
+label scene_43_angelina:
+    show ang_usual with dissolve
+    return
+
+# Гриша - танцевальный партнер Алины
+label scene_43_alina:
+    show alina_usual with dissolve
     return
