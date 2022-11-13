@@ -533,14 +533,15 @@ label scene_13_exam_3q:
     return
 
 label scene_13_exam_3q_Res:
-    if exam_pryam_3q == False:
-        if check==False:
+    if not exam_pryam_3q:
+        if not check:
             if exam_pryam_1q and exam_pryam_2q:
                 scene exam_pryam_2_3_grisha_1_3_pryam with hpunch
             if (exam_pryam_1q and not exam_pryam_2q) or (not exam_pryam_1q and exam_pryam_2q):
                 scene exam_pryam_1_3_grisha_2_3_pryam with hpunch
             if not exam_pryam_1q and not exam_pryam_2q:
                 scene exam_pryam_0_grisha_full_pryam with hpunch
+                show pryamorukov_angry at right
                 grisha "Ой..."
                 grisha "Дела отстой."
                 pryamorukov "Бестолочь... И  чему только совремённая школа учит?

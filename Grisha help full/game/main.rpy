@@ -45,6 +45,9 @@ define diplom = 0
 define detective = False
 define time_detective = False
 define alina_score = 0
+define dance_partner_ang = False
+define dance_partner_alina = False
+define love = False
 
 # Баллы экзаменов
 define exam_pryam_1q = False
@@ -93,6 +96,7 @@ define audio.lp = "/music/lp.mp3"
 define audio.gradusy = "/music/gradusy.mp3"
 define audio.medlyak = "/music/medlyak.mp3"
 define audio.waltz = "/music/waltz.mp3"
+define audio.solemn = "/music/solemn.mp3"
 
 # Инициализация файлов
 init:
@@ -175,6 +179,11 @@ init:
     image forest = "/background/3_year/forest.jpg"
     image viktorina = "/background/3_year/viktorina.jpg"
     image cafe = "/background/3_year/cafe.jpg"
+    image baz = "/background/3_year/baz.jpg"
+    image flower_store = "/background/3_year/flower_store.jpg"
+    image art_3_year_ang_win = "/background/1_september/art_demo.jpg"
+    image art_3_year_defeat = "/background/1_september/art_demo.jpg"
+    image art_3_year_alina_win = "/background/1_september/art_demo.jpg"
 
     # Инициализация спрайтов
     # Спрайты Ангелины
@@ -217,7 +226,7 @@ init:
     #image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
     #image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
     #image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
-    image girl_club = At("/sprites/other/girl_club.png", sprite_highlight('girl_club'))
+    #image girl_club = At("/sprites/other/girl_club.png", sprite_highlight('girl_club'))
     #image studman = At("/sprites/other/studman.png", sprite_highlight('studman'))
     #image gay = At("/sprites/other/gay.png", sprite_highlight('gay'))
 
