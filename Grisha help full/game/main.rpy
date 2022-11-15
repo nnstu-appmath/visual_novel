@@ -25,8 +25,8 @@ define studman = Character('Чувак из студсовета', color="#88888
 define alina = Character('Алина', color="#de62df", image ='alina',  callback = name_callback, cb_name = "alina")
 define gay = Character('Парень', color="#caedff", image ='gay',  callback = name_callback, cb_name = "gay")
 define coach = Character('Тренер', color="#888888", image ='coach',  callback = name_callback, cb_name = "coach")
-
-define difficult = False
+define zhurkin = Character('Журкин', color="#888888", image ='zhurkin',  callback = name_callback, cb_name = "zhurkin")
+define sokratova = Character('Сократова', color="#888888", image ='sokratova',  callback = name_callback, cb_name = "sokratova")
 
 # Черты характера Гриши
 define grisha_smart = False
@@ -35,6 +35,7 @@ define grisha_romantic = False
 define grisha_kind = False
 
 # Ключевые баллы
+define difficult = False
 define screamer = False
 define ang_score = 0
 define lyonya_score = 0
@@ -66,6 +67,9 @@ define exam_internet_1 = False
 define exam_internet_2 = False
 define exam_internet_3 = False
 define exam_potemkin = 0
+define call_lyonya = False
+define fifty_fifty = False
+define gosexam = 0
 
 # Таймер
 define time = 0
@@ -77,6 +81,7 @@ define timer_score = False
 define audio.neutral_1 = "/music/neutral_1.mp3"
 define audio.neutral_2 = "/music/neutral_2.mp3"
 define audio.neutral_3 = "/music/neutral_3.mp3"
+define audio.neutral_4 = "/music/neutral_4.mp3"
 define audio.disco_1 = "/music/disco_1.mp3"
 define audio.disco_2 = "/music/disco_2.mp3"
 define audio.fighting = "/music/fighting.mp3"
@@ -97,6 +102,11 @@ define audio.gradusy = "/music/gradusy.mp3"
 define audio.medlyak = "/music/medlyak.mp3"
 define audio.waltz = "/music/waltz.mp3"
 define audio.solemn = "/music/solemn.mp3"
+define audio.mill_start = "/music/mill_start.mp3"
+define audio.mill_ques = "/music/mill_ques.mp3"
+define audio.mill_right = "/music/mill_right.mp3"
+define audio.mill_wrong = "/music/mill_wrong.mp3"
+define audio.mill_call = "/music/mill_call.mp3"
 
 # Инициализация файлов
 init:
@@ -185,8 +195,21 @@ init:
     image art_3_year_defeat = "/background/1_september/art_demo.jpg"
     image art_3_year_alina_win = "/background/1_september/art_demo.jpg"
 
+    # 4 курс
+    image park = "/background/4_year/park.jpg"
+    image mill_1_ques = "/background/4_year/mill_1_ques.png"
+    image mill_2_ques = "/background/4_year/mill_2_ques.png"
+    image mill_3_ques = "/background/4_year/mill_3_ques.png"
+    image mill_4_ques = "/background/4_year/mill_4_ques.png"
+    image mill_5_ques = "/background/4_year/mill_5_ques.png"
+    image mill_1_ques_50 = "/background/4_year/mill_1_ques_50.png"
+    image mill_2_ques_50 = "/background/4_year/mill_2_ques_50.png"
+    image mill_3_ques_50 = "/background/4_year/mill_3_ques_50.png"
+    image mill_4_ques_50 = "/background/4_year/mill_4_ques_50.png"
+    image mill_5_ques_50 = "/background/4_year/mill_5_ques_50.png"
+
     # Инициализация спрайтов
-    # Спрайты Ангелины
+    # Ангелина
     image ang_usual = At("/sprites/angelina/angelina_usual.png", sprite_highlight('angelina'))
     image ang_angry = At("/sprites/angelina/angelina_angry.png", sprite_highlight('angelina'))
     #image ang_usual_winter = At("/sprites/angelina/angelina_usual_winter.png", sprite_highlight('angelina'))
@@ -198,7 +221,7 @@ init:
     #image ang_happiness_dress = At("/sprites/angelina/angelina_happiness_dress.png", sprite_highlight('angelina'))
     #image ang_sad_dress = At("/sprites/angelina/angelina_sad_dress.png", sprite_highlight('angelina'))
 
-    # Спрайты Лёни
+    # Лёня
     image lyonya_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('lyonya'))
     image lyonya_confused = At("/sprites/lyonya/lyonya_confused.png", sprite_highlight('lyonya'))
     #image lyonya_confused_winter = At("/sprites/lyonya/lyonya_confused_winter.png", sprite_highlight('lyonya'))
@@ -211,7 +234,7 @@ init:
     #image lyonya_usual_suit = At("/sprites/lyonya/lyonya_usual_suit.png", sprite_highlight('lyonya'))
     image boy_usual = At("/sprites/lyonya/lyonya_usual.png", sprite_highlight('boy'))
 
-    # Спрайты Вали
+    # Валя
     image valya_usual = At("/sprites/valya/valya_usual.png", sprite_highlight('valya'))
     #image valya_hypnosis = At("/sprites/valya/valya_hypnosis.png", sprite_highlight('valya'))
     #image valya_annoy = At("/sprites/valya/valya_annoy.png", sprite_highlight('valya'))
@@ -221,14 +244,17 @@ init:
     #image defender = At("/sprites/sanya/sanya_angry.png", sprite_highlight('defender'))
     #image sanya_angry = At("/sprites/sanya/sanya_angry.png", sprite_highlight('sanya'))
     #image sanya_usual = At("/sprites/sanya/sanya_usual.png", sprite_highlight('sanya'))
-    #image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
+    image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
     #image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
     #image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
     #image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
     #image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
     #image girl_club = At("/sprites/other/girl_club.png", sprite_highlight('girl_club'))
+    #image potemkin_usual = At("/sprites/potemkin/potemkin_usual.png", sprite_highlight('potemkin'))
     #image studman = At("/sprites/other/studman.png", sprite_highlight('studman'))
     #image gay = At("/sprites/other/gay.png", sprite_highlight('gay'))
+    #image zhurkin = At("/sprites/other/zhurkin.png", sprite_highlight('zhurkin'))
+    #image sokratova = At("/sprites/other/sokratova.png", sprite_highlight('sokratova'))
 
     # Пряморуков
     #image pryamorukov_usual = At("/sprites/pryamorukov/pryamorukov_usual.png", sprite_highlight('pryamorukov'))
@@ -239,9 +265,6 @@ init:
     #image fichaev_usual = At("/sprites/fichaev/fichaev_usual.png", sprite_highlight('fichaev'))
     #image fichaev_sad = At("/sprites/fichaev/fichaev_sad.png", sprite_highlight('fichaev'))
     #image fichaev_wound = At("/sprites/fichaev/fichaev_wound.png", sprite_highlight('fichaev'))
-
-    # Потемкин
-    #image potemkin_usual = At("/sprites/potemkin/potemkin_usual.png", sprite_highlight('potemkin'))
 
     # Алина
     #image alina_usual = At("/sprites/alina/alina_usual.png", sprite_highlight('alina'))
@@ -254,6 +277,7 @@ label start:
     call first_year
     call second_year
     call third_year
+    call fourth_year
     return
 
 transform alpha_dissolve:

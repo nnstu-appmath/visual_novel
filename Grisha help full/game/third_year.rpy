@@ -1838,7 +1838,7 @@ label scene_45_angelina:
     show lyonya_usual_suit at left with dissolve
     author "Мероприятие уже началось. Лёня сидит с букетом гипсофилов для Алины."
     if valya_score > 0:
-        show valya_usual at right with dissolve
+        show valya_annoy at right with dissolve
         author "Валя сидит рядом и не очень довольна тем, что Лёня будет танцевать
         с Алиной"
         lyonya "Валь, ты что такая хмурая?"
@@ -1858,7 +1858,7 @@ label scene_45_angelina:
     grisha "Она мне не девушка. Я просто уверен, что Ангелина победит"
     hide lyonya_usual_suit with dissolve
     if valya_score > 0:
-        hide valya_usual with dissolve
+        hide valya_annoy with dissolve
     show studman with dissolve
     studman "Добрый вечер, леди и джентельмены! Мы приветствуем вас на финале
     конкурса красоты \"Мисс Унитех 2022\". Сегодня девушки покажут нам свои
