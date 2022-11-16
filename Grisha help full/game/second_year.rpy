@@ -132,7 +132,7 @@ label scene_20:
 
 # Бар "Белочка"
 label scene_22:
-    scene bar_squirrel with fade
+    scene bar_ with fade
     author "Бар \"Белочка\". Довольно странное название для бара.
     Ребят же это не смутило и они пошли туда разузнать о Вале."
     show ang_usual at right with dissolve

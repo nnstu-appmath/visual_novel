@@ -49,6 +49,8 @@ define alina_score = 0
 define dance_partner_ang = False
 define dance_partner_alina = False
 define love = False
+define best_end = 0
+define worth_end = 0
 
 # Баллы экзаменов
 define exam_pryam_1q = False
@@ -187,6 +189,7 @@ init:
     image tablo_internet_2 = "/background/3_year/tablo_internet_2.png"
     image tablo_internet_3 = "/background/3_year/tablo_internet_3.png"
     image forest = "/background/3_year/forest.jpg"
+    image plakat = "/background/3_year/plakat.png"
     image viktorina = "/background/3_year/viktorina.jpg"
     image cafe = "/background/3_year/cafe.jpg"
     image baz = "/background/3_year/baz.jpg"
@@ -207,6 +210,11 @@ init:
     image mill_3_ques_50 = "/background/4_year/mill_3_ques_50.png"
     image mill_4_ques_50 = "/background/4_year/mill_4_ques_50.png"
     image mill_5_ques_50 = "/background/4_year/mill_5_ques_50.png"
+    image ring = "/background/4_year/ring.png"
+    image art_best_end = "/background/4_year/art_best_end.jpg"
+    image art_neutral_end = "/background/4_year/art_neutral_end.jpg"
+    image art_neutral_end_valya = "/background/4_year/art_neutral_end_valya.jpg"
+    image art_bad_end = "/background/4_year/art_bad_end.jpg"
 
     # Инициализация спрайтов
     # Ангелина

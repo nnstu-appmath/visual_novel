@@ -10,10 +10,8 @@ label fourth_year:
     call scene_56
     call scene_57
     call scene_58
-    call credits
+    #$ renpy.movie_cutscene("/images/background/4_year/credits.mpg")
     pause(4.0)
-    scene black with fade
-    pause (2.0)
     return
 
 # Журкин пугает всех госами
@@ -1079,24 +1077,242 @@ label scene_54:
     scene cafe with fade
     author "Экзамены пройдены. Почти все закончилось. Ребята решили встретиться
     в кафе, чтобы отпраздновать окончание обучения и подвести итоги всех 4 лет."
+    if ang_score >= 8 and dance_partner_ang:
+        show lyonya_usual at left with dissolve
+        if valya_score > 0:
+            show valya_usual with dissolve
+        show ang_usual at right with dissolve
+        angelina "Мое самое хорошее воспоминание за эти 4 года это, конечно
+        же конкурс \"Мисс Унитех 2022\". Эта победа многое значит для меня.
+        Гриша, спасибо, что помог мне тогда"
+        if love:
+            $ best_end += 1
+            grisha "Да не за что, любимая"
+            angelina "Я тебя люблю"
+            grisha "И я тебя"
+            lyonya "Фу, меня сейчас стошнит"
+            $ renpy.notify("Концовка Ангелины: \"Любовь-морковь\"")
+            pause(1.0)
+        else:
+            grisha "Да не за что. Друзьям всегда помогают"
+            lyonya "Ты тогда была прекрасна в платье. Хорошо, что ты танцевала
+            с Гришей, а не со мной, я бы тебе все ноги отдавил"
+            if valya_score > 0:
+                valya " Да уж, танцевать тектоник у тебя выходит лучше, чем вальс"
+            $ renpy.notify("Концовка Ангелины: \"Хорошие ДРУЗЬЯ\"")
+            pause(1.0)
+    elif ang_score < 8:
+        if valya_score > 0:
+            show lyonya_usual at left with dissolve
+            show valya_usual at right with dissolve
+        else:
+            show lyonya_usual with dissolve
+        author "Но Ангелина даже не пришла на эту встречу. Она все еще обижается
+        на Гришу."
+        author "Ведь она не выиграла в конкурсе из-за Гриши"
+        lyonya "Зря ты так поступил тогда"
+        grisha "В смысле?"
+        if dance_partner_ang:
+            lyonya "Ну Ангелина тебе намекала, что ты ей нравишься, а ты даже
+            внимание на это не обратил. Ну хотя бы танцевал лучше, Ангелина бы
+            выиграла и все было бы хорошо. А так ни себе, ни людям"
+            grisha "Мне жаль, но давайте больше не будем говорить об Ангелине.
+            Проехали"
+        elif alina_score >= 6 and dance_partner_alina:
+            lyonya "Ангелину ты знаешь много лет, она тебя просила о помощи,
+            а ты повелся на дешевые подкаты незнакомки, которая тебя еще и кинула"
+            grisha "Кто ж знал. Давайте больше не будем говорить об Ангелине.
+            Проехали"
+        elif alina_score < 6 and dance_partner_alina:
+            $ worth_end += 1
+            lyonya "Тебя о помощи просили две девушки, а ты ни одной из них не
+            помог"
+            grisha "Так получилось. Давайте больше не будем говорить о них.
+            Проехали"
+        $ renpy.notify("Концовка Ангелины: \"Ни себе, ни людям\"")
+        pause(1.0)
+    if lyonya_score >= 2 and valya_score > 0:
+        $ best_end += 1
+        grisha "Ну а вы, голубки, что у вас?"
+        hide lyonya_usual
+        show lyonya_confused at left
+        lyonya "Э-э-э"
+        valya "Все хорошо, завтра поедем к моим родителям знакомиться"
+        lyonya "Я стесняюсь. А вдруг я им не понравлюсь..."
+        valya "Ничего страшного, они тебя не съедят"
+        grisha "Какие вы милые. Не зря я вас свел"
+        hide lyonya_confused
+        show lyonya_usual at left
+        hide valya_usual with dissolve
+        hide ang_usual with dissolve
+        lyonya "Пс-с-с, Гриш"
+        grisha "Что?"
+        lyonya "Смотри"
+        show ring with dissolve
+        pause (2.0)
+        hide ring with dissolve
+        grisha "Вау, ты что собираешься делать предложение Вале?"
+        lyonya "Да, завтра как раз когда к родителям поедем"
+        grisha "Круто, счастья вам. Детишек там побольше"
+        lyonya "Какие детишки???"
+        grisha "Шучу"
+        show valya_usual with dissolve
+        show ang_usual at right with dissolve
+        author "Ребята посидели еще некоторое время и разошлись"
+        $ renpy.notify("Концовка Лёни: \"Эх, свадьба пела и плясала\"")
+        pause(2.0)
+    elif lyonya_score < 2 and valya_score > 0:
+        grisha "Ну а вы, голубки, что у вас?"
+        hide lyonya_usual
+        show lyonya_sad at left
+        lyonya "Э-э-э, ничего"
+        valya "А что должно быть? У меня вообще-то парень есть"
+        grisha "Я что зря сводил вас все эти годы???"
+        hide lyonya_sad
+        show lyonya_usual at left
+        valya "А ты сводил?"
+        grisha "Ну вы же такие милые"
+        hide lyonya_usual
+        show lyonya_sad at left
+        lyonya "Мы просто друзья."
+        grisha "Да ну вас"
+        author "Ребята посидели еще некоторое время и разошлись"
+        $ renpy.notify("Концовка Лёни: \"Одинокий волк\"")
+        pause(2.0)
+    elif valya_score < 0:
+        $ worth_end += 1
+        grisha "Ты что так погрустнел?"
+        hide lyonya_usual
+        show lyonya_sad at left
+        lyonya "Вспомнил, что Вали рядом с нами нет"
+        grisha "Ну она же не умерла"
+        lyonya "И что??? Она была для меня всем! А мы ее не спасли.
+        Ты ее не спас!"
+        grisha "Почему я? Почему я должен всем помогать? Кто поможет мне,
+        например???"
+        hide lyonya_sad
+        show lyonya_angry at left
+        lyonya "Да что ты за друг после этого? Я все эти годы терпел, но больше
+        не могу! Мне противно с тобой общаться..."
+        hide lyonya_angry
+        author "Лёня встает из-за стола и уходит из кафе."
+        grisha "Ну и ну..."
+        $ renpy.notify("Концовка Лёни: \"ДЕЛА ОТСТОЙ\"")
+        pause(2.0)
     return
 
-#
+# Перед вручением дипломов
 label scene_55:
-
+    scene central_entrance with fade
+    author "Последний день в Унитехе. Объявление результатов обучения. Кто же
+    получит заветный диплом, а кого отчислят за неуспеваемость?"
     return
 
-#
+# Вручение дипломов - концовки Гриши
 label scene_56:
-
+    play music solemn fadein 1 fadeout 1 volume 0.5
+    scene baz with fade
+    show zhurkin at left with dissolve
+    zhurkin "Рад видеть всех, кто дошел до этого момента. Сегодня мы объявим тех,
+    кто благодаря своим знаниям, получит красный диплом, кто получит синий, а
+    кого мы отчислим со справкой. Или даже без. Начнем торжественное вручение
+    ваших дипломов. Пойдем по списку."
+    author "Журкин начал перечислять всех одногруппников ребят. И наконец дошел
+    до буквы Л"
+    if valya_score > 0:
+        zhurkin "Диплом бакалавра получает"
+        zhurkin "Лаврентьева Валентина"
+        show valya_usual at right with dissolve
+        author "Валя выходит на сцену за своим дипломом"
+        valya "Ура, наконец-то."
+        hide zhurkin with dissolve
+        hide valya_usual with dissolve
+        show lyonya_usual at left with dissolve
+        show valya_usual at right with dissolve
+        lyonya "Поздравляю!"
+        valya "Спасибо"
+        hide lyonya_usual with dissolve
+        hide valya_usual with dissolve
+        show zhurkin at left with dissolve
+    zhurkin "Диплом бакалавра с отличием получает"
+    zhurkin "Лукьянов Леонид"
+    show lyonya_happiness at right with dissolve
+    author "Лёня поднимается на сцену и забирает свой заслуженный диплом"
+    lyonya "О божечки! Спасибо!"
+    hide lyonya_happiness with dissolve
+    zhurkin "Диплом бакалавра с отличием получает"
+    zhurkin "Муравьева Ангелина"
+    show ang_happiness at right with dissolve
+    author "Ангелина тоже забирает свой заслуженный диплом"
+    hide ang_happiness with dissolve
+    hide zhurkin with dissolve
+    show lyonya_usual at left with dissolve
+    show ang_happiness at right with dissolve
+    lyonya "Поздравляю!"
+    grisha "Поздравляю"
+    angelina "Спасибо!"
+    hide lyonya_usual with dissolve
+    hide ang_happiness with dissolve
+    show zhurkin at left with dissolve
+    zhurkin "И последний"
+    if diplom >= 4 and exam_score >= 3:
+        $ best_end += 1
+        zhurkin "Григорий Орехов получает диплом бакалавра с отличием"
+        author "Гриша поднялся на сцену и получил красный диплом"
+        grisha "Ничего себе я гений"
+        zhurkin "На этой ноте наше мероприятие подходит к концу. Всем спасибо.
+        Удачи в поисках работы!"
+        $ renpy.notify("Концовка Гриши: \"Гений\"")
+        pause(2.0)
+    elif exam_score >= 3 and diplom < 4:
+        zhurkin "Григорий Орехов получает диплом бакалавра"
+        author "Гриша поднялся на сцену и получил свой диплом"
+        grisha "Класс"
+        zhurkin "На этой ноте наше мероприятие подходит к концу. Всем спасибо.
+        Удачи в поисках работы!"
+        $ renpy.notify("Концовка Гриши: \"Хорошая работа, Гриша\"")
+        pause(2.0)
+    elif exam_score < 3:
+        $ worth_end += 1
+        zhurkin "Григорий Орехов отчислен за неуспеваемость. Справку получите
+        в деканате"
+        grisha ".............."
+        grisha "Не получилось, не фортануло"
+        zhurkin "На этой ноте наше мероприятие подходит к концу. Всем спасибо.
+        Удачи в поисках работы!"
+        $ renpy.notify("Концовка Гриши: \"Не фортануло\"")
+        pause(2.0)
     return
 
-#
+# Конец игры
 label scene_57:
-
+    play music neutral_4 fadein 1 fadeout 1 volume 0.5
+    scene central_entrance with fade
+    grisha "Даже не верю, что это все закончилось. Интересный, конечно, был опыт."
+    scene central_entrance_blur with Dissolve(3)
     return
 
-#
+# Общие концовки игры
 label scene_58:
-
+    if best_end == 3:
+        scene art_best_end with fade
+        $ renpy.notify("Вы прошли игру. Ваша концовка: \"Мегахарош\"")
+        pause(5.0)
+    elif best_end < 3 and worth_end < 3:
+        if valya_score > 0:
+            scene art_neutral_end_valya with fade
+        else:
+            scene art_neutral_end with fade
+        $ renpy.notify("Вы прошли игру. Ваша концовка: \"Стандарт\"")
+        pause(5.0)
+    elif worth_end == 3:
+        scene art_bad_end with fade
+        $ renpy.notify("Вы прошли игру. Ваша концовка: \"Мегаотстой\"")
+        pause(5.0)
+    stop music
+    scene black with fade
+    author "Любой Ваш выбор влияет на дальнейшую судьбу."
+    author "Но можно ли изменить исход событий?.."
+    scene black with dissolve
+    pause (2.0)
     return
