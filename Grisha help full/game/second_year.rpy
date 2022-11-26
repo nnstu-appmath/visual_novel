@@ -30,13 +30,13 @@ label scene_19:
     grisha "Это что за покемон?"
     hide potemkin_usual with dissolve
     show lyonya_usual at left with dissolve
-    lyonya "Новый препод. Странный немного, до работ докапывается."
+    lyonya "Новый препод. Странный немного, до работ докапывается"
     show ang_usual at right with dissolve
     angelina "Так, Орехов тут, Лукьянов тоже, а где Лаврентьева?"
     lyonya "Я не видел Валю сегодня"
     grisha "Я тоже"
-    angelina "В сети она была позавчера в 10 вечера."
-    lyonya "Я ей позвоню сейчас."
+    angelina "В сети она была позавчера в 10 вечера"
+    lyonya "Я ей позвоню сейчас"
     hide lyonya_usual with dissolve
     pause (1.5)
     show lyonya_emotional at left with dissolve
@@ -54,11 +54,11 @@ label scene_19:
     show lyonya_emotional at left with dissolve
     show ang_usual at right with dissolve
     grisha "Да че ты распереживался так, может уехала куда-то
-    или спит человек, отдыхает."
+    или спит человек, отдыхает"
     lyonya "Нет-нет-нет!!! Я уверен что, что-то случилось. Пожалуйста,
     давайте вместе ее поищем!"
     angelina "Ты себя накручиваешь. Что с ней может случиться?
-    Гриша прав, всего один день прошел, успокойся."
+    Гриша прав, всего один день прошел, успокойся"
     hide ang_usual with dissolve
     hide lyonya_emotional with dissolve
     show potemkin_usual with dissolve
@@ -85,7 +85,7 @@ label scene_20:
     scene before_aud with fade
     show lyonya_emotional at left with dissolve
     lyonya "Ребят, вас действительно не волнует, что случилось с Валей?"
-    grisha "Да, господи, ты паникер."
+    grisha "Да, господи, ты паникер"
     show ang_usual at right with dissolve
     angelina "Ну, хотя может Леня и прав... Можно к ней съездить и проверить"
     hide lyonya_emotional
@@ -107,13 +107,13 @@ label scene_20:
             angelina "Мы одногруппники Вали. Ее сегодня не было на парах,
             не отвечает на звонки, мы начали беспокоиться. Не знаешь где она?"
             roommate "Она позавчера ушла куда-то вечером с рюкзаком с
-            вещами. Сказала, что идет в бар \"Белочка\"."
+            вещами. Сказала, что идет в бар \"Белочка\""
             grisha "А ты ничего подозрительного не замечала в последнее время?"
             roommate "Ну она стала апатичная, менее разговорчивая. Бормочет
-            себе под нос что-то. Но я не стала лезть."
+            себе под нос что-то. Но я не стала лезть"
             grisha "Тогда поедем туда?"
-            angelina "Можно. Ладно, спасибо."
-            roommate "Не за что."
+            angelina "Можно. Ладно, спасибо"
+            roommate "Не за что"
             play sound close_door
             lyonya "А я ведь говорил что что-то случилось! Говорил!!!"
         "Зачем беспокоить человека, может она хочет побыть одна":
@@ -125,8 +125,8 @@ label scene_20:
             show lyonya_emotional at left with dissolve
             show ang_usual at right with dissolve
             angelina "В общем соседка сказала, что Валя ушла в бар \"Белочка\"
-            позавчера вечером."
-            grisha "Ну давайте туда скатаемся, выбора особо нет у нас."
+            позавчера вечером"
+            grisha "Ну давайте туда скатаемся, выбора особо нет у нас"
             lyonya "А я ведь говорил что что-то случилось! Говорил!!!"
     return
 

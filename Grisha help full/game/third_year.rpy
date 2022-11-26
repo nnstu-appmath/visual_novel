@@ -750,8 +750,12 @@ label music_1:
     author "Кто автор?"
     play music sigame fadein 1 fadeout 1 volume 0.5
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -777,8 +781,12 @@ label music_2:
     author "Кто автор?"
     play music sigame fadein 1 fadeout 1 volume 0.5
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -804,8 +812,12 @@ label music_3:
     author "Кто автор?"
     play music sigame volume 0.5
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -828,8 +840,12 @@ label music_3:
 label cinema_1:
     author "В каком фильме НЕ летали на космическом корабле?"
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -852,8 +868,12 @@ label cinema_1:
 label cinema_2:
     author "Какой актер сыграл Бэтмена в последней экранизации?"
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -876,8 +896,12 @@ label cinema_2:
 label cinema_3:
     author "Из какого фильма знаменитая фраза \"ДИМОООООН!\""
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -900,8 +924,12 @@ label cinema_3:
 label internet_1:
     author "Что означает слово «пехота» на молодежном сленге?"
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -924,8 +952,12 @@ label internet_1:
 label internet_2:
     author "Какая из частей GTA самая продаваемая?"
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
@@ -949,8 +981,12 @@ label internet_2:
 label internet_3:
     author "Какая из этих компаний самая крупная в Корее?"
     $ timer_score = False
-    $ time = 300
-    $ timer_range = 300
+    if  difficult:
+        $ time = 300
+        $ timer_range = 300
+    else:
+        $ time = 450
+        $ timer_range = 450
     $ timer_call = 'ans_time'
     show screen countdown
     menu:
