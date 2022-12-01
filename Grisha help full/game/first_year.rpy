@@ -137,8 +137,8 @@ label scene_9:
     hide barman with dissolve
     author "Рядом с барной стойкой начинается словесная потасовка
     каких-то людей. Гриша решает подслушать о чем идет речь."
-    show abuser at right with dissolve
-    show defender at left with dissolve
+    show abuser at left with dissolve
+    show defender at right with dissolve
     abuser "Валя куртизанка, все об этом знают!"
     defender "Мамка твоя куртизанка, рот свой не розевай на даму!"
     abuser "Да я ее в туалет позову и она согласится!"
@@ -165,9 +165,9 @@ label scene_9:
         defender "Давай катись отсюда"
         hide abuser with dissolve
         hide lyonya_usual with dissolve
-        show lyonya_usual at right with dissolve
+        show lyonya_usual at left with dissolve
         hide defender
-        show sanya_usual at left
+        show sanya_usual at right
         sanya "Тебя как зовут хоть?"
         grisha "Гриша"
         sanya "Я - Саня. Если вдруг помощь какая понадобится, зови,
@@ -201,9 +201,9 @@ label scene_9:
                 defender "Давай катись отсюда"
                 hide abuser with dissolve
                 hide lyonya_usual with dissolve
-                show lyonya_usual at right with dissolve
+                show lyonya_usual at left with dissolve
                 hide defender
-                show sanya_usual at left
+                show sanya_usual at right
                 sanya "Тебя как зовут хоть?"
                 grisha "Гриша"
                 sanya "Я - Саня. Если вдруг помощь какая понадобится, зови,

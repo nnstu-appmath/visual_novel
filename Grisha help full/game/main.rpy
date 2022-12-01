@@ -249,11 +249,11 @@ init:
     image girl_usual = At("/sprites/valya/valya_usual.png", sprite_highlight('girl'))
 
     # Второстепенные персонажи
-    #image defender = At("/sprites/sanya/sanya_angry.png", sprite_highlight('defender'))
+    image defender = At("/sprites/sanya/sanya_angry.png", sprite_highlight('defender'))
     image sanya_angry = At("/sprites/sanya/sanya_angry.png", sprite_highlight('sanya'))
     image sanya_usual = At("/sprites/sanya/sanya_usual.png", sprite_highlight('sanya'))
     image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
-    #image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
+    image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
     #image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
     #image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
     #image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
