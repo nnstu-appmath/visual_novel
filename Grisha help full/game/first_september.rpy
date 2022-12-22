@@ -77,7 +77,7 @@ label scene_3:
     else:
         show phone_map at left with dissolve
         grisha "Так, а какая аудитория? 31-А-56. Боже, что это и где это?
-        Прямо, прямо, налево, прямо, прямо, направо. Кому нужны эти карты?
+        Кому нужны эти карты?
         Сам найду"
         hide phone_map
     call doors_1

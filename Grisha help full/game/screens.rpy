@@ -336,6 +336,8 @@ screen navigation():
         textbutton _("Загрузить") action ShowMenu("load")
 
         textbutton _("Настройки") action ShowMenu("preferences")
+        
+        textbutton _("Концовки") action ShowMenu("ending")
 
         if _in_replay:
 
@@ -1529,3 +1531,118 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+################################################################################
+## Концовки
+################################################################################
+screen ending():
+    tag menu
+
+    use game_menu(_("Концовки"), scroll="viewport"):
+        style_prefix "ending"
+        vbox:
+            hbox:
+                box_wrap True
+                grid 3 1:
+                    xfill True
+                    vbox:
+                        
+                        label _("Ангелина")
+                        null height gui.pref_spacing
+                        if (persistent.ending_angelina_love):
+                            text _("Любовь-Морковь")
+                        else:
+                            text _("ЗАКРЫТО")
+                        null height (0.5 * gui.pref_spacing)
+                        if (persistent.ending_angelina_friend):
+                            text _("Хорошие ДРУЗЬЯ")
+                        else:
+                            text _("ЗАКРЫТО")
+                        null height (0.5 * gui.pref_spacing)
+                        if (persistent.ending_angelina_enemy):
+                            text _("Ни себе, ни людям")
+                        else:
+                            text _("ЗАКРЫТО")
+
+                    vbox:
+
+                        label _("Лёня и Валя")
+                        null height gui.pref_spacing
+                        if (persistent.ending_lyonya_wedding):
+                            text _("Эх, свадьба пела и")
+                            text _("плясала")
+                        else:
+                            text _("ЗАКРЫТО")
+                        null height (0.5 * gui.pref_spacing)
+                        if (persistent.ending_lyonya_wolf):
+                            text _("Одинокий волк")
+                        else:
+                            text _("ЗАКРЫТО")
+                        null height (0.5 * gui.pref_spacing)
+                        if (persistent.ending_lyonya_otstoi):
+                            text _("ДЕЛА ОТСТОЙ")
+                        else:
+                            text _("ЗАКРЫТО")
+
+                    vbox:
+    
+                        label _("Гриша")
+                        null height gui.pref_spacing
+                        if (persistent.ending_grisha_genius):
+                            text _("Гений")
+                        else:
+                            text _("ЗАКРЫТО")
+                        null height (0.5 * gui.pref_spacing)
+                        if (persistent.ending_grisha_good_job):
+                            text _("Хорошая работа, Гриша")
+                        else:
+                            text _("ЗАКРЫТО")
+                        null height (0.5 * gui.pref_spacing)
+                        if (persistent.ending_grisha_loser):
+                            text _("Не фортануло")
+                        else:
+                            text _("ЗАКРЫТО")
+
+            null height (4 * gui.pref_spacing)
+
+            hbox:
+                box_wrap True
+                vbox:
+                    label _("Общие концовки")
+                    null height gui.pref_spacing
+                    grid 3 2:
+                        spacing gui.slot_spacing
+                        xfill True
+                        if (persistent.ending_best):
+
+                            add "images/art_best_end.jpg"
+                        else:
+
+                            add "images/lock.png"
+                        if (persistent.ending_standart):
+
+                            add "images/art_neutral_end.jpg"
+                        elif (persistent.ending_standart_valya):
+
+                            add "images/art_neutral_end_valya.jpg"
+                        else:
+
+                            add "images/lock.png"
+                        if (persistent.ending_worth):
+
+                            add "images/art_bad_end.jpg"
+                        else:
+
+                            add "images/lock.png"
+                        if (persistent.ending_best):
+                            text _("Мегахарош")
+                        else:
+                            text _("ЗАКРЫТО")
+                        if (persistent.ending_standart or persistent.ending_standart_valya):
+                            text _("Стандарт")
+                        else:
+                            text _("ЗАКРЫТО")
+                        if (persistent.ending_worth):
+                            text _("Мегаотстой")
+                        else:
+                            text _("ЗАКРЫТО")
+style ending_text is gui_prompt_text

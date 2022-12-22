@@ -211,7 +211,7 @@ label scene_9:
                 grisha "Ок, буду иметь ввиду"
                 hide sanya
                 show sanya_usual
-                sanya "Давай, бывай."
+                sanya "Давай, бывай"
                 hide sanya_usual with dissolve
             "Промолчать, чтобы не получить по лицу":
                 defender "Да слыш, пёс"
@@ -281,10 +281,11 @@ label scene_12:
         к контрольной, потому что уверен в себе."
         grisha "Так ну первое я знаю, второе можно
         посмотреть в тетради, третье - подумаю"
+        return
     else:
         author "На одном из занятий Пряморуков дает
         контрольную работу. Гриша же как всегда,
-        особо не готовился и надеется списать."
+        не готовился и надеется списать."
         grisha "Так ну это я точно не решу,
         второе - даже слов таких не знаю, третье - ну-у-у...
         Ладно, надо подумать у кого списать"
@@ -321,9 +322,8 @@ label scene_12_a:
         grisha "Дела отстой"
     author "Совершенно незаметно вся очередь уже прошла
     и около аудитории остался только он. Из аудитории
-    выходит Лёня с очень удивленным видом и достаточно
-    ошарашенный."
-    show lyonya_usual at right with dissolve
+    выходит Лёня с удивленным видом."
+    show lyonya_usual at left with dissolve
     grisha "Ну че-че там?"
     lyonya "Н-н-ничего... Иди, ты последний остался"
     grisha "Ладно, от судьбы не убежать"
@@ -338,13 +338,16 @@ label scene_13:
     menu:
         "Сдавать экзамен":
             call scene_13_exam_1q
-            call scene_13_exam_2q
-            call scene_13_exam_3q
+            if exam_score != 1:
+                call scene_13_exam_2q
+                call scene_13_exam_3q
         "Попробовать выкрутиться":
             if ang_score == 0 and not undergraduate:
                 author "К сожалению, у Гриши нет друзей,
                 которые ему могли бы помочь."
                 call scene_13_exam_1q
+                call scene_13_exam_2q
+                call scene_13_exam_3q
             if ang_score == 0 and undergraduate:
                 author "Гриша решил воспользоваться шпорами,
                 которые дал ему Саня"
@@ -363,19 +366,10 @@ label scene_13:
 
 # Экзамен Пряморукова
 label scene_13_exam_1q:
-    if  difficult:
-        $ time = 300
-        $ timer_range = 300
-    else:
-        $ time = 450
-        $ timer_range = 450
     play music fighting fadein 1 fadeout 1 volume 0.5
     scene exam_pryam_start with fade
     hide pryamorukov_usual with dissolve
     show pryamorukov_usual at right with dissolve
-    $ timer_score = False
-    $ check = False
-    $ timer_call = 'scene_13_exam_1q_Res'
     author "Резко над головой у Пряморукова появляется шкала здоровья.
     Гриша замечает, что у него тоже она появилась."
     grisha "чего..."
@@ -404,12 +398,24 @@ label scene_13_exam_1q:
         hide pryamorukov_usual
         show pryamorukov_wound at right
         pryamorukov "Ой..."
+        hide pryamorukov_wound
+        show pryamorukov_usual at right
         pryamorukov "Не ожидал такого уровня знаний."
         grisha "Да я тоже не ожидал, честно говоря"
         $ exam_score += 1
         $ diplom += 1
+        return
     else:
         show screen countdown
+        if  difficult:
+            $ time = 300
+            $ timer_range = 300
+        else:
+            $ time = 450
+            $ timer_range = 450
+        $ timer_score = False
+        $ check = False
+        $ timer_call = 'scene_13_exam_1q_Res'
         menu:
             "Елисей Ростиславович":
                 $ timer_score = True
@@ -426,7 +432,7 @@ label scene_13_exam_1q:
                 $ exam_pryam_1q = False
                 hide screen countdown
                 call scene_13_exam_1q_Res
-    return
+        return
 
 
 label scene_13_exam_1q_Res:
@@ -442,6 +448,7 @@ label scene_13_exam_1q_Res:
             $ check = True
             $ timer_score = False
             return
+        return
     else:
             scene exam_pryam_full_grisha_2_3_pryam
             hide pryamorukov_usual
@@ -497,6 +504,7 @@ label scene_13_exam_2q_Res:
             $ check = True
             $ timer_score = False
             return
+        return
     else:
         if exam_pryam_1q:
             scene exam_pryam_full_grisha_1_3_pryam
@@ -596,8 +604,8 @@ label scene_14:
     scene before_aud with fade
     play music neutral_2 fadein 1 fadeout 1 volume 0.5
     author "Прошел первый экзамен Гриши в унитехе."
-    show lyonya_usual at right with dissolve
-    if ang_score == 1 or undergraduate:
+    show lyonya_usual at left with dissolve
+    if ang_score == 1 or undergraduate or diplom == 1:
         grisha "Изи. Леня, когда там следующий экзамен?"
     else:
         grisha "Фух, наконец-то это закончилось. Кажется, старшекурсники не врали,
@@ -663,6 +671,8 @@ label scene_17:
                 author "К сожалению, у Гриши нет друзей,
                 которые ему могли бы помочь."
                 call scene_17_exam_1q
+                call scene_17_exam_2q
+                call scene_17_exam_3q
             if lyonya_score == 0 and undergraduate == True:
                 author "Гриша решил воспользоваться шпорами,
                 которые дал ему Саня"
@@ -730,6 +740,7 @@ label scene_17_exam_1q_Res:
             $ timer_score = False
             $ check = True
             return
+        return
     else:
         scene exam_fich_full_grisha_2_3_fich
         hide fichaev_usual
@@ -783,6 +794,7 @@ label scene_17_exam_2q_Res:
             $check = True
             $ timer_score = False
             return
+        return
     else:
         if exam_fich_1q:
             scene exam_fich_full_grisha_1_3_fich
