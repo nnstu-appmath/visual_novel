@@ -1,17 +1,16 @@
 # 4 курс
 label fourth_year:
-    call scene_47
-    call scene_48
-    call scene_50
-    call scene_51
-    call scene_52
-    call scene_54
-    call scene_55
-    call scene_56
-    call scene_57
-    call scene_58
+    call scene_47 from _call_scene_47
+    call scene_48 from _call_scene_48
+    call scene_50 from _call_scene_50
+    call scene_51 from _call_scene_51
+    call scene_52 from _call_scene_52
+    call scene_54 from _call_scene_54
+    call scene_55 from _call_scene_55
+    call scene_56 from _call_scene_56
+    call scene_57 from _call_scene_57
+    call scene_58 from _call_scene_58
     $ renpy.movie_cutscene("/images/background/4_year/credits.mpg")
-    pause(4.0)
     return
 
 # Журкин пугает всех госами
@@ -254,7 +253,7 @@ label scene_52:
     sokratova "СЕМЬ часов"
     grisha "Дела отстой"
     sokratova "УДАЧИ!"
-    call gosexam_1
+    call gosexam_1 from _call_gosexam_1
     return
 
 # 1 вопрос
@@ -285,16 +284,16 @@ label gosexam_1:
                     grisha "Да она ее и придумала, наверное. Ладно, спасибо"
                     menu:
                         "а":
-                            call gosexam_wrong
+                            call gosexam_wrong from _call_gosexam_wrong
                         "б":
                             $ gosexam += 1
                             play sound mill_right fadein 1 fadeout 1 volume 0.5
                             sokratova "МОЛОДЕЦ! Следующий вопрос"
-                            call gosexam_2
+                            call gosexam_2 from _call_gosexam_2
                         "в":
-                            call gosexam_wrong
+                            call gosexam_wrong from _call_gosexam_wrong_1
                         "г":
-                            call gosexam_wrong
+                            call gosexam_wrong from _call_gosexam_wrong_2
                 "50/50":
                     $ fifty_fifty = True
                     show mill_1_ques_50 at left with dissolve
@@ -303,22 +302,22 @@ label gosexam_1:
                             $ gosexam += 1
                             play sound mill_right fadein 1 fadeout 1 volume 0.5
                             sokratova "МОЛОДЕЦ! Следующий вопрос"
-                            call gosexam_2
+                            call gosexam_2 from _call_gosexam_2_1
                         "в":
-                            call gosexam_wrong
+                            call gosexam_wrong from _call_gosexam_wrong_3
         "Выбрать ответ":
             menu:
                 "а":
-                    call gosexam_wrong
+                    call gosexam_wrong from _call_gosexam_wrong_4
                 "б":
                     $ gosexam += 1
                     play sound mill_right fadein 1 fadeout 1 volume 0.5
                     sokratova "МОЛОДЕЦ! Следующий вопрос"
-                    call gosexam_2
+                    call gosexam_2 from _call_gosexam_2_2
                 "в":
-                    call gosexam_wrong
+                    call gosexam_wrong from _call_gosexam_wrong_5
                 "г":
-                    call gosexam_wrong
+                    call gosexam_wrong from _call_gosexam_wrong_6
     return
 
 # 2 вопрос
@@ -340,22 +339,22 @@ label gosexam_2:
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                        call gosexam_3
+                        call gosexam_3 from _call_gosexam_3
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_7
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_8
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                        call gosexam_3
+                        call gosexam_3 from _call_gosexam_3_1
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_9
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_10
     elif not call_lyonya and fifty_fifty:
         menu:
             "Звонок Лёне":
@@ -382,42 +381,42 @@ label gosexam_2:
                 grisha "Ладно, спасибо"
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_11
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                        call gosexam_3
+                        call gosexam_3 from _call_gosexam_3_2
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_12
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_13
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_14
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                        call gosexam_3
+                        call gosexam_3 from _call_gosexam_3_3
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_15
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_16
     elif call_lyonya and fifty_fifty:
         menu:
             "а":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_17
             "б":
                 $ gosexam += 1
                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                call gosexam_3
+                call gosexam_3 from _call_gosexam_3_4
             "в":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_18
             "г":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_19
     elif not call_lyonya and not fifty_fifty:
         menu:
             "Взять подсказку":
@@ -446,16 +445,16 @@ label gosexam_2:
                         grisha "Ладно, спасибо"
                         menu:
                             "а":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_20
                             "б":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                call gosexam_3
+                                call gosexam_3 from _call_gosexam_3_5
                             "в":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_21
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_22
                     "50/50":
                         $ fifty_fifty = True
                         show mill_2_ques_50 at left with dissolve
@@ -464,22 +463,22 @@ label gosexam_2:
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                call gosexam_3
+                                call gosexam_3 from _call_gosexam_3_6
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_23
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_24
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                        call gosexam_3
+                        call gosexam_3 from _call_gosexam_3_7
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_25
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_26
     return
 
 # 3 вопрос
@@ -498,23 +497,23 @@ label gosexam_3:
                 show mill_3_ques_50 at left with dissolve
                 menu:
                     "б":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_27
                     "г":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
-                        call gosexam_4
+                        call gosexam_4 from _call_gosexam_4
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_28
                     "б":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_29
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_30
                     "г":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
-                        call gosexam_4
+                        call gosexam_4 from _call_gosexam_4_1
     elif not call_lyonya and fifty_fifty:
         menu:
             "Звонок Лёне":
@@ -537,39 +536,39 @@ label gosexam_3:
                 grisha "Ладно, спасибо"
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_31
                     "б":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_32
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_33
                     "г":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
-                        call gosexam_4
+                        call gosexam_4 from _call_gosexam_4_2
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_34
                     "б":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_35
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_36
                     "г":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
-                        call gosexam_4
+                        call gosexam_4 from _call_gosexam_4_3
     elif call_lyonya and fifty_fifty:
         menu:
             "а":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_37
             "б":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_38
             "в":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_39
             "г":
                 $ gosexam += 1
                 play sound mill_right fadein 1 fadeout 1 volume 0.5
-                call gosexam_4
+                call gosexam_4 from _call_gosexam_4_4
     elif not call_lyonya and not fifty_fifty:
         menu:
             "Взять подсказку":
@@ -594,37 +593,37 @@ label gosexam_3:
                         grisha "Ладно, спасибо"
                         menu:
                             "а":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_40
                             "б":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_41
                             "в":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_42
                             "г":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
-                                call gosexam_4
+                                call gosexam_4 from _call_gosexam_4_5
                     "50/50":
                         $ fifty_fifty = True
                         show mill_3_ques_50 at left with dissolve
                         menu:
                             "б":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_43
                             "г":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
-                                call gosexam_4
+                                call gosexam_4 from _call_gosexam_4_6
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_44
                     "б":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_45
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_46
                     "г":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
-                        call gosexam_4
+                        call gosexam_4 from _call_gosexam_4_7
     return
 
 # 4 вопрос
@@ -650,22 +649,22 @@ label gosexam_4:
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                call gosexam_5
+                                call gosexam_5 from _call_gosexam_5
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_47
                     "Выбрать ответ":
                         menu:
                             "а":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                call gosexam_5
+                                call gosexam_5 from _call_gosexam_5_1
                             "б":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_48
                             "в":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_49
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_50
             elif not call_lyonya and fifty_fifty:
                 menu:
                     "Звонок Лёне":
@@ -694,39 +693,39 @@ label gosexam_4:
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                call gosexam_5
+                                call gosexam_5 from _call_gosexam_5_2
                             "б":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_51
                             "в":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_52
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_53
                     "Выбрать ответ":
                         menu:
                             "а":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                call gosexam_5
+                                call gosexam_5 from _call_gosexam_5_3
                             "б":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_54
                             "в":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_55
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_56
             elif call_lyonya and fifty_fifty:
                 menu:
                     "а":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                        call gosexam_5
+                        call gosexam_5 from _call_gosexam_5_4
                     "б":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_57
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_58
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_59
             elif not call_lyonya and not fifty_fifty:
                 menu:
                     "Взять подсказку":
@@ -757,13 +756,13 @@ label gosexam_4:
                                         $ gosexam += 1
                                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                        call gosexam_5
+                                        call gosexam_5 from _call_gosexam_5_5
                                     "б":
-                                        call gosexam_wrong
+                                        call gosexam_wrong from _call_gosexam_wrong_60
                                     "в":
-                                        call gosexam_wrong
+                                        call gosexam_wrong from _call_gosexam_wrong_61
                                     "г":
-                                        call gosexam_wrong
+                                        call gosexam_wrong from _call_gosexam_wrong_62
                             "50/50":
                                 $ fifty_fifty = True
                                 show mill_4_ques_50 at left with dissolve
@@ -772,22 +771,22 @@ label gosexam_4:
                                         $ gosexam += 1
                                         play sound mill_right fadein 1 fadeout 1 volume 0.5
                                         sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                        call gosexam_5
+                                        call gosexam_5 from _call_gosexam_5_6
                                     "г":
-                                        call gosexam_wrong
+                                        call gosexam_wrong from _call_gosexam_wrong_63
                     "Выбрать ответ":
                         menu:
                             "а":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
                                 sokratova "МОЛОДЕЦ! Следующий вопрос"
-                                call gosexam_5
+                                call gosexam_5 from _call_gosexam_5_7
                             "б":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_64
                             "в":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_65
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_66
         "Уйти с зачетом":
             play music neutral_4 fadein 1 fadeout 1 volume 0.5
             scene before_aud with fade
@@ -821,7 +820,7 @@ label gosexam_5:
                 show mill_5_ques_50 at left with dissolve
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_67
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -843,7 +842,7 @@ label gosexam_5:
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_68
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -863,9 +862,9 @@ label gosexam_5:
                             grisha "Без помощи друзей даже"
                         grisha "Ладно, удачи, ребят, вы справитесь"
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_69
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_70
     elif not call_lyonya and fifty_fifty:
         menu:
             "Звонок Лёне":
@@ -891,7 +890,7 @@ label gosexam_5:
                 grisha "Ладно, спасибо"
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_71
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -911,13 +910,13 @@ label gosexam_5:
                             grisha "Без помощи друзей даже"
                         grisha "Ладно, удачи, ребят, вы справитесь"
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_72
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_73
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_74
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -937,13 +936,13 @@ label gosexam_5:
                             grisha "Без помощи друзей даже"
                         grisha "Ладно, удачи, ребят, вы справитесь"
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_75
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_76
     elif call_lyonya and fifty_fifty:
         menu:
             "а":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_77
             "б":
                 $ gosexam += 1
                 play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -963,9 +962,9 @@ label gosexam_5:
                     grisha "Без помощи друзей даже"
                 grisha "Ладно, удачи, ребят, вы справитесь"
             "в":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_78
             "г":
-                call gosexam_wrong
+                call gosexam_wrong from _call_gosexam_wrong_79
     elif not call_lyonya and not fifty_fifty:
         menu:
             "Взять подсказку":
@@ -993,7 +992,7 @@ label gosexam_5:
                         grisha "Ладно, спасибо"
                         menu:
                             "а":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_80
                             "б":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -1013,15 +1012,15 @@ label gosexam_5:
                                     grisha "Без помощи друзей даже"
                                 grisha "Ладно, удачи, ребят, вы справитесь"
                             "в":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_81
                             "г":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_82
                     "50/50":
                         $ fifty_fifty = True
                         show mill_5_ques_50 at left with dissolve
                         menu:
                             "а":
-                                call gosexam_wrong
+                                call gosexam_wrong from _call_gosexam_wrong_83
                             "б":
                                 $ gosexam += 1
                                 play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -1043,7 +1042,7 @@ label gosexam_5:
             "Выбрать ответ":
                 menu:
                     "а":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_84
                     "б":
                         $ gosexam += 1
                         play sound mill_right fadein 1 fadeout 1 volume 0.5
@@ -1063,9 +1062,9 @@ label gosexam_5:
                             grisha "Без помощи друзей даже"
                         grisha "Ладно, удачи, ребят, вы справитесь"
                     "в":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_85
                     "г":
-                        call gosexam_wrong
+                        call gosexam_wrong from _call_gosexam_wrong_86
     return
 
 # Гриша не сдал госэкзамен
@@ -1118,14 +1117,14 @@ label scene_54:
             lyonya "Ты тогда была прекрасна в платье. Хорошо, что ты танцевала
             с Гришей, а не со мной, я бы тебе все ноги отдавил"
             if valya_score > 0:
-                valya " Да уж, танцевать тектоник у тебя выходит лучше, чем вальс"
+                valya "Да уж, танцевать тектоник у тебя выходит лучше, чем вальс"
             $ persistent.ending_angelina_friend = True
             $ renpy.notify("Концовка Ангелины: \"Хорошие ДРУЗЬЯ\"")
             pause(1.0)
     elif ang_score < 8:
-        author "Отношения Гриши и Англелины ухудшились. Она даже не пришла на эту встречу, потому что все еще обижается
-        на Гришу."
-        author "Ведь она не выиграла в конкурсе из-за Гриши"
+        author "Отношения Гриши и Ангелины ухудшились. Она даже не пришла на эту встречу, потому что все еще обижается
+        на него."
+        author "Ведь она не выиграла в конкурсе именно из-за него"
         if valya_score > 0:
             show lyonya_usual at left with dissolve
             show valya_usual at right with dissolve
@@ -1137,19 +1136,19 @@ label scene_54:
             lyonya "Ну Ангелина тебе намекала, что ты ей нравишься, а ты даже
             внимание на это не обратил. Ну хотя бы танцевал лучше, Ангелина бы
             выиграла и все было бы хорошо. А так ни себе, ни людям"
-            grisha "Мне жаль, но давайте больше не будем говорить об Ангелине.
+            grisha "Мне жаль, но давай больше не будем говорить об Ангелине.
             Проехали"
         elif alina_score >= 6 and dance_partner_alina:
             $ worth_end += 1
             lyonya "Ангелину ты знаешь много лет, она тебя просила о помощи,
             а ты повелся на дешевые подкаты незнакомки, которая тебя еще и кинула"
-            grisha "Кто ж знал. Давайте больше не будем говорить об Ангелине.
+            grisha "Кто ж знал. Давай больше не будем говорить об Ангелине.
             Проехали"
         elif alina_score < 6 and dance_partner_alina:
             $ worth_end += 1
             lyonya "Тебя о помощи просили две девушки, а ты ни одной из них не
             помог"
-            grisha "Так получилось. Давайте больше не будем говорить о них.
+            grisha "Так получилось. Давай больше не будем говорить о них.
             Проехали"
         $ persistent.ending_angelina_enemy = True
         $ renpy.notify("Концовка Ангелины: \"Ни себе, ни людям\"")
@@ -1223,7 +1222,7 @@ label scene_54:
         show lyonya_angry at left
         lyonya "Да что ты за друг после этого? Я все эти годы терпел, но больше
         не могу! Мне противно с тобой общаться..."
-        hide lyonya_angry
+        hide lyonya_angry with dissolve
         author "Лёня встает из-за стола и уходит из кафе."
         grisha "Ну и ну..."
         $ persistent.ending_lyonya_otstoi = True

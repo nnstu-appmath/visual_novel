@@ -278,7 +278,7 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Назад") action Rollback()
+            #textbutton _("Назад") action Rollback()
             textbutton _("Меню") action ShowMenu('preferences')
             textbutton _("Сохранить") action ShowMenu('save')
             textbutton _("История") action ShowMenu('history')
@@ -755,12 +755,12 @@ screen preferences():
                         textbutton _("Оконный") action Preference("display", "window")
                         textbutton _("Полный") action Preference("display", "fullscreen")
 
-                vbox:
-                    style_prefix "check"
-                    label _("Пропуск")
-                    textbutton _("Всего текста") action Preference("skip", "toggle")
-                    textbutton _("После выборов") action Preference("after choices", "toggle")
-                    textbutton _("Переходов") action InvertSelected(Preference("transitions", "toggle"))
+                #vbox:
+                #    style_prefix "check"
+                #    label _("Пропуск")
+                #    textbutton _("Всего текста") action Preference("skip", "toggle")
+                #    textbutton _("После выборов") action Preference("after choices", "toggle")
+                #    textbutton _("Переходов") action InvertSelected(Preference("transitions", "toggle"))
 
                 ## Дополнительные vbox'ы типа "radio_pref" или "check_pref"
                 ## могут быть добавлены сюда для добавления новых настроек.
@@ -1446,7 +1446,7 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Назад") action Rollback()
+            #textbutton _("Назад") action Rollback()
             textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Авто") action Preference("auto-forward", "toggle")
             textbutton _("Меню") action ShowMenu()

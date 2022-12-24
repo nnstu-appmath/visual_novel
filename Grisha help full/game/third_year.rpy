@@ -1,14 +1,14 @@
 # 3 курс
 label third_year:
-    call scene_31_a
-    call scene_31
-    call scene_32
-    call scene_33
-    call scene_34
-    call scene_35
-    call scene_36
-    call scene_42
-    call scene_46
+    call scene_31_a from _call_scene_31_a
+    call scene_31 from _call_scene_31
+    call scene_32 from _call_scene_32
+    call scene_33 from _call_scene_33
+    call scene_34 from _call_scene_34
+    call scene_35 from _call_scene_35
+    call scene_36 from _call_scene_36
+    call scene_42 from _call_scene_42
+    call scene_46 from _call_scene_46
     pause(4.0)
     scene black with fade
     pause (2.0)
@@ -94,17 +94,17 @@ label scene_32:
 label scene_33:
     scene auditorium with fade
     show potemkin_usual with dissolve
-    potemkin "День добрый! Готовы к экзамену? Пора начинать"
+    potemkin "Готовы к экзамену? Пора начинать"
     grisha "Дела отстой"
     play music sigame fadein 1 fadeout 1 volume 0.5
     hide potemkin_usual with dissolve
     show potemkin_usual at right with dissolve
     show tablo at left with dissolve
-    call exam_sigame
-    call exam_sigame
-    call exam_sigame
-    call exam_sigame
-    call exam_sigame
+    call exam_sigame from _call_exam_sigame
+    call exam_sigame from _call_exam_sigame_1
+    call exam_sigame from _call_exam_sigame_2
+    call exam_sigame from _call_exam_sigame_3
+    call exam_sigame from _call_exam_sigame_4
     if exam_potemkin == 5:
         $exam_score += 1
         $diplom += 1
@@ -127,137 +127,137 @@ label exam_sigame:
                 if exam_cinema_2 and exam_cinema_3:
                     show tablo_cinema_1 at left
                     $ exam_cinema_1 = True
-                    call cinema_1
+                    call cinema_1 from _call_cinema_1
                     return
                 if exam_cinema_1 and exam_cinema_3:
                     show tablo_cinema_2 at left
                     $ exam_cinema_2 = True
-                    call cinema_2
+                    call cinema_2 from _call_cinema_2
                     return
                 if exam_cinema_1 and exam_cinema_2:
                     show tablo_cinema_3 at left
                     $ exam_cinema_3 = True
-                    call cinema_3
+                    call cinema_3 from _call_cinema_3
                     return
                 if exam_cinema_3:
                     menu:
                         "Кино 1":
                             show tablo_cinema_1 at left
                             $ exam_cinema_1 = True
-                            call cinema_1
+                            call cinema_1 from _call_cinema_1_1
                             return
                         "Кино 2":
                             show tablo_cinema_2 at left
                             $ exam_cinema_2 = True
-                            call cinema_2
+                            call cinema_2 from _call_cinema_2_1
                             return
                 if exam_cinema_2:
                     menu:
                         "Кино 1":
                             show tablo_cinema_1 at left
                             $ exam_cinema_1 = True
-                            call cinema_1
+                            call cinema_1 from _call_cinema_1_2
                             return
                         "Кино 3":
                             show tablo_cinema_3 at left
                             $ exam_icinema_3 = True
-                            call cinema_3
+                            call cinema_3 from _call_cinema_3_1
                             return
                 if exam_cinema_1:
                     menu:
                         "Кино 2":
                             show tablo_cinema_2 at left
                             $ exam_cinema_2 = True
-                            call cinema_2
+                            call cinema_2 from _call_cinema_2_2
                             return
                         "Кино 3":
                             show tablo_cinema_3 at left
                             $ exam_cinema_3 = True
-                            call cinema_3
+                            call cinema_3 from _call_cinema_3_2
                             return
                 menu:
                     "Кино 1":
                         show tablo_cinema_1 at left
                         $ exam_cinema_1 = True
-                        call cinema_1
+                        call cinema_1 from _call_cinema_1_3
                         return
                     "Кино 2":
                         show tablo_cinema_2 at left
                         $ exam_cinema_2 = True
-                        call cinema_2
+                        call cinema_2 from _call_cinema_2_3
                         return
                     "Кино 3":
                         show tablo_cinema_3 at left
                         $ exam_cinema_3 = True
-                        call cinema_3
+                        call cinema_3 from _call_cinema_3_3
                         return
             "Интернет":
                 if exam_internet_2 and exam_internet_3:
                     show tablo_internet_1 at left
                     $ exam_internet_1 = True
-                    call internet_1
+                    call internet_1 from _call_internet_1
                     return
                 if exam_internet_1 and exam_internet_3:
                     show tablo_internet_2 at left
                     $ exam_internet_2 = True
-                    call internet_2
+                    call internet_2 from _call_internet_2
                     return
                 if exam_internet_1 and exam_internet_2:
                     show tablo_internet_3 at left
                     $ exam_internet_3 = True
-                    call internet_3
+                    call internet_3 from _call_internet_3
                     return
                 if exam_internet_3:
                     menu:
                         "Интернет 1":
                             show tablo_internet_1 at left
                             $ exam_internet_1 = True
-                            call internet_1
+                            call internet_1 from _call_internet_1_1
                             return
                         "Интернет 2":
                             show tablo_internet_2 at left
                             $ exam_internet_2 = True
-                            call internet_2
+                            call internet_2 from _call_internet_2_1
                             return
                 if exam_internet_2:
                     menu:
                         "Интернет 1":
                             show tablo_internet_1 at left
                             $ exam_internet_1 = True
-                            call internet_1
+                            call internet_1 from _call_internet_1_2
                             return
                         "Интернет 3":
                             show tablo_internet_3 at left
                             $ exam_internet_3 = True
-                            call internet_3
+                            call internet_3 from _call_internet_3_1
                             return
                 if exam_internet_1:
                     menu:
                         "Интернет 2":
                             show tablo_internet_2 at left
                             $ exam_internet_2 = True
-                            call internet_2
+                            call internet_2 from _call_internet_2_2
                             return
                         "Интернет 3":
                             show tablo_internet_3 at left
                             $ exam_internet_3 = True
-                            call internet_3
+                            call internet_3 from _call_internet_3_2
                             return
                 menu:
                     "Интернет 1":
                         show tablo_internet_1 at left
                         $ exam_internet_1 = True
-                        call internet_1
+                        call internet_1 from _call_internet_1_3
                         return
                     "Интернет 2":
                         show tablo_internet_2 at left
                         $ exam_internet_2 = True
-                        call internet_2
+                        call internet_2 from _call_internet_2_3
                         return
                     "Интернет 3":
                         show tablo_internet_3 at left
                         $ exam_internet_3 = True
-                        call internet_3
+                        call internet_3 from _call_internet_3_3
                         return
     if exam_cinema_1 and exam_cinema_2 and exam_cinema_3:
         menu:
@@ -265,137 +265,137 @@ label exam_sigame:
                 if exam_music_2 and exam_music_3:
                     show tablo_music_1 at left
                     $ exam_music_1 = True
-                    call music_1
+                    call music_1 from _call_music_1
                     return
                 if exam_music_1 and exam_music_3:
                     show tablo_music_2 at left
                     $ exam_music_2 = True
-                    call music_2
+                    call music_2 from _call_music_2
                     return
                 if exam_music_1 and exam_music_2:
                     show tablo_music_3 at left
                     $ exam_music_3 = True
-                    call music_3
+                    call music_3 from _call_music_3
                     return
                 if exam_music_3:
                     menu:
                         "Музыка 1":
                             show tablo_music_1 at left
                             $ exam_music_1 = True
-                            call music_1
+                            call music_1 from _call_music_1_1
                             return
                         "Музыка 2":
                             show tablo_music_2 at left
                             $ exam_music_2 = True
-                            call music_2
+                            call music_2 from _call_music_2_1
                             return
                 if exam_music_2:
                     menu:
                         "Музыка 1":
                             show tablo_music_1 at left
                             $ exam_music_1 = True
-                            call music_1
+                            call music_1 from _call_music_1_2
                             return
                         "Музыка 3":
                             show tablo_music_3 at left
                             $ exam_music_3 = True
-                            call music_3
+                            call music_3 from _call_music_3_1
                             return
                 if exam_music_1:
                     menu:
                         "Музыка 2":
                             show tablo_music_2 at left
                             $ exam_music_2 = True
-                            call music_2
+                            call music_2 from _call_music_2_2
                             return
                         "Музыка 3":
                             show tablo_music_3 at left
                             $ exam_music_3 = True
-                            call music_3
+                            call music_3 from _call_music_3_2
                             return
                 menu:
                     "Музыка 1":
                         show tablo_music_1 at left
                         $ exam_music_1 = True
-                        call music_1
+                        call music_1 from _call_music_1_3
                         return
                     "Музыка 2":
                         show tablo_music_2 at left
                         $ exam_music_2 = True
-                        call music_2
+                        call music_2 from _call_music_2_3
                         return
                     "Музыка 3":
                         show tablo_music_3 at left
                         $ exam_music_3 = True
-                        call music_3
+                        call music_3 from _call_music_3_3
                         return
             "Интернет":
                 if exam_internet_2 and exam_internet_3:
                     show tablo_internet_1 at left
                     $ exam_internet_1 = True
-                    call internet_1
+                    call internet_1 from _call_internet_1_4
                     return
                 if exam_internet_1 and exam_internet_3:
                     show tablo_internet_2 at left
                     $ exam_internet_2 = True
-                    call internet_2
+                    call internet_2 from _call_internet_2_4
                     return
                 if exam_internet_1 and exam_internet_2:
                     show tablo_internet_3 at left
                     $ exam_internet_3 = True
-                    call internet_3
+                    call internet_3 from _call_internet_3_4
                     return
                 if exam_internet_3:
                     menu:
                         "Интернет 1":
                             show tablo_internet_1 at left
                             $ exam_internet_1 = True
-                            call internet_1
+                            call internet_1 from _call_internet_1_5
                             return
                         "Интернет 2":
                             show tablo_internet_2 at left
                             $ exam_internet_2 = True
-                            call internet_2
+                            call internet_2 from _call_internet_2_5
                             return
                 if exam_internet_2:
                     menu:
                         "Интернет 1":
                             show tablo_internet_1 at left
                             $ exam_internet_1 = True
-                            call internet_1
+                            call internet_1 from _call_internet_1_6
                             return
                         "Интернет 3":
                             show tablo_internet_3 at left
                             $ exam_internet_3 = True
-                            call internet_3
+                            call internet_3 from _call_internet_3_5
                             return
                 if exam_internet_1:
                     menu:
                         "Интернет 2":
                             show tablo_internet_2 at left
                             $ exam_internet_2 = True
-                            call internet_2
+                            call internet_2 from _call_internet_2_6
                             return
                         "Интернет 3":
                             show tablo_internet_3 at left
                             $ exam_internet_3 = True
-                            call internet_3
+                            call internet_3 from _call_internet_3_6
                             return
                 menu:
                     "Интернет 1":
                         show tablo_internet_1 at left
                         $ exam_internet_1 = True
-                        call internet_1
+                        call internet_1 from _call_internet_1_7
                         return
                     "Интернет 2":
                         show tablo_internet_2 at left
                         $ exam_internet_2 = True
-                        call internet_2
+                        call internet_2 from _call_internet_2_7
                         return
                     "Интернет 3":
                         show tablo_internet_3 at left
                         $ exam_internet_3 = True
-                        call internet_3
+                        call internet_3 from _call_internet_3_7
                         return
     if exam_internet_1 and exam_internet_2 and exam_internet_3:
         menu:
@@ -403,342 +403,342 @@ label exam_sigame:
                 if exam_cinema_2 and exam_cinema_3:
                     show tablo_cinema_1 at left
                     $ exam_cinema_1 = True
-                    call cinema_1
+                    call cinema_1 from _call_cinema_1_4
                     return
                 if exam_cinema_1 and exam_cinema_3:
                     show tablo_cinema_2 at left
                     $ exam_cinema_2 = True
-                    call cinema_2
+                    call cinema_2 from _call_cinema_2_4
                     return
                 if exam_cinema_1 and exam_cinema_2:
                     show tablo_cinema_3 at left
                     $ exam_cinema_3 = True
-                    call cinema_3
+                    call cinema_3 from _call_cinema_3_4
                     return
                 if exam_cinema_3:
                     menu:
                         "Кино 1":
                             show tablo_cinema_1 at left
                             $ exam_cinema_1 = True
-                            call cinema_1
+                            call cinema_1 from _call_cinema_1_5
                             return
                         "Кино 2":
                             show tablo_cinema_2 at left
                             $ exam_cinema_2 = True
-                            call cinema_2
+                            call cinema_2 from _call_cinema_2_5
                             return
                 if exam_cinema_2:
                     menu:
                         "Кино 1":
                             show tablo_cinema_1 at left
                             $ exam_cinema_1 = True
-                            call cinema_1
+                            call cinema_1 from _call_cinema_1_6
                             return
                         "Кино 3":
                             show tablo_cinema_3 at left
                             $ exam_icinema_3 = True
-                            call cinema_3
+                            call cinema_3 from _call_cinema_3_5
                             return
                 if exam_cinema_1:
                     menu:
                         "Кино 2":
                             show tablo_cinema_2 at left
                             $ exam_cinema_2 = True
-                            call cinema_2
+                            call cinema_2 from _call_cinema_2_6
                             return
                         "Кино 3":
                             show tablo_cinema_3 at left
                             $ exam_cinema_3 = True
-                            call cinema_3
+                            call cinema_3 from _call_cinema_3_6
                             return
                 menu:
                     "Кино 1":
                         show tablo_cinema_1 at left
                         $ exam_cinema_1 = True
-                        call cinema_1
+                        call cinema_1 from _call_cinema_1_7
                         return
                     "Кино 2":
                         show tablo_cinema_2 at left
                         $ exam_cinema_2 = True
-                        call cinema_2
+                        call cinema_2 from _call_cinema_2_7
                         return
                     "Кино 3":
                         show tablo_cinema_3 at left
                         $ exam_cinema_3 = True
-                        call cinema_3
+                        call cinema_3 from _call_cinema_3_7
                         return
             "Музыка":
                 if exam_music_2 and exam_music_3:
                     show tablo_music_1 at left
                     $ exam_music_1 = True
-                    call music_1
+                    call music_1 from _call_music_1_4
                     return
                 if exam_music_1 and exam_music_3:
                     show tablo_music_2 at left
                     $ exam_music_2 = True
-                    call music_2
+                    call music_2 from _call_music_2_4
                     return
                 if exam_music_1 and exam_music_2:
                     show tablo_music_3 at left
                     $ exam_music_3 = True
-                    call music_3
+                    call music_3 from _call_music_3_4
                     return
                 if exam_music_3:
                     menu:
                         "Музыка 1":
                             show tablo_music_1 at left
                             $ exam_music_1 = True
-                            call music_1
+                            call music_1 from _call_music_1_5
                             return
                         "Музыка 2":
                             show tablo_music_2 at left
                             $ exam_music_2 = True
-                            call music_2
+                            call music_2 from _call_music_2_5
                             return
                 if exam_music_2:
                     menu:
                         "Музыка 1":
                             show tablo_music_1 at left
                             $ exam_music_1 = True
-                            call music_1
+                            call music_1 from _call_music_1_6
                             return
                         "Музыка 3":
                             show tablo_music_3 at left
                             $ exam_music_3 = True
-                            call music_3
+                            call music_3 from _call_music_3_5
                             return
                 if exam_music_1:
                     menu:
                         "Музыка 2":
                             show tablo_music_2 at left
                             $ exam_music_2 = True
-                            call music_2
+                            call music_2 from _call_music_2_6
                             return
                         "Музыка 3":
                             show tablo_music_3 at left
                             $ exam_music_3 = True
-                            call music_3
+                            call music_3 from _call_music_3_6
                             return
                 menu:
                     "Музыка 1":
                         show tablo_music_1 at left
                         $ exam_music_1 = True
-                        call music_1
+                        call music_1 from _call_music_1_7
                         return
                     "Музыка 2":
                         show tablo_music_2 at left
                         $ exam_music_2 = True
-                        call music_2
+                        call music_2 from _call_music_2_7
                         return
                     "Музыка 3":
                         show tablo_music_3 at left
                         $ exam_music_3 = True
-                        call music_3
+                        call music_3 from _call_music_3_7
                         return
     menu:
         "Музыка":
             if exam_music_2 and exam_music_3:
                 show tablo_music_1 at left
                 $ exam_music_1 = True
-                call music_1
+                call music_1 from _call_music_1_8
                 return
             if exam_music_1 and exam_music_3:
                 show tablo_music_2 at left
                 $ exam_music_2 = True
-                call music_2
+                call music_2 from _call_music_2_8
                 return
             if exam_music_1 and exam_music_2:
                 show tablo_music_3 at left
                 $ exam_music_3 = True
-                call music_3
+                call music_3 from _call_music_3_8
                 return
             if exam_music_3:
                 menu:
                     "Музыка 1":
                         show tablo_music_1 at left
                         $ exam_music_1 = True
-                        call music_1
+                        call music_1 from _call_music_1_9
                         return
                     "Музыка 2":
                         show tablo_music_2 at left
                         $ exam_music_2 = True
-                        call music_2
+                        call music_2 from _call_music_2_9
                         return
             if exam_music_2:
                 menu:
                     "Музыка 1":
                         show tablo_music_1 at left
                         $ exam_music_1 = True
-                        call music_1
+                        call music_1 from _call_music_1_10
                         return
                     "Музыка 3":
                         show tablo_music_3 at left
                         $ exam_music_3 = True
-                        call music_3
+                        call music_3 from _call_music_3_9
                         return
             if exam_music_1:
                 menu:
                     "Музыка 2":
                         show tablo_music_2 at left
                         $ exam_music_2 = True
-                        call music_2
+                        call music_2 from _call_music_2_10
                         return
                     "Музыка 3":
                         show tablo_music_3 at left
                         $ exam_music_3 = True
-                        call music_3
+                        call music_3 from _call_music_3_10
                         return
             menu:
                 "Музыка 1":
                     show tablo_music_1 at left
                     $ exam_music_1 = True
-                    call music_1
+                    call music_1 from _call_music_1_11
                     return
                 "Музыка 2":
                     show tablo_music_2 at left
                     $ exam_music_2 = True
-                    call music_2
+                    call music_2 from _call_music_2_11
                     return
                 "Музыка 3":
                     show tablo_music_3 at left
                     $ exam_music_3 = True
-                    call music_3
+                    call music_3 from _call_music_3_11
                     return
         "Кино":
             if exam_cinema_2 and exam_cinema_3:
                 show tablo_cinema_1 at left
                 $ exam_cinema_1 = True
-                call cinema_1
+                call cinema_1 from _call_cinema_1_8
                 return
             if exam_cinema_1 and exam_cinema_3:
                 show tablo_cinema_2 at left
                 $ exam_cinema_2 = True
-                call cinema_2
+                call cinema_2 from _call_cinema_2_8
                 return
             if exam_cinema_1 and exam_cinema_2:
                 show tablo_cinema_3 at left
                 $ exam_cinema_3 = True
-                call cinema_3
+                call cinema_3 from _call_cinema_3_8
                 return
             if exam_cinema_3:
                 menu:
                     "Кино 1":
                         show tablo_cinema_1 at left
                         $ exam_cinema_1 = True
-                        call cinema_1
+                        call cinema_1 from _call_cinema_1_9
                         return
                     "Кино 2":
                         show tablo_cinema_2 at left
                         $ exam_cinema_2 = True
-                        call cinema_2
+                        call cinema_2 from _call_cinema_2_9
                         return
             if exam_cinema_2:
                 menu:
                     "Кино 1":
                         show tablo_cinema_1 at left
                         $ exam_cinema_1 = True
-                        call cinema_1
+                        call cinema_1 from _call_cinema_1_10
                         return
                     "Кино 3":
                         show tablo_cinema_3 at left
                         $ exam_icinema_3 = True
-                        call cinema_3
+                        call cinema_3 from _call_cinema_3_9
                         return
             if exam_cinema_1:
                 menu:
                     "Кино 2":
                         show tablo_cinema_2 at left
                         $ exam_cinema_2 = True
-                        call cinema_2
+                        call cinema_2 from _call_cinema_2_10
                         return
                     "Кино 3":
                         show tablo_cinema_3 at left
                         $ exam_cinema_3 = True
-                        call cinema_3
+                        call cinema_3 from _call_cinema_3_10
                         return
             menu:
                 "Кино 1":
                     show tablo_cinema_1 at left
                     $ exam_cinema_1 = True
-                    call cinema_1
+                    call cinema_1 from _call_cinema_1_11
                     return
                 "Кино 2":
                     show tablo_cinema_2 at left
                     $ exam_cinema_2 = True
-                    call cinema_2
+                    call cinema_2 from _call_cinema_2_11
                     return
                 "Кино 3":
                     show tablo_cinema_3 at left
                     $ exam_cinema_3 = True
-                    call cinema_3
+                    call cinema_3 from _call_cinema_3_11
                     return
         "Интернет":
             if exam_internet_2 and exam_internet_3:
                 show tablo_internet_1 at left
                 $ exam_internet_1 = True
-                call internet_1
+                call internet_1 from _call_internet_1_8
                 return
             if exam_internet_1 and exam_internet_3:
                 show tablo_internet_2 at left
                 $ exam_internet_2 = True
-                call internet_2
+                call internet_2 from _call_internet_2_8
                 return
             if exam_internet_1 and exam_internet_2:
                 show tablo_internet_3 at left
                 $ exam_internet_3 = True
-                call internet_3
+                call internet_3 from _call_internet_3_8
                 return
             if exam_internet_3:
                 menu:
                     "Интернет 1":
                         show tablo_internet_1 at left
                         $ exam_internet_1 = True
-                        call internet_1
+                        call internet_1 from _call_internet_1_9
                         return
                     "Интернет 2":
                         show tablo_internet_2 at left
                         $ exam_internet_2 = True
-                        call internet_2
+                        call internet_2 from _call_internet_2_9
                         return
             if exam_internet_2:
                 menu:
                     "Интернет 1":
                         show tablo_internet_1 at left
                         $ exam_internet_1 = True
-                        call internet_1
+                        call internet_1 from _call_internet_1_10
                         return
                     "Интернет 3":
                         show tablo_internet_3 at left
                         $ exam_internet_3 = True
-                        call internet_3
+                        call internet_3 from _call_internet_3_9
                         return
             if exam_internet_1:
                 menu:
                     "Интернет 2":
                         show tablo_internet_2 at left
                         $ exam_internet_2 = True
-                        call internet_2
+                        call internet_2 from _call_internet_2_10
                         return
                     "Интернет 3":
                         show tablo_internet_3 at left
                         $ exam_internet_3 = True
-                        call internet_3
+                        call internet_3 from _call_internet_3_10
                         return
             menu:
                 "Интернет 1":
                     show tablo_internet_1 at left
                     $ exam_internet_1 = True
-                    call internet_1
+                    call internet_1 from _call_internet_1_11
                     return
                 "Интернет 2":
                     show tablo_internet_2 at left
                     $ exam_internet_2 = True
-                    call internet_2
+                    call internet_2 from _call_internet_2_11
                     return
                 "Интернет 3":
                     show tablo_internet_3 at left
                     $ exam_internet_3 = True
-                    call internet_3
+                    call internet_3 from _call_internet_3_11
                     return
     return
 
@@ -774,16 +774,16 @@ label music_1:
         "Земфира":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right
         "Диана Арбенина":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong
             potemkin "Правильный ответ - Земфира"
         "Слава":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_1
             potemkin "Правильный ответ - Земфира"
     return
 
@@ -805,16 +805,16 @@ label music_2:
         "Green Day":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_2
             potemkin "Правильный ответ - Linkin Park"
         "Linkin Park":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_1
         "Papa Roach":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_3
             potemkin "Правильный ответ - Linkin Park"
     return
 
@@ -836,16 +836,16 @@ label music_3:
         "Бумбокс":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_4
             potemkin "Правильный ответ - Градусы"
         "Градусы":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_2
         "Корни":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_5
             potemkin "Правильный ответ - Градусы"
     return
 
@@ -864,16 +864,16 @@ label cinema_1:
         "Интерстеллар":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_6
             potemkin "Правильный ответ - Назад в будущее"
         "Назад в будущее":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_3
         "Стражи галактики":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_7
             potemkin "Правильный ответ - Назад в будущее"
     return
 
@@ -892,16 +892,16 @@ label cinema_2:
         "Роберт Паттинсон":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_4
         "Бэн Аффлек":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_8
             potemkin "Правильный ответ - Роберт Паттинсон"
         "Кристиан Бэйл":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_9
             potemkin "Правильный ответ - Роберт Паттинсон"
     return
 
@@ -920,16 +920,16 @@ label cinema_3:
         "Бумер":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_5
         "Бригада":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_10
             potemkin "Правильный ответ - Бумер"
         "Брат":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_11
             potemkin "Правильный ответ - Бумер"
     return
 
@@ -948,16 +948,16 @@ label internet_1:
         "Наталья Морская пехота":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_12
             potemkin "Правильный ответ - 500 рублей"
         "500 рублей":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_6
         "Пешеходы":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_13
             potemkin "Правильный ответ - 500 рублей"
     return
 
@@ -976,16 +976,16 @@ label internet_2:
         "GTA: Vice City":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_14
             potemkin "Правильный ответ - GTA V"
         "GTA V":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_7
         "GTA: San Andreas":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_15
             potemkin "Правильный ответ - GTA V"
 
     return
@@ -1005,16 +1005,16 @@ label internet_3:
         "Samsung":
             $timer_score = True
             hide screen countdown
-            call ans_right
+            call ans_right from _call_ans_right_8
         "Xiaomi":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_16
             potemkin "Правильный ответ - Samsung"
         "Huawei":
             $timer_score = True
             hide screen countdown
-            call ans_wrong
+            call ans_wrong from _call_ans_wrong_17
             potemkin "Правильный ответ - Samsung"
 
     return
@@ -1047,7 +1047,7 @@ label scene_35:
     scene forest with fade
     author "Первый этап конкурса \"Мисс Унитех\" проходит в городском парке.
     Участницы стоят и ждут очередь на тарзанку. Лёня подготовил плакаты
-    с порторетом Ангелины"
+    с портретом Ангелины"
     show plakat at right with dissolve
     show lyonya_usual at left with dissolve
     grisha "Мы че в детском лагере?"
@@ -1203,10 +1203,10 @@ label scene_36:
         menu:
             "Пойти с Алиной в кафе":
                 $ alina_score += 1
-                call scene_37
+                call scene_37 from _call_scene_37
             "Пойти с Ангелиной и Лёней в клуб":
                 $ ang_score += 1
-                call scene_39
+                call scene_39 from _call_scene_39
     else:
         $ ang_score += 1
         studman "Ангелина Муравьева! Поздравлем"
@@ -1221,7 +1221,7 @@ label scene_36:
         if valya_score > 0:
             angelina "И Валю позовем"
         grisha "Го"
-        call scene_39
+        call scene_39 from _call_scene_39_1
     return
 
 # Кафе с Алиной
@@ -1234,7 +1234,7 @@ label scene_37:
     grisha "Да не за что"
     author "...неловкое молчание..."
     grisha "Вкусный кофе..."
-    angelina "Да..."
+    alina "Да..."
     menu:
         "Спросить про конкурс":
             grisha "А ты зачем пошла на этот конкурс? Проявить себя?"
@@ -1286,7 +1286,7 @@ label scene_37:
             "Дать Алине оплатить счет":
                 alina "Спасибо за вечер. Надеюсь еще посидим так же"
                 author "На прощание Алина целует Гришу в щечку"
-    call scene_38
+    call scene_38 from _call_scene_38
     return
 
 # Ангелина недовольна свиданием Гриши с Алиной
@@ -1367,8 +1367,8 @@ label scene_39:
             menu:
                 "Взять Алину за руку в ответ":
                     play music medlyak fadein 1 fadeout 1 volume 0.3
-                    call dance_alina
-                    call scene_41
+                    call dance_alina from _call_dance_alina
+                    call scene_41 from _call_scene_41
                 "Отстраниться":
                     scene bar_ with fade
                     author "Гриша возвращается к барной стойке к Ангелине и Лёне."
@@ -1412,13 +1412,13 @@ label scene_39:
                                 уйти из центра танцпола. Гриша и Ангелина пошли
                                 танцевать медленный танец."
                                 $ ang_score += 1
-                                call dance_angelina
-                                call scene_41
+                                call dance_angelina from _call_dance_angelina
+                                call scene_41 from _call_scene_41_1
                             "Поболтать с Лёней и Валей":
                                 hide ang_usual with dissolve
                                 hide gay with dissolve
-                                call scene_bar_valya
-                                call scene_41
+                                call scene_bar_valya from _call_scene_bar_valya
+                                call scene_41 from _call_scene_41_2
                     else:
                         menu:
                             "Пригласить Ангелину на медленный танец":
@@ -1430,13 +1430,13 @@ label scene_39:
                                 уйти из центра танцпола. Гриша и Ангелина пошли
                                 танцевать медленный танец."
                                 $ ang_score += 1
-                                call dance_angelina
-                                call scene_41
+                                call dance_angelina from _call_dance_angelina_1
+                                call scene_41 from _call_scene_41_3
                             "Поболтать с Лёней":
                                 hide ang_usual with dissolve
                                 hide gay with dissolve
-                                call scene_bar_lyonya
-                                call scene_41
+                                call scene_bar_lyonya from _call_scene_bar_lyonya
+                                call scene_41 from _call_scene_41_4
         "Пригласить еще Ангелину":
             $ ang_score += 1
             grisha "Ангелин, пошли с нами тоже"
@@ -1453,14 +1453,18 @@ label scene_39:
                     hide ang_usual with dissolve
                     hide alina_usual with dissolve
                     show alina_usual with dissolve
-                    call dance_alina
-                    call scene_41
+                    call dance_alina from _call_dance_alina_1
+                    call scene_41 from _call_scene_41_5
                 "Пригласить на медляк Ангелину":
+                    hide alina_usual with dissolve
+                    hide ang_usual with dissolve
                     author "Плавная музыка заставляет многих людей
                     уйти из центра танцпола. Гриша и Ангелина пошли
                     танцевать медленный танец."
+                    show ang_usual with dissolve
                     pause (1.5)
                     scene bar_ with fade
+                    play music disco_1 fadein 1 fadeout 1 volume 0.3
                     author "Гриша с Ангелиной возвращаются к барной стойке"
                     show lyonya_usual at left with dissolve
                     show ang_usual at right with dissolve
@@ -1492,13 +1496,13 @@ label scene_39:
                                 angelina "Ну пойдем"
                                 scene dance_floor with fade
                                 play music disco_2 fadein 1 fadeout 1 volume 0.3
-                                call dance_angelina
-                                call scene_41
+                                call dance_angelina from _call_dance_angelina_2
+                                call scene_41 from _call_scene_41_6
                             "Поболтать с Лёней и Валей":
                                 hide ang_usual with dissolve
                                 hide gay with dissolve
-                                call scene_bar_valya
-                                call scene_41
+                                call scene_bar_valya from _call_scene_bar_valya_1
+                                call scene_41 from _call_scene_41_7
                     else:
                         menu:
                             "Пригласить Ангелину на танцпол":
@@ -1506,14 +1510,15 @@ label scene_39:
                                 angelina "Ну пойдем"
                                 scene dance_floor with fade
                                 play music disco_2 fadein 1 fadeout 1 volume 0.3
-                                call dance_angelina
-                                call scene_41
+                                call dance_angelina from _call_dance_angelina_3
+                                call scene_41 from _call_scene_41_8
                             "Поболтать с Лёней":
                                 hide ang_usual with dissolve
                                 hide gay with dissolve
-                                call scene_bar_lyonya
-                                call scene_41
+                                call scene_bar_lyonya from _call_scene_bar_lyonya_1
+                                call scene_41 from _call_scene_41_9
                 "Уйти за барную стойку":
+                    play music disco_2 fadein 1 fadeout 1 volume 0.3
                     scene bar_ with fade
                     author "Гриша возвращается к барной стойке"
                     show lyonya_usual at left with dissolve
@@ -1556,13 +1561,13 @@ label scene_39:
                                 уйти из центра танцпола. Гриша и Ангелина пошли
                                 танцевать медленный танец."
                                 $ ang_score += 1
-                                call dance_angelina
-                                call scene_41
+                                call dance_angelina from _call_dance_angelina_4
+                                call scene_41 from _call_scene_41_10
                             "Поболтать с Лёней и Валей":
                                 hide ang_usual with dissolve
                                 hide gay with dissolve
-                                call scene_bar_valya
-                                call scene_41
+                                call scene_bar_valya from _call_scene_bar_valya_2
+                                call scene_41 from _call_scene_41_11
                     else:
                         menu:
                             "Пригласить Ангелину на медленный танец":
@@ -1574,13 +1579,13 @@ label scene_39:
                                 уйти из центра танцпола. Гриша и Ангелина пошли
                                 танцевать медленный танец."
                                 $ ang_score += 1
-                                call dance_angelina
-                                call scene_41
+                                call dance_angelina from _call_dance_angelina_5
+                                call scene_41 from _call_scene_41_12
                             "Поболтать с Лёней":
                                 hide ang_usual with dissolve
                                 hide gay with dissolve
-                                call scene_bar_lyonya
-                                call scene_41
+                                call scene_bar_lyonya from _call_scene_bar_lyonya_2
+                                call scene_41 from _call_scene_41_13
     return
 
 # Медляк с Алиной
@@ -1769,7 +1774,7 @@ label scene_42:
                 и проговаривает действия"
                 coach "Не забывайте, что в вальсе мужчина всегда ведет.
                 Начинаем с правой ноги и движемся по кругу"
-                call scene_43_angelina
+                call scene_43_angelina from _call_scene_43_angelina
             "Стать партнером Алины":
                 $ alina_score += 1
                 hide ang_usual
@@ -1798,7 +1803,7 @@ label scene_42:
                 и проговаривает действия."
                 coach "Не забывайте, что в вальсе мужчина всегда ведет.
                 Начинаем с правой ноги и движемся по кругу"
-                call scene_43_alina
+                call scene_43_alina from _call_scene_43_alina
     else:
         grisha "Хорошо, пошли"
         $ alina_score += 1
@@ -1810,7 +1815,7 @@ label scene_42:
         с Ангелиной."
         coach "Не забывайте, что в вальсе мужчина всегда ведет.
         Начинаем с правой ноги и движемся по кругу"
-        call scene_43_alina
+        call scene_43_alina from _call_scene_43_alina_1
     return
 
 # Гриша - танцевальный партнер Ангелины
@@ -1860,7 +1865,7 @@ label scene_43_angelina:
     hide ang_happiness with dissolve
     with fade
     author "Спустя некоторое количество репетиций, все пары уже выучили танец."
-    call scene_44_angelina
+    call scene_44_angelina from _call_scene_44_angelina
     return
 
 # Гриша покупает цветы Ангелине
@@ -1883,7 +1888,7 @@ label scene_44_angelina:
     author "Гриша зашел в цветочный магазин перед тем, как пойти на финал конкурса
     и купил красивый букет."
     grisha "Надеюсь ей понравится"
-    call scene_45_angelina
+    call scene_45_angelina from _call_scene_45_angelina
     return
 
 # Бал с Ангелиной
@@ -1932,6 +1937,7 @@ label scene_45_angelina:
     держит ее вторую руку. Ангелина будто бабочка порхает в этом танце и
     замечает на себе томный взгляд Гриши. Кружась в танце, они забывают,
     где находятся и что происходит."
+    pause (1.5)
     author "Музыка подходит к концу и Ангелина тянется к Грише."
     if ang_score >= 8:
         if grisha_romantic:
@@ -1996,7 +2002,7 @@ label scene_43_alina:
     hide alina_usual with dissolve
     with fade
     author "Спустя некоторое количество репетиций, все пары уже выучили танец."
-    call scene_44_alina
+    call scene_44_alina from _call_scene_44_alina
     return
 
 # Гриша покупает цветы Алине
@@ -2019,7 +2025,7 @@ label scene_44_alina:
     author "Гриша зашел в цветочный магазин перед тем, как пойти на финал конкурса
     и купил красивый букет."
     grisha "Надеюсь ей понравится"
-    call scene_45_alina
+    call scene_45_alina from _call_scene_45_alina
     return
 
 # Бал с Алиной
@@ -2062,10 +2068,13 @@ label scene_45_alina:
     show alina_usual_dress with dissolve
     if alina_score >= 6:
         author "Гриша выходит на сцену, нежно обхватывает талию Алины и крепко
-        держит ее вторую руку. Гриша чувствует, как ему хорошо в данный момент
+        держит ее вторую руку." 
+        author "Гриша чувствует, как ему хорошо в данный момент
         вместе с Алиной в этом танце. Он пристально смотрит на нее и не может
-        оторвать взгляд. Алина же достаточно точно выполняет все движения, что
+        оторвать взгляд."
+        author "Алина же достаточно точно выполняет все движения, что
         позволяет им кружиться в танце лучше всех."
+        pause(1.5)
         author "Музыка подходит к концу и Гриша тянется к Алине, чтобы ее
         поцеловать. Алина отстраняется от Гриши."
         alina "Гриш, сейчас не время..."

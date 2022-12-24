@@ -1,9 +1,9 @@
 # 2 курс
 label second_year:
-    call scene_19
-    call scene_20
-    call scene_22
-    call scene_30
+    call scene_19 from _call_scene_19
+    call scene_20 from _call_scene_20
+    call scene_22 from _call_scene_22
+    call scene_30 from _call_scene_30
     if valya_score > 0:
         scene art_2_year_cool with fade
     else:
@@ -191,10 +191,10 @@ label scene_22:
     menu:
         "Ладно, поехали к дилеру":
             $ lyonya_score += 1
-            call scene_23
+            call scene_23 from _call_scene_23
         "Ладно, поехали к тихоне":
             $ ang_score += 1
-            call scene_25
+            call scene_25 from _call_scene_25
     return
 
 # Квартира Аслана
@@ -293,7 +293,7 @@ label scene_23:
         grisha "Я заметил записку с адресом предлагаю
         туда съездить. Это Унитех"
         angelina "Ну у нас другого выбора и нет. Костю мы уже упустили"
-        call scene_24
+        call scene_24 from _call_scene_24
     if detective and not time_detective:
         grisha "Я заметил записку с адресом предлагаю туда съездить"
         angelina "Да вы видели вообще этого чела? Он дальше своего дивана не
@@ -301,18 +301,18 @@ label scene_23:
         menu:
             "Поехать по адресу в записке":
                 grisha "Странно, это адрес Унитеха..."
-                call scene_24
+                call scene_24 from _call_scene_24_1
             "Поехать ко второму челу":
                 $ time_detective = True
-                call scene_25
+                call scene_25 from _call_scene_25_1
     if not detective and time_detective:
-        call scene_29
+        call scene_29 from _call_scene_29
     if not detective and not time_detective:
         $ time_detective = True
         angelina "Что-то ничего полезного этот челик нам не дал"
         grisha "Поехали ко второму, может он полезнее будет"
         play music detectiv fadein 1 fadeout 1 volume 0.5
-        call scene_25
+        call scene_25 from _call_scene_25_2
     return
 
 # Ребята в унитехе ищут Валю
@@ -325,7 +325,7 @@ label scene_24:
     lyonya "Там происходит что-то странное..."
     angelina "Давайте проверим"
     grisha "Ладно, но если вас съедят, я предупреждал"
-    call scene_28
+    call scene_28 from _call_scene_28
     return
 
 # Встреча с Костей
@@ -341,7 +341,7 @@ label scene_25:
     kostya "Привет..."
     angelina "Ты когда в последний раз видел Валю Лаврентьеву?"
     hide lyonya_usual_winter
-    show lyonya_angry_winter at left with dissolve
+    show lyonya_angry_winter at left
     lyonya "Отвечай!!!"
     grisha "Да тише ты"
     kostya "А вам какое дело? Я ей просто с домашкой помогал!"
@@ -357,14 +357,14 @@ label scene_25:
     lyonya "Что делать то будем? Этот хрен не дал нам никакой информации"
 
     if time_detective:
-        call scene_26
+        call scene_26 from _call_scene_26
     else:
         menu:
             "Проследить за Костей":
-                call scene_26
+                call scene_26 from _call_scene_26_1
             "Поехать к первому типу":
                 $ time_detective = True
-                call scene_23
+                call scene_23 from _call_scene_23_1
     return
 
 # Слежка за Костей
@@ -402,14 +402,14 @@ label scene_26:
         "Пойти за Костей дальше":
             grisha " Да харе, Лёнь, ты чего, если ничего не найдем, то уйдем"
             hide lyonya_confused_winter with dissolve
-            call scene_27
+            call scene_27 from _call_scene_27
             scene before_club with fade
             show lyonya_emotional_winter at left with dissolve
             show ang_usual_winter at right with dissolve
     grisha "Ладно, может в унитех зайдем? Ну это моя последняя мысль про место,
     где мы еще что-то можем найти"
     angelina "Была не была"
-    call scene_24
+    call scene_24 from _call_scene_24_2
     return
 
 # Клуб девственников
@@ -465,7 +465,7 @@ label scene_28:
     lyonya "ДА ЧТО ЗА БРЕД"
     hide lyonya_angry with dissolve
     hide aslan with dissolve
-    hide ang_angry with dissolve
+    hide ang_annoy with dissolve
     author "Гриша решил еще раз попытаться достучаться до Вали"
     show valya_hypnosis with dissolve
     grisha "Валя, услышь меня!"
@@ -522,8 +522,8 @@ label scene_28:
         grisha "Пожалуйста, вспомни нас"
         author "Эти воспоминания позволили Вале вернуться в себя."
     play music neutral_2 fadein 1 fadeout 1 volume 0.3
-    hide valya_hypnosis
-    show valya_usual
+    hide valya_hypnosis 
+    show valya_usual with dissolve
     $valya_score += 2
     valya "А что происходит?"
     hide lyonya_confused
@@ -583,7 +583,7 @@ label scene_30:
     if valya_score > 0:
         hide ang_usual with dissolve
     else:
-        hide ang_sad
+        hide ang_sad with dissolve
     author "Но за весь семестр Георгий не провел ни одной пары и поставил
     автоматом всем зачет."
     $exam_score += 1

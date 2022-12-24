@@ -1,19 +1,19 @@
 # 1 курс
 label first_year:
-    call scene_6
-    call scene_7
-    call scene_8
-    call scene_9
-    call scene_10
-    call scene_11
-    call scene_12
-    call scene_12_a
-    call scene_13
-    call scene_14
-    call scene_15
-    call scene_16
-    call scene_17
-    call scene_18
+    call scene_6 from _call_scene_6
+    call scene_7 from _call_scene_7
+    call scene_8 from _call_scene_8
+    call scene_9 from _call_scene_9
+    call scene_10 from _call_scene_10
+    call scene_11 from _call_scene_11
+    call scene_12 from _call_scene_12
+    call scene_12_a from _call_scene_12_a
+    call scene_13 from _call_scene_13
+    call scene_14 from _call_scene_14
+    call scene_15 from _call_scene_15
+    call scene_16 from _call_scene_16
+    call scene_17 from _call_scene_17
+    call scene_18 from _call_scene_18
     scene black with fade
     pause (2.0)
     return
@@ -337,17 +337,17 @@ label scene_13:
     grisha "Русские не сдаются"
     menu:
         "Сдавать экзамен":
-            call scene_13_exam_1q
+            call scene_13_exam_1q from _call_scene_13_exam_1q
             if exam_score != 1:
-                call scene_13_exam_2q
-                call scene_13_exam_3q
+                call scene_13_exam_2q from _call_scene_13_exam_2q
+                call scene_13_exam_3q from _call_scene_13_exam_3q
         "Попробовать выкрутиться":
             if ang_score == 0 and not undergraduate:
                 author "К сожалению, у Гриши нет друзей,
                 которые ему могли бы помочь."
-                call scene_13_exam_1q
-                call scene_13_exam_2q
-                call scene_13_exam_3q
+                call scene_13_exam_1q from _call_scene_13_exam_1q_1
+                call scene_13_exam_2q from _call_scene_13_exam_2q_1
+                call scene_13_exam_3q from _call_scene_13_exam_3q_1
             if ang_score == 0 and undergraduate:
                 author "Гриша решил воспользоваться шпорами,
                 которые дал ему Саня"
@@ -421,17 +421,17 @@ label scene_13_exam_1q:
                 $ timer_score = True
                 $ exam_pryam_1q = False
                 hide screen countdown
-                call scene_13_exam_1q_Res
+                call scene_13_exam_1q_Res from _call_scene_13_exam_1q_Res
             "Ростислав Евгеньевич":
                 $timer_score = True
                 hide screen countdown
                 $ exam_pryam_1q = True
-                call scene_13_exam_1q_Res
+                call scene_13_exam_1q_Res from _call_scene_13_exam_1q_Res_1
             "Родион Ефимович":
                 $timer_score = True
                 $ exam_pryam_1q = False
                 hide screen countdown
-                call scene_13_exam_1q_Res
+                call scene_13_exam_1q_Res from _call_scene_13_exam_1q_Res_2
         return
 
 
@@ -476,16 +476,16 @@ label scene_13_exam_2q:
         "Коши":
             $timer_score = True
             hide screen countdown
-            call scene_13_exam_2q_Res
+            call scene_13_exam_2q_Res from _call_scene_13_exam_2q_Res
         "Эйлер":
             $timer_score = True
             hide screen countdown
             $ exam_pryam_2q = True
-            call scene_13_exam_2q_Res
+            call scene_13_exam_2q_Res from _call_scene_13_exam_2q_Res_1
         "Гаусс":
             $timer_score = True
             hide screen countdown
-            call scene_13_exam_2q_Res
+            call scene_13_exam_2q_Res from _call_scene_13_exam_2q_Res_2
     return
 
 label scene_13_exam_2q_Res:
@@ -532,17 +532,17 @@ label scene_13_exam_3q:
             $timer_score = True
             $exam_pryam_3q = False
             hide screen countdown
-            call scene_13_exam_3q_Res
+            call scene_13_exam_3q_Res from _call_scene_13_exam_3q_Res
         "8":
             $timer_score = True
             $ exam_pryam_3q = True
             hide screen countdown
-            call scene_13_exam_3q_Res
+            call scene_13_exam_3q_Res from _call_scene_13_exam_3q_Res_1
         "9":
             $timer_score = True
             $exam_pryam_3q = False
             hide screen countdown
-            call scene_13_exam_3q_Res
+            call scene_13_exam_3q_Res from _call_scene_13_exam_3q_Res_2
     return
 
 label scene_13_exam_3q_Res:
@@ -663,16 +663,16 @@ label scene_17:
     fichaev "Ну тогда начнем."
     menu:
         "Сдавать экзамен":
-            call scene_17_exam_1q
-            call scene_17_exam_2q
-            call scene_17_exam_3q
+            call scene_17_exam_1q from _call_scene_17_exam_1q
+            call scene_17_exam_2q from _call_scene_17_exam_2q
+            call scene_17_exam_3q from _call_scene_17_exam_3q
         "Попробовать выкрутиться":
             if lyonya_score == 0 and undergraduate == False:
                 author "К сожалению, у Гриши нет друзей,
                 которые ему могли бы помочь."
-                call scene_17_exam_1q
-                call scene_17_exam_2q
-                call scene_17_exam_3q
+                call scene_17_exam_1q from _call_scene_17_exam_1q_1
+                call scene_17_exam_2q from _call_scene_17_exam_2q_1
+                call scene_17_exam_3q from _call_scene_17_exam_3q_1
             if lyonya_score == 0 and undergraduate == True:
                 author "Гриша решил воспользоваться шпорами,
                 которые дал ему Саня"
@@ -714,17 +714,17 @@ label scene_17_exam_1q:
             $timer_score = True
             hide screen countdown
             $ exam_fich_1q = True
-            call scene_17_exam_1q_Res
+            call scene_17_exam_1q_Res from _call_scene_17_exam_1q_Res
         "Сигма":
             $timer_score = True
             $ exam_fich_1q = False
             hide screen countdown
-            call scene_17_exam_1q_Res
+            call scene_17_exam_1q_Res from _call_scene_17_exam_1q_Res_1
         "Дельта":
             $timer_score = True
             $ exam_fich_1q = False
             hide screen countdown
-            call scene_17_exam_1q_Res
+            call scene_17_exam_1q_Res from _call_scene_17_exam_1q_Res_2
     return
 
 label scene_17_exam_1q_Res:
@@ -765,17 +765,17 @@ label scene_17_exam_2q:
             $timer_score = True
             hide screen countdown
             $ exam_fich_2q = False
-            call scene_17_exam_2q_Res
+            call scene_17_exam_2q_Res from _call_scene_17_exam_2q_Res
         "Биссектриса":
             $timer_score = True
             hide screen countdown
             $ exam_fich_2q = True
-            call scene_17_exam_2q_Res
+            call scene_17_exam_2q_Res from _call_scene_17_exam_2q_Res_1
         "Бирюлька":
             $timer_score = True
             hide screen countdown
             $ exam_fich_2q = False
-            call scene_17_exam_2q_Res
+            call scene_17_exam_2q_Res from _call_scene_17_exam_2q_Res_2
     return
 
 label scene_17_exam_2q_Res:
@@ -826,17 +826,17 @@ label scene_17_exam_3q:
             $timer_score = True
             $ exam_fich_3q = True
             hide screen countdown
-            call scene_17_exam_3q_Res
+            call scene_17_exam_3q_Res from _call_scene_17_exam_3q_Res
         "23 дня":
             $ exam_fich_3q = False
             $timer_score = True
             hide screen countdown
-            call scene_17_exam_3q_Res
+            call scene_17_exam_3q_Res from _call_scene_17_exam_3q_Res_1
         "22 дня":
             $timer_score = True
             hide screen countdown
             $ exam_fich_3q = False
-            call scene_17_exam_3q_Res
+            call scene_17_exam_3q_Res from _call_scene_17_exam_3q_Res_2
     return
 
 label scene_17_exam_3q_Res:
@@ -848,6 +848,7 @@ label scene_17_exam_3q_Res:
                 scene exam_fich_1_3_grisha_2_3_fich with hpunch
             if not exam_fich_1q and not exam_fich_2q:
                 scene exam_fich_0_grisha_full_fich with hpunch
+                show fichaev_sad at right
                 grisha "Ой..."
                 grisha "Дела отстой"
                 fichaev "Расстроили вы меня Орехов... А такие надежды подавали."

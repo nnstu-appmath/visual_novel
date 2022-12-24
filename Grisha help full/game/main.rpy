@@ -1,5 +1,8 @@
-#init python:
-#    config.rollback_enabled = False
+init python:
+    config.rollback_enabled = False
+    config.has_autosave = False
+    config.has_quicksave = False
+    config.allow_skipping  = False
 
 # Определение персонажей игры
 define author = Character(None,callback = name_callback, cb_name = "author")
@@ -196,9 +199,9 @@ init:
     image cafe = "/background/3_year/cafe.jpg"
     image baz = "/background/3_year/baz.jpg"
     image flower_store = "/background/3_year/flower_store.jpg"
-    image art_3_year_ang_win = "/background/1_september/art_demo.jpg"
-    image art_3_year_defeat = "/background/1_september/art_demo.jpg"
-    image art_3_year_alina_win = "/background/1_september/art_demo.jpg"
+    image art_3_year_ang_win = "/background/3_year/art_3_year_ang_win.jpg"
+    image art_3_year_defeat = "/background/3_year/art_3_year_defeat.jpg"
+    image art_3_year_alina_win = "/background/3_year/art_3_year_alina_win.jpg"
 
     # 4 курс
     image park = "/background/4_year/park.jpg"
@@ -257,12 +260,12 @@ init:
     image barman = At("/sprites/other/barman.png", sprite_highlight('barman'))
     image abuser = At("/sprites/other/abuser.png", sprite_highlight('abuser'))
     image aslan = At("/sprites/other/aslan.png", sprite_highlight('aslan'))
-    #image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
-    #image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
+    image kostya_usual = At("/sprites/other/kostya_usual.png", sprite_highlight('kostya'))
+    image kostya_phone = At("/sprites/other/kostya_phone.png", sprite_highlight('kostya'))
     image girl_club = At("/sprites/other/girl_club.png", sprite_highlight('girl_club'))
     image potemkin_usual = At("/sprites/other/potemkin_usual.png", sprite_highlight('potemkin'))
     image studman = At("/sprites/other/studman.png", sprite_highlight('studman'))
-    #image gay = At("/sprites/other/gay.png", sprite_highlight('gay'))
+    image gay = At("/sprites/other/gay.png", sprite_highlight('gay'))
     image zhurkin = At("/sprites/other/zhurkin.png", sprite_highlight('zhurkin'))
     image sokratova = At("/sprites/other/sokratova.png", sprite_highlight('sokratova'))
 
@@ -277,17 +280,17 @@ init:
     image fichaev_wound = At("/sprites/other/fichaev_wound.png", sprite_highlight('fichaev'))
 
     # Алина
-    #image alina_usual = At("/sprites/alina/alina_usual.png", sprite_highlight('alina'))
-    #image alina_usual_dress = At("/sprites/alina/alina_usual_dress.png", sprite_highlight('alina'))
-    #image alina_sad = At("/sprites/alina/alina_sad.png", sprite_highlight('alina'))
+    image alina_usual = At("/sprites/alina/alina_usual.png", sprite_highlight('alina'))
+    image alina_usual_dress = At("/sprites/alina/alina_usual_dress.png", sprite_highlight('alina'))
+    image alina_sad_dress = At("/sprites/alina/alina_sad.png", sprite_highlight('alina'))
 
 # Main
 label start:
-    call first_september
-    call first_year
-    call second_year
-    call third_year
-    call fourth_year
+    call first_september from _call_first_september
+    call first_year from _call_first_year
+    call second_year from _call_second_year
+    call third_year from _call_third_year
+    call fourth_year from _call_fourth_year
     return
 
 transform alpha_dissolve:
