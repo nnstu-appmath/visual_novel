@@ -1,0 +1,22 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/main.rpy", line 77: expected statement.
+    play_sound applause
+                       ^
+
+File "game/main.rpy", line 80: expected statement.
+    play_sound applause
+                       ^
+
+File "game/main.rpy", line 83: expected statement.
+    play_sound applause
+                       ^
+
+File "game/main.rpy", line 86: expected statement.
+    play_sound applause
+                       ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Fri Mar 24 15:40:22 2023

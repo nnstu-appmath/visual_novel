@@ -1,0 +1,37 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/main.rpy", line 8, in script
+    define author = Character(None,callback = name_callback, cb_name = "author")
+  File "game/main.rpy", line 8, in script
+    define author = Character(None,callback = name_callback, cb_name = "author")
+  File "game/main.rpy", line 8, in <module>
+    define author = Character(None,callback = name_callback, cb_name = "author")
+NameError: name 'name_callback' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "C:\Users\dasha\Desktop\renpy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "C:\Users\dasha\Desktop\renpy\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
+    renpy.game.context().run(node)
+  File "game/main.rpy", line 8, in script
+    define author = Character(None,callback = name_callback, cb_name = "author")
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "game/main.rpy", line 8, in script
+    define author = Character(None,callback = name_callback, cb_name = "author")
+  File "C:\Users\dasha\Desktop\renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2441, in execute
+    self.set()
+  File "C:\Users\dasha\Desktop\renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2455, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Users\dasha\Desktop\renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/main.rpy", line 8, in <module>
+    define author = Character(None,callback = name_callback, cb_name = "author")
+NameError: name 'name_callback' is not defined
+
+Windows-10-10.0.22000 AMD64
+Ren'Py 8.0.3.22090809
+Статистическая игра 1.0
+Fri Mar 24 15:40:58 2023
